@@ -1,0 +1,12 @@
+# Question ID
+
+## Original question
+## Correct answer
+## Why it is correct
+## Why the other options are wrong
+## Services involved
+## Pattern tags
+## Trap type
+## Confidence / review status
+## Source asset
+## Related pages
