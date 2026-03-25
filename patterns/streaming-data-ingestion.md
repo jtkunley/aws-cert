@@ -26,7 +26,7 @@
 - **Mobile** app analytics: app → **Kinesis** → **Lambda** enrichment → **S3** or **Redshift**.
 
 ## Links to related questions
-- [Q: Serverless modernization & multi-cloud](../questions/q-serverless-modernization-multicloud.md)
+- [Serverless modernization & multi-cloud](../questions/serverless-modernization-multicloud.md)
 
 ## Personal notes / memory hooks
 - **Volume**, **continuous**, and **analytics processing** together point to the **Kinesis** family.

@@ -43,4 +43,4 @@
 - **Practice (serverless modernization question):** The described current state is often **applications on EC2** plus **self-managed MySQL and PostgreSQL on EC2**. That lines up with the [Legacy EC2 data tier](../patterns/legacy-ec2-data-tier.md) pattern.
 
 ## Links to related questions
-- [Q: Serverless modernization & multi-cloud](../questions/q-serverless-modernization-multicloud.md)
+- [Serverless modernization & multi-cloud](../questions/serverless-modernization-multicloud.md)

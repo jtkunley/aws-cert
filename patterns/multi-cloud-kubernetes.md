@@ -29,7 +29,7 @@
 - **Practice (serverless modernization question):** When the stem explicitly mentions **additional clusters on other cloud service providers**, **EKS** often **beats** **ECS** even when both options look **modern** otherwise.
 
 ## Links to related questions
-- [Q: Serverless modernization & multi-cloud](../questions/q-serverless-modernization-multicloud.md)
+- [Serverless modernization & multi-cloud](../questions/serverless-modernization-multicloud.md)
 
 ## Personal notes / memory hooks
 - **Other cloud providers** plus **containers** in the stem → lean toward **EKS** over **ECS** unless the question **narrows** the scope to **AWS-only** portability.

@@ -28,7 +28,7 @@
 - An order pipeline: **API Gateway** to **Lambda** to **DynamoDB**; **microservices** on **Fargate** without **self-managed** node groups.
 
 ## Links to related questions
-- [Q: Serverless modernization & multi-cloud](../questions/q-serverless-modernization-multicloud.md)
+- [Serverless modernization & multi-cloud](../questions/serverless-modernization-multicloud.md)
 
 ## Personal notes / memory hooks
 - If the stem demands **serverless**, scan answers for **Fargate**, **Lambda**, and **Serverless** **data** tiers—not only the word **managed**.

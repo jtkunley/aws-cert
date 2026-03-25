@@ -39,4 +39,4 @@
 - **Practice (Windows file server question):** Matches the **daily DataSync** and **FSx** keyed answer.
 
 ## Links to related questions
-- [Q: Windows file server → FSx + DataSync](../questions/q-windows-fileserver-datasync-fsx.md)
+- [Windows File Server, DataSync, and FSx](../questions/windows-file-server-datasync-fsx.md)

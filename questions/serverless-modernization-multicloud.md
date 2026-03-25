@@ -1,4 +1,4 @@
-# Q-SERVERLESS-MODERNIZATION-MULTICLOUD
+# Serverless modernization & multi-cloud
 
 ## Original question
 An organization operates web and mobile platforms for online sales, inventory management, order processing, and shipping logistics. The platforms are running on Amazon EC2 instances across multiple regions. The organization's databases include a MySQL database for the e-commerce site and a PostgreSQL database for analytics, both managed on EC2 instances.
@@ -30,6 +30,11 @@ Which of the following options would most efficiently meet these requirements?
 - **Option B** keeps **EC2** and **Auto Scaling groups**, which is **not** a **serverless** architecture. Moving both **OLTP** and **analytics** into **one Amazon Aurora PostgreSQL** blurs **transactional** versus **warehouse** roles; **analytics PostgreSQL on EC2** usually maps to the **Redshift** family. **Amazon SNS** is **pub/sub**, not a full **event bus** replacement for **rich routing** like **EventBridge**.
 - **Option D** keeps **EKS** and **Fargate**, and **Amazon Kinesis** matches **real-time streaming** language, but **Amazon Aurora MySQL** and **Amazon Redshift** **without** the **Serverless** names weaken the stem’s **serverless architecture** requirement compared with **Option C**. **Option C** also maps **streamline application data flows** cleanly to **EventBridge** as an **integration bus**.
 
+## Trap type
+- **Partial fit:** The option looks modern (**EKS**, **Kinesis**, **Aurora**) but drops **serverless** on the **data tier** or swaps the wrong integration primitive.
+- **Event bus versus pub/sub versus streaming:** Choosing **SNS** or **Kinesis** when the stem pairs **event-driven** and **streamline application data flows** with a **serverless** stack that **EventBridge** fits best.
+- **ECS versus EKS on multi-cloud:** When the stem names **other cloud providers** and **Kubernetes**-style portability, **EKS** usually wins over **ECS** even if both are otherwise plausible.
+
 ## Services involved
 - [Amazon EC2](../services/amazon-ec2.md), [EC2 Auto Scaling](../services/amazon-ec2-auto-scaling.md)
 - [Amazon ECS](../services/amazon-ecs.md), [AWS Fargate](../services/aws-fargate.md), [Amazon EKS](../services/amazon-eks.md)
@@ -48,18 +53,35 @@ Which of the following options would most efficiently meet these requirements?
 - [Streaming data ingestion](../patterns/streaming-data-ingestion.md)
 - [Legacy EC2 data tier](../patterns/legacy-ec2-data-tier.md)
 
-## Trap type
-- **Partial fit:** Answers that sound modern (**EKS**, **Kinesis**, **Aurora**) but drop **serverless** qualifiers on the **data tier**, or mix up **event bus** (**EventBridge**), **streaming** (**Kinesis**), and **pub/sub** (**SNS**).
-- Watch **ECS versus EKS** when the stem mentions **multi-cloud** and **Kubernetes** on **other providers**.
+## Question Seed
 
-## Confidence / review status
-- **Unreviewed** under exam conditions; revisit after **timed** practice.
-- Confirm wording against the **current** exam guide if **Amazon** tightens what **serverless** means (**provisioned Aurora** versus **Aurora Serverless** naming).
-
-## Source asset
-- Screenshot: `/Users/james/.cursor/projects/Users-james-work-aws-cert/assets/Screenshot_2026-03-24_at_8.29.40_PM-caf5db23-2a64-47d9-a69f-1d9d5a32fef1.png`
-
-## Related pages
-- [Services template](../.cursor/rules/services-template.mdc)
-- [Patterns template](../.cursor/rules/patterns-template.mdc)
-- [Questions template](../.cursor/rules/questions-template.mdc)
+- Scenario summary: A multi-region **EC2** estate with **self-managed MySQL** for transactions and **PostgreSQL on EC2** for analytics must become **event-driven** and **serverless**, support **real-time analytics** and smoother **data flows**, and align with **multi-cloud** plans that include **Kubernetes** on **other cloud providers**.
+- Correct answer pattern: **Microservices** on **Kubernetes** (**EKS**) with **serverless workers** (**Fargate**); split **OLTP** onto **Aurora Serverless** (MySQL-compatible line in the option) and **analytics** onto **Redshift Serverless**; use **EventBridge** as the **event bus** to route and integrate cross-service flows.
+- Key services: **Amazon EKS**, **AWS Fargate**, **Amazon Aurora Serverless**, **Amazon Redshift Serverless**, **Amazon EventBridge**; contrast with **Amazon ECS**, **Amazon EC2**/**Auto Scaling**, **Amazon SNS**, **Amazon Kinesis**, **provisioned Aurora**/**Redshift**.
+- Key signals:
+  - Stem repeats **serverless** and names **event-driven** architecture.
+  - Stem asks to **streamline application data flows** (integration bus language).
+  - Stem mentions **real-time analytics** and **multi-cloud** with **clusters on other cloud service providers**.
+- Constraints:
+  - **Serverless** must apply to major components, not only **elastic EC2**.
+  - **OLTP** and **warehouse-style analytics** should stay in the right **data** roles, not collapsed into one generic relational store.
+  - **Multi-cloud Kubernetes** portability favors **EKS** over **ECS** in typical exam intent.
+- Common traps:
+  - **Strong serverless stack** but **ECS** instead of **EKS** when **other providers’ Kubernetes** is explicit.
+  - **EKS** and **Kinesis** with **provisioned Aurora** and **provisioned Redshift**, which breaks the **serverless architecture** requirement.
+  - **EC2**/**Auto Scaling**, **SNS** “routing,” and **single Aurora PostgreSQL** for both **e-commerce** and **analytics** workloads.
+- Why traps are wrong:
+  - **ECS** is less portable across **non-AWS Kubernetes** than **EKS** when the stem stresses **multi-cloud** **Kubernetes**.
+  - **Kinesis** answers **streaming** language but does not fix **missing Serverless** on **Aurora**/**Redshift** when the stem insists on **serverless**; **EventBridge** still matches **streamline flows** better than **Kinesis** alone for **service integration**.
+  - **Elastic EC2** is not **serverless**; **SNS** is **fan-out**, not a full **event bus**; one **Aurora PostgreSQL** muddles **transactional** versus **warehouse** targets (**Redshift** family for analytics).
+- Pattern tags:
+  - #multi-region-deployments
+  - #microservices
+  - #serverless-architecture
+  - #event-driven-architecture
+  - #real-time-analytics
+  - #multi-cloud-kubernetes
+  - #event-bus-integration
+  - #pub-sub-fan-out
+  - #streaming-data-ingestion
+  - #legacy-ec2-data-tier

@@ -38,4 +38,4 @@
 - **Practice (serverless modernization question):** A winning answer often puts **Fargate** on the compute side and **Aurora Serverless** plus **Redshift Serverless** on the data side so the whole stack matches a **serverless** requirement.
 
 ## Links to related questions
-- [Q: Serverless modernization & multi-cloud](../questions/q-serverless-modernization-multicloud.md)
+- [Serverless modernization & multi-cloud](../questions/serverless-modernization-multicloud.md)

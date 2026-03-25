@@ -38,4 +38,4 @@
 - **Practice (Windows file server question):** Wrong when the stem insists on a **VPC file system** for **Windows** application servers.
 
 ## Links to related questions
-- [Q: Windows file server → FSx + DataSync](../questions/q-windows-fileserver-datasync-fsx.md)
+- [Windows File Server, DataSync, and FSx](../questions/windows-file-server-datasync-fsx.md)

@@ -27,7 +27,7 @@
 - **Practice (serverless modernization question):** Split targets are **Aurora Serverless MySQL** for **OLTP** and **Redshift Serverless** for the **warehouse**, not **one** **Aurora PostgreSQL** cluster for **both** roles.
 
 ## Links to related questions
-- [Q: Serverless modernization & multi-cloud](../questions/q-serverless-modernization-multicloud.md)
+- [Serverless modernization & multi-cloud](../questions/serverless-modernization-multicloud.md)
 
 ## Personal notes / memory hooks
 - When the stem opens with **ugly EC2 databases**, the **correct** path usually **lifts** data to **managed** or **serverless** tiers.

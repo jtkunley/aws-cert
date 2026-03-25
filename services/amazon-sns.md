@@ -36,4 +36,4 @@
 - **Operations** paging, **security** notifications, or **broadcasting configuration changes** to several services.
 
 ## Links to related questions
-- [Q: Serverless modernization & multi-cloud](../questions/q-serverless-modernization-multicloud.md)
+- [Serverless modernization & multi-cloud](../questions/serverless-modernization-multicloud.md)

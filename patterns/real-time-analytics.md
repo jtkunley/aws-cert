@@ -26,7 +26,7 @@
 - **Kinesis** to **Lambda** or **Kinesis Data Analytics** to **OpenSearch** or **Redshift** for **live** sales and **inventory** metrics.
 
 ## Links to related questions
-- [Q: Serverless modernization & multi-cloud](../questions/q-serverless-modernization-multicloud.md)
+- [Serverless modernization & multi-cloud](../questions/serverless-modernization-multicloud.md)
 
 ## Personal notes / memory hooks
 - **Streaming plus analytics** → **Kinesis** or **MSK** family; **business events between apps** → **EventBridge**.

@@ -1,0 +1,54 @@
+---
+description: Convert every analyzed question into a normalized Question Seed format for downstream generation
+globs:
+  - questions/**/*.md
+alwaysApply: true
+---
+
+# Question Seed Extraction Rule
+
+## Goal
+Every question file must contain a **Question Seed section** that summarizes the question in a compact, structured format.
+
+This seed is used later to generate new questions, so it must focus on:
+- patterns
+- signals
+- traps
+- decision logic
+
+Do NOT copy the original question text into the seed.
+
+Write each seed field in **plain English** with **complete thoughts** per bullet (same readability standard as `.cursor/rules/tone.mdc`).
+
+---
+
+## Required Section
+
+Each question file must include:
+
+## Question Seed
+
+With the following structure:
+
+```md
+## Question Seed
+
+- Scenario summary: <1–2 sentence summary of the problem>
+- Correct answer pattern: <architecture pattern, not just service names>
+- Key services: <list of AWS services involved>
+- Key signals:
+  - <signal 1>
+  - <signal 2>
+  - <signal 3>
+- Constraints:
+  - <constraint 1>
+  - <constraint 2>
+- Common traps:
+  - <trap 1>
+  - <trap 2>
+- Why traps are wrong:
+  - <brief explanation per trap>
+- Pattern tags:
+  - #<tag1>
+  - #<tag2>
+  - #<tag3>

@@ -28,7 +28,7 @@
 - A **CloudWatch** alarm publishes to **SNS**, which fans out to **email**, **Lambda**, and an **SQS** ticket queue.
 
 ## Links to related questions
-- [Q: Serverless modernization & multi-cloud](../questions/q-serverless-modernization-multicloud.md)
+- [Serverless modernization & multi-cloud](../questions/serverless-modernization-multicloud.md)
 
 ## Personal notes / memory hooks
 - Think of **SNS** as a **radio broadcast** and **EventBridge** as a **mail-sorting facility** with **rules**.

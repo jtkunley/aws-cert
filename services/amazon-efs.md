@@ -40,4 +40,4 @@
 - **Not** the first choice for **traditional corporate Windows shares** in exam wording.
 
 ## Links to related questions
-- [Q: Windows file server → FSx + DataSync](../questions/q-windows-fileserver-datasync-fsx.md)
+- [Windows File Server, DataSync, and FSx](../questions/windows-file-server-datasync-fsx.md)

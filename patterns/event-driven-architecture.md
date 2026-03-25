@@ -28,7 +28,7 @@
 - **Practice (serverless modernization question):** **EventBridge** matches **streamline application data flows** between **microservices** better than **SNS-only** or **Kinesis-only** distractors in that framing.
 
 ## Links to related questions
-- [Q: Serverless modernization & multi-cloud](../questions/q-serverless-modernization-multicloud.md)
+- [Serverless modernization & multi-cloud](../questions/serverless-modernization-multicloud.md)
 
 ## Personal notes / memory hooks
 - **Event-driven** plus **AWS** exam → draw **EventBridge** first as the **bus** unless the stem is pure **fan-out** (**SNS**).

@@ -29,7 +29,7 @@
 - **E-commerce** front ends in **us-east-1** and **eu-west-1** with **data residency** rules per **jurisdiction**.
 
 ## Links to related questions
-- [Q: Serverless modernization & multi-cloud](../questions/q-serverless-modernization-multicloud.md)
+- [Serverless modernization & multi-cloud](../questions/serverless-modernization-multicloud.md)
 
 ## Personal notes / memory hooks
 - **Across multiple regions** in the stem → flag **DR** and **latency** patterns; add **multi-cloud** only when **other providers** are **explicit**.

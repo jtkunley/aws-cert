@@ -40,4 +40,4 @@
 - **Practice (serverless modernization question):** Starting state **MySQL on EC2** plus **PostgreSQL on EC2 for analytics** often maps to **Aurora Serverless MySQL** plus **Redshift Serverless**, **not** a single **Aurora PostgreSQL** for everything.
 
 ## Links to related questions
-- [Q: Serverless modernization & multi-cloud](../questions/q-serverless-modernization-multicloud.md)
+- [Serverless modernization & multi-cloud](../questions/serverless-modernization-multicloud.md)

@@ -36,4 +36,4 @@
 - **Practice (serverless modernization question):** Matches the “**additional clusters on other cloud service providers**” line in the stem.
 
 ## Links to related questions
-- [Q: Serverless modernization & multi-cloud](../questions/q-serverless-modernization-multicloud.md)
+- [Serverless modernization & multi-cloud](../questions/serverless-modernization-multicloud.md)

@@ -26,7 +26,7 @@
 - Office workers use an **SMB** share that lands in **S3**; that is a different shape from **AWS servers** that need an **FSx** share **in-Region**.
 
 ## Links to related questions
-- [Q: Windows file server → FSx + DataSync](../questions/q-windows-fileserver-datasync-fsx.md)
+- [Windows File Server, DataSync, and FSx](../questions/windows-file-server-datasync-fsx.md)
 
 ## Personal notes / memory hooks
 - Ask **where** the **primary consumers** live: **on-premises users** versus **instances in the VPC**.

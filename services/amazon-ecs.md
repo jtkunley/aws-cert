@@ -36,4 +36,4 @@
 - **Practice (serverless modernization question):** **ECS**, **Fargate**, serverless databases, and **EventBridge** form a coherent option until the stem demands **Kubernetes everywhere**.
 
 ## Links to related questions
-- [Q: Serverless modernization & multi-cloud](../questions/q-serverless-modernization-multicloud.md)
+- [Serverless modernization & multi-cloud](../questions/serverless-modernization-multicloud.md)

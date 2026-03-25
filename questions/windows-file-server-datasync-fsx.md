@@ -1,4 +1,4 @@
-# Q-WINDOWS-FILESERVER-DATASYNC-FSX
+# Windows File Server, DataSync, and FSx
 
 ## Original question
 
@@ -33,6 +33,12 @@ Which of the following options is the **recommended migration strategy** for thi
 - **Option C:** **Amazon S3** is **object storage**. It does not give **Windows applications** the same **SMB file share** experience the stem describes. **AWS Transfer Family** adds **FTP, SFTP, or FTPS** access into **S3**, which still does not replace a **managed Windows file share in the VPC** for general-purpose file serving.
 - **Option D:** **AWS Storage Gateway File Gateway** presents **SMB** **on premises** with **S3** as the backing store. That design keeps the **emphasis at the edge** and does **not** meet the goal of hosting the data on an **AWS-resident Windows file system** for **instances in the VPC** as cleanly as **FSx**. It also describes **replacing** the on-premises server with a **local gateway** share instead of **landing** the dataset in **FSx** for **migrated** workloads.
 
+## Trap type
+
+- **Wrong file protocol or workload pairing:** **EFS** (**NFS**, **Linux-leaning**) presented next to **DataSync** for a **Windows file server** story.
+- **Object versus file:** **S3** plus **Transfer Family** does not satisfy **SMB file system in the VPC** for **Windows** app servers the way **FSx for Windows** does.
+- **Hybrid edge versus cloud-native file:** **File Gateway** on premises backs **SMB** with **S3**; the stem wants data on a **file system for servers in AWS**, which points to **FSx** in the **VPC**, not replacing the server with a **local gateway** share as the primary answer.
+
 ## Services involved
 
 - [Amazon VPC](../services/amazon-vpc.md)
@@ -52,21 +58,30 @@ Which of the following options is the **recommended migration strategy** for thi
 - [File storage vs object storage](../patterns/file-storage-vs-object-storage.md)
 - [Storage Gateway hybrid access](../patterns/storage-gateway-hybrid-access.md)
 
-## Trap type
+## Question Seed
 
-- **Workload and storage mismatch:** **EFS** versus **FSx for Windows**; **object** versus **file** (**S3** plus **Transfer Family** versus **FSx**); **hybrid gateway on premises** versus a **cloud file system** for **AWS** compute.
-
-## Confidence / review status
-
-- Matches the **highlighted** practice answer; re-check if the **exam** or **question bank** wording changes.
-
-## Source asset
-
-- `/Users/james/.cursor/projects/Users-james-work-aws-cert/assets/Screenshot_2026-03-24_at_8.43.40_PM-5d86702b-204b-477c-8535-c53776663600.png`
-
-## Related pages
-
-- [Services template](../.cursor/rules/services-template.mdc)
-- [Patterns template](../.cursor/rules/patterns-template.mdc)
-- [Questions template](../.cursor/rules/questions-template.mdc)
-
+- Scenario summary: **Hybrid** migration with a **Windows file server** on premises (**~1 TB**, **~5 GB/day** new data), **Direct Connect** into a **VPC**, part of **Windows** workloads already in **AWS**, and a requirement that the data live on a **file system** consumed by **servers in AWS**.
+- Correct answer pattern: **Amazon FSx for Windows File Server** as the **managed SMB file system** in the **VPC** for **AWS** instances; **AWS DataSync** on a **schedule** for **incremental replication** from on premises over the **private** path (**Direct Connect**).
+- Key services: **Amazon FSx for Windows File Server**, **AWS DataSync**, **AWS Direct Connect**, **Amazon VPC**; distractors use **Amazon EFS**, **Amazon S3**, **AWS Transfer Family**, **AWS Storage Gateway** (**File Gateway**).
+- Key signals:
+  - **Windows file server** and **SMB** semantics in the scenario.
+  - Phrase **file system for the servers in AWS** (not “archive to a bucket”).
+  - **Scheduled daily** replication language paired with **DataSync** in the options.
+- Constraints:
+  - Destination must behave as a **Windows-friendly file share** in **AWS** for **EC2** or other **VPC** compute.
+  - **Ongoing** sync after a large initial volume (**incremental** daily churn).
+  - **Private network** between on premises and **VPC** is already available (**Direct Connect**).
+- Common traps:
+  - **EFS** **plus** **DataSync** and “mount on **Windows**.”
+  - **DataSync** to **S3** **plus** **Transfer Family** for access.
+  - **File Gateway** **replacing** the on-premises file server while **cloud** servers still need **authoritative** **FSx** in **AWS**.
+- Why traps are wrong:
+  - **EFS** is the wrong primary **protocol** and **workload** fit for classic **corporate Windows** shares versus **FSx for Windows**.
+  - **S3** is **object** storage; **Transfer Family** is **FTP-family** protocols into **S3**, not a **VPC SMB file system** for general app file serving.
+  - **File Gateway** optimizes **on-premises** **SMB** with **S3** backing; it does not place the **corpus** on **FSx** **in the VPC** for **migrated** **AWS** **Windows** servers as cleanly as the keyed answer.
+- Pattern tags:
+  - #hybrid-cloud-storage-migration
+  - #datasync-migration-replication
+  - #windows-managed-file-storage-smb
+  - #file-storage-vs-object-storage
+  - #storage-gateway-hybrid-access

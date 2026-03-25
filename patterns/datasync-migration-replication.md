@@ -31,7 +31,7 @@
 - **Nightly** sync of about **5 GB per day** from a **Windows file server** into **FSx** after the **1 TB** bulk load.
 
 ## Links to related questions
-- [Q: Windows file server → FSx + DataSync](../questions/q-windows-fileserver-datasync-fsx.md)
+- [Windows File Server, DataSync, and FSx](../questions/windows-file-server-datasync-fsx.md)
 
 ## Personal notes / memory hooks
 - **Schedule**, **replicate**, and **on-premises agent** together strongly suggest **DataSync**.

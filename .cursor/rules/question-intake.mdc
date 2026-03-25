@@ -10,8 +10,8 @@ When the user shares an **AWS certification question** (screenshot, pasted image
 
 ### Mandatory: save the posted question under `questions/` every time
 
-- **Always** persist the question to disk as **`questions/q-<slug>.md`** (create or update). A chat-only breakdown is **not** enough when the user posts a question—unless they used the **report only** exception below.
-- **Create** a new file the first time that question appears; **update** the same file on repost (refresh transcript, add/refresh **Source asset** path, rationales, links)—do not skip writes because the question “already exists.”
+- **Always** persist the question to disk as **`questions/<kebab-slug>.md`** (create or update). **Do not** use a `q-` filename prefix. A chat-only breakdown is **not** enough when the user posts a question—unless they used the **report only** exception below.
+- **Create** a new file the first time that question appears; **update** the same file on repost (refresh transcript, rationales, links, **Question Seed**)—do not skip writes because the question “already exists.”
 - The `questions/` folder must contain the full **Original question** text (stem + all options) so the repo is the source of truth for what was posted.
 - **Improve existing notes:** for every intake, update each touched **`services/*.md`** and **`patterns/*.md`** by **appending new information as individual `-` bullets** (see §4 and §5). Wrong answers are a primary source of new distractor and comparison bullets.
 
@@ -25,12 +25,12 @@ When the user shares an **AWS certification question** (screenshot, pasted image
 
 ---
 
-## 2. Derive IDs and filenames
+## 2. Derive filenames and titles
 
 ### Question file
 
-- Assign a short **Question ID** slug: `Q-<TOPIC>-<QUALIFIER>` in kebab-case, e.g. `Q-SERVERLESS-MODERNIZATION-MULTICLOUD`.
-- Create **`questions/q-<slug-lowercase>.md`** (e.g. `q-serverless-modernization-multicloud.md`). The stem’s `Question ID` heading should match the uppercase slug.
+- **Filename:** kebab-case, **no** `q-` prefix, e.g. `serverless-modernization-multicloud.md`, `windows-file-server-datasync-fsx.md`. Derive the slug from the topic (services, pattern, or scenario), not from an uppercase exam ID.
+- **Top heading (`#`):** A **human-readable title** in normal language (e.g. `Serverless modernization & multi-cloud`, `Windows File Server, DataSync, and FSx`). **Do not** use `Q-…` or ALL-CAPS slugs as the page title.
 
 ### Service files
 
@@ -47,23 +47,23 @@ When the user shares an **AWS certification question** (screenshot, pasted image
 
 ---
 
-## 3. Build the question page (`questions/q-….md`)
+## 3. Build the question page (`questions/<slug>.md`)
 
-Use the section headings from `.cursor/rules/questions-template.mdc` exactly:
+Use the section headings from `.cursor/rules/questions-template.mdc` **in that order**:
 
 | Section | Content |
 |--------|---------|
-| `# Question ID` | The uppercase slug (e.g. `# Q-SERVERLESS-MODERNIZATION-MULTICLOUD`) |
+| `# Question title` | Human-readable title (e.g. `# Serverless modernization & multi-cloud`) — see `questions-template.mdc` |
 | `## Original question` | Full stem + all options |
 | `## Correct answer` | Letter + short summary; if unknown, write **Unknown — user to confirm** and still complete services/patterns |
 | `## Why it is correct` | Map requirements in the stem to services/patterns in the chosen answer |
 | `## Why the other options are wrong` | Per-option: which requirement fails (serverless, data store class, integration style, multi-cloud, cost, ops, etc.) |
+| `## Trap type` | **Bullets only** (one trap theme per line). Short labels plus a few words of context (e.g. partial fit, wrong integration primitive, file vs object). |
 | `## Services involved` | Bullet list of **markdown links** to every `../services/<file>.md` touched by stem or any option |
 | `## Pattern tags` | Bullet list of **markdown links** to every `../patterns/<file>.md` that applies |
-| `## Trap type` | Short label (e.g. partial fit, service confusion, OLTP vs analytics, serverless vs elastic EC2) |
-| `## Confidence / review status` | Note if answer is inferred; suggest user verify against official practice |
-| `## Related pages` | Links to the three templates under `.cursor/rules/` (e.g. from `questions/q-….md`: `../.cursor/rules/services-template.mdc`, `../.cursor/rules/patterns-template.mdc`, `../.cursor/rules/questions-template.mdc`) |
-| `## Source asset` (recommended) | If an image was posted/saved by the IDE, record the **full path** to the screenshot under workspace or `.cursor/projects/.../assets/` for traceability |
+| `## Question Seed` | Compact, structured seed for future question generation. Follow **`.cursor/rules/question-seed.mdc`** exactly (scenario summary, correct answer **pattern**, key services, signals, constraints, traps, why traps fail, `#` pattern tags). **Do not** paste or paraphrase the original exam stem into the seed. |
+
+Do **not** add `## Source asset`, `## Related pages`, or `## Confidence / review status` to question files.
 
 ---
 
@@ -85,9 +85,9 @@ For **each** service linked from the question’s “Services involved” sectio
   - **Architecture patterns:** concrete combos (e.g. “DataSync + FSx + Direct Connect”) this question reinforces.
   - **Example scenarios:** short scenario bullets grounded in real question stems.
   - **Comparison with nearby services:** one bullet per new contrast the question forces (vs named alternates in options).
-  - **Links to related questions:** **only section** that may contain **markdown links** to `../questions/q-….md`—**one bullet per question**, e.g. `- [Q: short title](../questions/q-….md)`; append the current question if not already listed.
+  - **Links to related questions:** **only section** that may contain **markdown links** to `../questions/<slug>.md`—**one bullet per question**, e.g. `- [Windows File Server, DataSync, and FSx](../questions/windows-file-server-datasync-fsx.md)`; use the **same natural-language title** as the question page’s `#` heading (no `Q:` prefix); append the current question if not already listed.
 
-- **No question links elsewhere (services):** In **every other section**, do **not** link to question files. Use plain text only (e.g. **Practice (serverless modernization Q):** … or a neutral stem summary). Links to **patterns** or **services** in body sections are allowed when helpful; **question** URLs belong solely under **Links to related questions**.
+- **No question links elsewhere (services):** In **every other section**, do **not** link to question files. Use plain text only (e.g. **Practice (serverless modernization question):** … or a neutral stem summary). Links to **patterns** or **services** in body sections are allowed when helpful; **question** URLs belong solely under **Links to related questions**.
 
 - Keep wording **exam-oriented** (contrasts, traps), not marketing copy.
 
@@ -99,7 +99,7 @@ For **each** service linked from the question’s “Services involved” sectio
 
 For **each** pattern linked from the question’s “Pattern tags” section:
 
-- If **`patterns/<name>.md` exists**, apply the **same bullet-merge discipline as services**: for each **new** insight from this question, add **one `-` bullet** under the best section—**Exam clues**, **Common distractors**, **Related AWS services**, **Comparison with nearby patterns**, **Example scenarios**, **Personal notes / memory hooks**, or **When to use / When NOT** when the question adds a new condition. Preserve existing bullets; **append** only. **Links to related questions** is the **only** section that may link to `../questions/q-….md`; other sections use plain-text references only (same rule as services).
+- If **`patterns/<name>.md` exists**, apply the **same bullet-merge discipline as services**: for each **new** insight from this question, add **one `-` bullet** under the best section—**Exam clues**, **Common distractors**, **Related AWS services**, **Comparison with nearby patterns**, **Example scenarios**, **Personal notes / memory hooks**, or **When to use / When NOT** when the question adds a new condition. Preserve existing bullets; **append** only. **Links to related questions** is the **only** section that may link to `../questions/<slug>.md`; other sections use plain-text references only (same rule as services).
 - If **missing**, create using **`.cursor/rules/patterns-template.mdc`** headings (note: **Related AWS services** instead of “Architecture patterns”). Seed sections with bullets from this question where possible.
 
 Typical patterns to consider (only if the question touches them):
@@ -115,20 +115,20 @@ Typical patterns to consider (only if the question touches them):
 ## 6. Linking and consistency rules
 
 - Use **relative paths** from the file being edited:
-  - From `questions/q-….md` → `../services/...`, `../patterns/...`
-  - From `services/*.md` or `patterns/*.md` → `../questions/q-….md`
+  - From `questions/<slug>.md` → `../services/...`, `../patterns/...`
+  - From `services/*.md` or `patterns/*.md` → `../questions/<slug>.md`
 - **Every** service page created or updated for this intake should list the question under **“Links to related questions”** only (no question links in other sections).
 - **Every** pattern page created or updated for this intake should list the question under **“Links to related questions”** only (same rule).
-- Keep **one question per file**; if the user pastes multiple questions, create multiple `q-….md` files and merge services/patterns once per batch.
+- Keep **one question per file**; if the user pastes multiple questions, create multiple `questions/<slug>.md` files and merge services/patterns once per batch.
 
 ---
 
 ## 7. Execution order (for the agent)
 
-1. **Write or update** `questions/q-….md` first (at minimum: **Original question** transcribed; slug + heading). Expand with rationales and links in the same pass or immediately after—**do not** end the turn without a saved question file unless **report only**.
+1. **Write or update** `questions/<slug>.md` first (at minimum: **Original question** transcribed; **human-readable `#` title** and kebab **filename** without `q-`). Expand with rationales and links in the same pass or immediately after—**do not** end the turn without a saved question file unless **report only**.
 2. List **all** services (stem + every option) → create/merge service files (**append bullet entries** per §4) → finalize “Services involved” links.  
 3. List **all** patterns → create/merge pattern files (**append bullet entries** per §5) → finalize “Pattern tags” links.  
-4. Complete rationales (correct + wrong options), trap type, confidence; add **Source asset** when an image path is known.  
+4. Complete rationales (correct + wrong options), **Trap type** (bullets), **Services involved**, **Pattern tags**, and **Question Seed** per `question-seed.mdc`.  
 5. Quick pass: no broken relative links; do **not** overwrite `.cursor/rules/*-template.mdc` unless the user asked to change templates.
 
 ---
@@ -137,7 +137,7 @@ Typical patterns to consider (only if the question touches them):
 
 If the user explicitly says **report only** or **no files**, skip creating/updating **all** files (including `questions/`) and output the breakdown in chat only.
 
-In **all other cases**, saving **`questions/q-….md` is required every time** a question is posted, in addition to services and patterns.
+In **all other cases**, saving **`questions/<slug>.md` is required every time** a question is posted, in addition to services and patterns.
 
 ---
 
@@ -145,10 +145,11 @@ In **all other cases**, saving **`questions/q-….md` is required every time** a
 
 | Asset | Path |
 |--------|------|
-| Question pages | `questions/q-<slug>.md` |
+| Question pages | `questions/<kebab-slug>.md` (no `q-` prefix) |
 | Service pages | `services/<service>.md` |
 | Pattern pages | `patterns/<pattern>.md` |
 | Section templates (do not use as live content paths) | `.cursor/rules/questions-template.mdc`, `.cursor/rules/services-template.mdc`, `.cursor/rules/patterns-template.mdc` |
+| Question Seed structure | `.cursor/rules/question-seed.mdc` |
 
 ---
 

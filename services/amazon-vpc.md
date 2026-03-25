@@ -31,4 +31,4 @@
 - **Direct Connect** terminates into the **VPC**; **Windows** instances resolve the **FSx** **DNS** name and mount **SMB** shares in the same **VPC** (or connected network).
 
 ## Links to related questions
-- [Q: Windows file server → FSx + DataSync](../questions/q-windows-fileserver-datasync-fsx.md)
+- [Windows File Server, DataSync, and FSx](../questions/windows-file-server-datasync-fsx.md)

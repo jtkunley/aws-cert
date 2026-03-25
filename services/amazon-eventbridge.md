@@ -39,4 +39,4 @@
 - **Practice (serverless modernization question):** Ties together domains like **sales**, **inventory**, **orders**, and **shipping** using **event-driven** wiring.
 
 ## Links to related questions
-- [Q: Serverless modernization & multi-cloud](../questions/q-serverless-modernization-multicloud.md)
+- [Serverless modernization & multi-cloud](../questions/serverless-modernization-multicloud.md)
