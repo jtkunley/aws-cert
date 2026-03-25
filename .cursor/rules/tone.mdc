@@ -1,0 +1,113 @@
+---
+description: Enforce concise, technical, and scan-friendly tone for AWS certification knowledge base
+globs:
+  - services/**/*.md
+  - patterns/**/*.md
+  - questions/**/*.md
+alwaysApply: true
+---
+
+# Tone & Writing Style Rules
+
+## Core Principle
+Write for **fast recognition and decision-making**, not for teaching or storytelling.
+
+Content should be:
+- technically correct
+- extremely concise
+- easy to scan in under 10 seconds
+- optimized for memorization and recall
+
+---
+
+## Writing Style
+
+### Use:
+- short sentences (prefer <15 words)
+- bullet points over paragraphs
+- clear, direct language
+- consistent structure across all files
+
+### Avoid:
+- long explanations
+- storytelling or narrative tone
+- unnecessary adjectives
+- filler phrases (e.g., "it is important to note that")
+
+---
+
+## Structure Rules
+
+### Prefer this:
+- bullets
+- sections with clear headers
+- lists of signals, constraints, and decisions
+
+### Avoid this:
+- large paragraphs
+- dense text blocks
+- mixed formatting
+
+---
+
+## Language Rules
+
+### Use:
+- concrete technical terms
+- explicit constraints (e.g., "requires SMB", "NFS only", "max 15 minutes")
+- decisive wording
+
+### Avoid:
+- vague language (e.g., "can be used for", "generally helpful")
+- hedging (e.g., "might", "could", "sometimes")
+
+---
+
+## Decision-Focused Writing
+
+Every section should help answer:
+
+- When do I use this?
+- When do I NOT use this?
+- What are the closest alternatives?
+- What constraint makes this the correct answer?
+
+---
+
+## Example Transformations
+
+### ❌ Bad
+AWS Fargate is a serverless compute engine that can be used to run containers without managing servers. It is useful in many scenarios where scalability is required.
+
+### ✅ Good
+- Run containers without managing servers
+- Use for long-running or event-driven workloads
+- No instance provisioning
+
+---
+
+### ❌ Bad
+Amazon EFS is generally used for shared file storage and can be helpful in environments where multiple instances need access to the same data.
+
+### ✅ Good
+- Shared file system (NFS)
+- Multi-instance access
+- Not for Windows (no SMB)
+
+---
+
+## Compression Rule
+
+If a section feels long:
+- shorten it
+- remove explanations
+- keep only decision-critical facts
+
+---
+
+## Output Goal
+
+The reader should be able to:
+- scan the page in seconds
+- recognize patterns instantly
+- eliminate wrong answers quickly
