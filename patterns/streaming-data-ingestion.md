@@ -1,32 +1,33 @@
 # Streaming data ingestion
 
 ## What it is
-Continuous, high-volume data enters the system as a **stream** with producers, shards/partitions, and consumers—**Kinesis** or **MSK** are common anchors.
+- Data enters the system **continuously** and at **high volume** as a **stream** with **producers**, **shards** or **partitions**, and **consumers**.
+- **Amazon Kinesis** and **Amazon MSK** are common **anchors** for this pattern on **AWS**.
 
 ## When to use it
-Clickstreams, logs, IoT, gaming telemetry, real-time aggregations, replay, multiple independent consumer applications.
+- **Clickstreams**, **logs**, **IoT** telemetry, **gaming** events, **real-time aggregations**, **replay**, or **multiple independent consumer** applications.
 
 ## When NOT to use it
-Low-volume business events between a few microservices—**EventBridge** or **SQS** may be simpler and cheaper.
+- **Low-volume business events** between a **few microservices**—**EventBridge** or **SQS** is often **simpler** and **cheaper**.
 
 ## Exam clues
-“Streaming,” “shards,” “producers and consumers,” “millions of records,” “Kinesis Data Analytics,” “replay.”
+- **Streaming**, **shards**, **producers and consumers**, **millions of records**, **Kinesis Data Analytics**, and **replay**.
 
 ## Common distractors
-Using **EventBridge** for firehose-scale telemetry—wrong tool for massive ordered stream processing.
+- Using **EventBridge** for **firehose-scale telemetry** when the stem clearly wants **ordered**, **high-throughput** stream processing.
 
 ## Related AWS services
-Kinesis Data Streams, Firehose, Data Analytics, Lambda event source mapping, MSK, Flink.
+- **Kinesis Data Streams**, **Kinesis Data Firehose**, **Kinesis Data Analytics**, **Lambda** event source mappings, **MSK**, **Apache Flink** on **AWS**.
 
 ## Comparison with nearby patterns
-**Streaming ingestion** vs **event-driven integration**: streams emphasize volume/ordering/processing frameworks; events emphasize app decoupling.
+- **Streaming ingestion** stresses **volume**, **ordering**, and **processing frameworks**; **event-driven integration** stresses **decoupling** between **applications**.
 
 ## Example scenarios
-Mobile app analytics pipeline: app → Kinesis → Lambda enrichment → S3/Redshift.
+- **Mobile** app analytics: app → **Kinesis** → **Lambda** enrichment → **S3** or **Redshift**.
 
 ## Links to related questions
 - [Q: Serverless modernization & multi-cloud](../questions/q-serverless-modernization-multicloud.md)
 
 ## Personal notes / memory hooks
-- Volume + continuous + analytics processing → **Kinesis** family.
-- **Practice (serverless modernization Q):** **Kinesis** appears with **EKS + Fargate** but **provisioned** Aurora/Redshift—trap when stem insists on **serverless** + **EventBridge**-style integration.
+- **Volume**, **continuous**, and **analytics processing** together point to the **Kinesis** family.
+- **Practice (serverless modernization question):** **Kinesis** paired with **provisioned Aurora** and **provisioned Redshift** is a **trap** when the stem insists on **serverless** and **EventBridge**-style **integration**.

@@ -1,32 +1,41 @@
 # Amazon S3
 
 ## What it is
-Object storage: buckets, keys, virtually unlimited scale, **11 nines** durability (standard tier), lifecycle, versioning, and many analytics/ML integrations.
+- **Amazon Simple Storage Service (S3)** is **object storage**: you store **objects** in **buckets** under **keys**.
+- It scales to very large data sets, offers **durability** targets for standard storage classes, and supports **versioning**, **lifecycle** rules, **event notifications**, and integrations across analytics and machine learning.
 
 ## Personal notes / memory hooks
-**File system vs bucket**—read the stem literally.
+- Read the stem carefully when it says **file system** versus **bucket** or **object**. **S3** is **not** a **Windows SMB share** by itself.
+- **Practice (Windows file server question):** **DataSync** into **S3** plus **AWS Transfer Family** still leaves you in the **object** world. That usually does **not** satisfy “**file system for the servers in AWS**” the way **FSx for Windows** does.
 
 ## When to use it
-Backups, data lakes, static assets, **Transfer Family** landing zone, **Storage Gateway** backing store, cross-region replication.
+- **Data lakes**, **backups**, **static websites**, **log** archives, and **big data** landing zones.
+- Ingest from **Transfer Family** (SFTP/FTP) or as the backing store behind **Storage Gateway** file interfaces.
 
 ## When NOT to use it
-When the stem requires a **POSIX/SMB file system** semantics for legacy Windows apps—not **S3** as “the file server” without an overlay (FSx, File Gateway caching story, etc.).
+- The application expects a **POSIX** or **SMB** **file system** with **directory and locking** semantics like a traditional **Windows** file server, unless another service (for example **FSx**) provides that layer.
 
 ## Exam clues
-“Object storage,” “bucket,” “DataSync to S3,” “static website,” “Glacier transition,” “Transfer Family” targets.
+- **Bucket**, **object**, **S3**, **lifecycle**, **Glacier** transitions, **static website hosting**, **Transfer Family** landing in S3.
 
 ## Common distractors
-- Treating **S3** as a drop-in replacement for **NTFS/SMB application storage** without clarifying access pattern.
-- **Practice (Windows file server Q):** **DataSync to S3 + Transfer Family** does not satisfy **general Windows file system in VPC** for app servers like **FSx** does.
+- Treating **S3** as a plug-in replacement for **NTFS/SMB application storage** without an appropriate **file** service on top.
+- **Practice (Windows file server question):** **S3** remains **object storage**; it does not become a **managed Windows file share in the VPC** just because **DataSync** copied files there.
 
 ## Architecture patterns
-- Data lake on S3; **DataSync** → S3; **File Gateway** SMB → S3 objects; event notifications to Lambda/SQS.
+- **Data lake** on S3 with **AWS Glue**, **Athena**, or **Redshift Spectrum**.
+- **DataSync** bulk copy into S3.
+- **S3 event notifications** to **Lambda** or **SQS**.
+- **File Gateway** presents **SMB** on premises while storing **objects** in S3.
 
 ## Comparison with nearby services
-**S3** (object) vs **EBS** (block, single AZ attach) vs **FSx/EFS** (file).
+- **S3:** **object** store with a **REST** API model.
+- **EBS:** **block** volumes attached to **one instance** in most cases.
+- **EFS / FSx:** **file** protocols (**NFS** or **SMB**).
 
 ## Example scenarios
-Archive and analytics landing zone; **not** the primary answer for “Windows file system for apps in VPC” when FSx fits.
+- Central **archive**, **analytics** landing zone, or **static** content delivery (often with **CloudFront**).
+- **Practice (Windows file server question):** Wrong when the stem insists on a **VPC file system** for **Windows** application servers.
 
 ## Links to related questions
 - [Q: Windows file server → FSx + DataSync](../questions/q-windows-fileserver-datasync-fsx.md)

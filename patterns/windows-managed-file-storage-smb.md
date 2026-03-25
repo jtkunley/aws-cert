@@ -1,32 +1,34 @@
 # Windows managed file storage (SMB)
 
 ## What it is
-Cloud **file shares** that preserve **Windows/SMB** expectations: permissions, legacy apps, often **Active Directory** integration—**Amazon FSx for Windows File Server** is the flagship.
+- This pattern covers **cloud file shares** that match **Windows** expectations: **SMB**, familiar **permissions**, legacy applications, and often **Microsoft Active Directory** integration.
+- **Amazon FSx for Windows File Server** is the flagship **managed** service for this story on **AWS**.
 
 ## When to use it
-Windows file server migration, SQL backup targets needing SMB, Office shares, DFS.
+- You are migrating a **Windows file server**, need **SMB** targets for **SQL Server** backups, **Office** style shares, or **Distributed File System (DFS)** namespaces.
 
 ## When NOT to use it
-Linux-heavy **NFS** scale-out—**EFS**; object analytics lake—**S3**.
+- The estate is mostly **Linux** with **NFS** at scale—**Amazon EFS** is usually a better fit.
+- The workload is an **analytics lake** or **object** workflow—**Amazon S3** fits that model.
 
 ## Exam clues
-“Windows file server,” “SMB,” “NTFS/ACL,” “AD joined file system.”
+- Phrases like **Windows file server**, **SMB**, **NTFS-style ACLs**, and **Active Directory**-joined file systems.
 
 ## Common distractors
-**EFS** “because it’s elastic file”—wrong protocol/workload fit for classic Windows shares.
+- Picking **EFS** because the word **elastic file** appears, even when the stem is clearly **Windows** and **SMB**.
 
 ## Related AWS services
-FSx for Windows, Directory Service, DataSync, EC2 (self-managed file server—usually disfavored vs FSx).
+- **FSx for Windows File Server**, **AWS Directory Service**, **DataSync**, **Amazon EC2** (self-managed file server—usually disfavored versus **FSx** in exam answers).
 
 ## Comparison with nearby patterns
-**SMB Windows** vs **NFS Linux** vs **object (S3)**.
+- Contrast **SMB Windows** file shares with **NFS Linux** patterns and with **object storage** on **S3**.
 
 ## Example scenarios
-Replace on-prem 1 TB share with FSx in VPC for instances in AWS.
+- Replace an on-premises **1 TB** share with **FSx** in the **VPC** so instances in **AWS** mount the same style of share.
 
 ## Links to related questions
 - [Q: Windows file server → FSx + DataSync](../questions/q-windows-fileserver-datasync-fsx.md)
 
 ## Personal notes / memory hooks
-- **Windows** in the first sentence of the stem → **FSx for Windows** until proven otherwise.
-- **Practice (Windows file server Q):** requirement **“file system for the servers in AWS”** → **FSx in VPC**, not **File Gateway SMB on-prem** or **S3 + Transfer**.
+- When **Windows** appears in the **first** sentence of the stem, assume **FSx for Windows** until another requirement clearly overrides it.
+- **Practice (Windows file server question):** The phrase **file system for the servers in AWS** points to **FSx in the VPC**, not **File Gateway SMB on premises** or **S3 plus Transfer Family** alone.

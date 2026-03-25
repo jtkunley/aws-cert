@@ -1,33 +1,39 @@
 # Amazon EC2 Auto Scaling
 
 ## What it is
-Automatically adjusts the number of EC2 instances (or other resources in broader Auto Scaling concepts) based on demand, schedules, or health.
+- **Amazon EC2 Auto Scaling** changes how many **EC2 instances** you run (or adjusts related capacity in broader Auto Scaling scenarios) based on demand, schedules, or health checks.
 
 ## Personal notes / memory hooks
-ASG = “more VMs when busy.” It does not make the architecture serverless by itself.
+- Think **“more virtual machines when load goes up.”** That is different from **serverless** units that are not EC2 fleets you size yourself.
+- Auto Scaling **does not** by itself make an architecture **serverless**. It still centers on **EC2**.
 
 ## When to use it
-Variable traffic on EC2, need high availability across AZs, replace unhealthy instances, scheduled scale for known peaks.
+- Traffic to your application **goes up and down** and you are already on EC2.
+- You want **high availability across Availability Zones** or automatic replacement of **unhealthy** instances.
+- You need **scheduled** scaling for known peaks (for example, end-of-quarter jobs).
 
 ## When NOT to use it
-When requirements call for **serverless** compute (Fargate/Lambda) or managed scaling at the service layer (Aurora Serverless, etc.)—ASG still implies **EC2 fleets**.
+- The exam wants **serverless compute** such as **Fargate** or **Lambda**, or scaling at the **database** layer (for example **Amazon Aurora Serverless**). **Auto Scaling groups** still mean **EC2 instances** in the picture.
 
 ## Exam clues
-- “Scale out/in,” “ASG,” “target tracking,” “scheduled scaling,” “health checks,” “across Availability Zones.”
-- **Practice (serverless modernization Q):** answer choice pairs ASG with **fixed instance counts** per component—still **EC2-centric**.
+- Phrases like **scale out**, **scale in**, **Auto Scaling group**, **target tracking**, **scheduled scaling**, **health checks**, and **across Availability Zones**.
+- **Practice (serverless modernization question):** An answer that pairs **Auto Scaling** with **fixed instance counts** per component is still an **EC2-first** design.
 
 ## Common distractors
-- Picking ASG + EC2 as “modern serverless”—it scales **instances**, not serverless units.
-- **Practice (serverless modernization Q):** ASG + **SNS “routing” to EC2 and DBs** does not satisfy **serverless** or **event-driven bus** requirements in the stem.
+- Calling **EC2 plus Auto Scaling** **serverless**. The exam treats **serverless** as a different idea (no EC2 fleet you manage for that tier).
+- **Practice (serverless modernization question):** **Auto Scaling**, **Amazon SNS** “routing” to EC2 and databases, and a non-serverless data story usually **fail** a stem that asks for **serverless** and a real **event bus**.
 
 ## Architecture patterns
-- Web tier behind ALB with ASG; worker tier scaling on queue depth (CloudWatch custom metrics).
+- An **Application Load Balancer** in front of an **Auto Scaling group** of web servers.
+- A **worker** tier that scales on **queue depth** using a **CloudWatch** custom metric.
 
 ## Comparison with nearby services
-- **ASG** scales EC2; **Application Auto Scaling** scales ECS tasks, DynamoDB, Aurora replicas, etc.; **Fargate** capacity is abstracted differently.
+- **EC2 Auto Scaling** changes **how many EC2 instances** run.
+- **Application Auto Scaling** can scale other resources (for example **Amazon ECS** tasks, **Amazon DynamoDB** throughput, **Aurora** replicas).
+- **Fargate** abstracts away the **EC2 worker** layer for containers.
 
 ## Example scenarios
-- Three-tier app: ASG for app servers, fixed or separate DB tier.
+- A three-tier application where the **application tier** uses an Auto Scaling group and the **database** is handled separately.
 
 ## Links to related questions
 - [Q: Serverless modernization & multi-cloud](../questions/q-serverless-modernization-multicloud.md)

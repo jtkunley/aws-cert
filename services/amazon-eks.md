@@ -1,33 +1,39 @@
 # Amazon EKS
 
 ## What it is
-Managed Kubernetes control plane on AWS: you use standard Kubernetes APIs; AWS runs the control plane and integrates with VPC, IAM, and load balancers.
+- **Amazon Elastic Kubernetes Service (EKS)** is a **managed Kubernetes control plane** in AWS.
+- You use the **standard Kubernetes API** (for example `kubectl`, Helm charts). AWS operates the **control plane** and wires it into **VPC**, **IAM**, and load balancers.
 
 ## Personal notes / memory hooks
-Stem says “Kubernetes” or “multi-cloud same as other providers” → think **EKS**.
+- If the stem says **Kubernetes** or **running the same style of clusters on another cloud provider**, start by considering **EKS**.
+- **Practice (serverless modernization question):** Two answers may both say **EKS** and **Fargate**. The wrong one often keeps **provisioned Amazon Aurora** and **provisioned Amazon Redshift** and adds **Kinesis**, while the stem still insists on a **serverless architecture** and names **Aurora Serverless** and **Redshift Serverless** in the better option.
 
 ## When to use it
-Kubernetes skills/portability, multi-team platforms, Helm charts, service mesh, or exam scenarios mentioning **multi-cloud** / same manifests on other CSPs’ Kubernetes.
+- Your organization already invests in **Kubernetes** skills and tooling.
+- You need **multi-cloud** or **portable** manifests that also run on **GKE**, **AKS**, or similar.
+- You want **service mesh**, **GitOps**, or other **Kubernetes-native** patterns.
 
 ## When NOT to use it
-Small AWS-only teams with no K8s need—**ECS** can be simpler; very simple static sites—overkill.
+- A small **AWS-only** team with no Kubernetes requirement may find **Amazon ECS** simpler for the same container workloads.
+- A **static site** or tiny service rarely justifies EKS overhead.
 
 ## Exam clues
-“Kubernetes,” “pods,” “EKS,” “Fargate profile,” “managed node group,” “multi-cloud clusters.”
+- **Pods**, **Fargate profile**, **managed node group**, **EKS cluster**, **multi-cloud**, **Kubernetes**.
 
 ## Common distractors
-- Assuming EKS is “more serverless” than ECS by default—both can be serverless **with Fargate**; EKS adds Kubernetes complexity.
-- **Practice (serverless modernization Q):** two answers use **EKS + Fargate**; wrong one pairs **provisioned Aurora MySQL + provisioned Redshift + Kinesis**—misses **Serverless** in **Aurora Serverless** / **Redshift Serverless** when stem demands **serverless architecture**.
+- Assuming **EKS** is automatically **more serverless** than **ECS**. Either can pair with **Fargate**; **EKS** adds **Kubernetes** complexity either way.
+- **Practice (serverless modernization question):** **EKS** and **Fargate** are not enough if the distractor drops **Serverless** from the **database and warehouse** names when the question stresses **serverless architecture**.
 
 ## Architecture patterns
-- GitOps (Argo CD), ingress controllers, cluster autoscaler, hybrid mesh, multi-account EKS.
+- **GitOps** (for example Argo CD), **ingress** controllers, **cluster autoscaler**, multi-account **EKS**, optional **service mesh**.
 
 ## Comparison with nearby services
-- **EKS** (Kubernetes) vs **ECS** (AWS-native); both orchestrate containers; **GKE/AKS** are the non-AWS counterparts in multi-cloud talk.
+- **EKS** speaks **Kubernetes**. **ECS** speaks **AWS’s** container model. For **multi-cloud** talk, **GKE** and **AKS** are the **non-AWS** counterparts.
+- **Practice (serverless modernization question):** The keyed answer often combines **EKS**, **Fargate**, **EventBridge**, **Aurora Serverless MySQL**, and **Redshift Serverless** to hit **event-driven**, **serverless**, and **multi-cloud Kubernetes** at once.
 
 ## Example scenarios
-- Same container images deployed on EKS and another cloud’s Kubernetes for performance/geo.
-- **Practice (serverless modernization Q):** **EKS + Fargate + EventBridge + Aurora Serverless MySQL + Redshift Serverless** matches **event-driven + serverless + multi-cloud Kubernetes**.
+- Running the **same container images** on **EKS** in AWS and on another cloud’s **Kubernetes** for performance or residency reasons.
+- **Practice (serverless modernization question):** Matches the “**additional clusters on other cloud service providers**” line in the stem.
 
 ## Links to related questions
 - [Q: Serverless modernization & multi-cloud](../questions/q-serverless-modernization-multicloud.md)

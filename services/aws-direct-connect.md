@@ -1,32 +1,36 @@
 # AWS Direct Connect
 
 ## What it is
-Dedicated or hosted **private network connectivity** from on-premises to AWS, bypassing the public internet for **stable bandwidth and lower latency** into **VPC** (and many AWS services via **public/private VIFs**).
+- **AWS Direct Connect** provides **dedicated or hosted private network connectivity** from your **on-premises** environment into **AWS**.
+- Traffic does not ride the **public internet** the way a typical **VPN over the internet** path does, which helps with **predictable throughput**, **lower and steadier latency**, and **consistent** hybrid networking.
+- You connect into **Amazon Virtual Private Cloud (VPC)** using **virtual interfaces (VIFs)** and can reach many **AWS public services** through the appropriate **public or private** interface patterns.
 
 ## Personal notes / memory hooks
-- DX = **pipe**; look for another service that **moves or serves** the bits.
+- Treat **Direct Connect** as the **network pipe**. The exam still expects you to pick the service that **moves or serves** the data (**DataSync**, **Storage Gateway**, **FSx**, and so on).
+- **Practice (Windows file server question):** When the stem says **Direct Connect** is already in place into the **VPC**, pair it with **DataSync** and **FSx for Windows** rather than naming **Direct Connect** as if it alone **migrated** the files.
 
 ## When to use it
-Hybrid workloads, **large ongoing data movement**, predictable throughput, compliance-sensitive paths; pairs with **DataSync**, **Storage Gateway**, hybrid AD, etc.
+- **Hybrid** architectures with **steady, large** data movement or **low-latency** needs between the data center and **AWS**.
+- Compliance or operations teams want a **private** path instead of routing everything over the **public internet**.
 
 ## When NOT to use it
-Small sporadic transfers where **Site-to-Site VPN** is enough; need instant zero-commit connectivity without provisioning lead time.
+- **Small** or **sporadic** transfers where **Site-to-Site VPN** is enough and you want **faster** setup without **physical** or **hosted** connectivity lead time.
 
 ## Exam clues
-- “Direct Connect to the VPC,” “private connection from on-premises,” “consistent network for migration,” hybrid diagrams.
-- **Practice (Windows file server Q):** DX already in place from on-prem to **VPC**—pair with **DataSync** + **FSx**, not DX as sole solution.
+- Wording like **Direct Connect to the VPC**, **private connection from on-premises**, **consistent network for migration**, and hybrid diagrams that show a **private link** into **AWS**.
 
 ## Common distractors
-- Assuming **Direct Connect alone** migrates data—it **provides the path**; you still pick **DataSync/SGW/DMS** for the workload.
+- Choosing **Direct Connect** as the **only** answer when the question is really about **where files land** (**FSx**, **S3**) and **how** they are copied (**DataSync**). **Direct Connect** does not replace those services.
 
 ## Architecture patterns
-- DX + **private VIF** to VPC; redundant connections; integration with **transit gateway** (advanced).
+- **Private VIF** into a **VPC**; **redundant** connections for resilience; advanced designs may use **AWS Transit Gateway** with **Direct Connect**.
 
 ## Comparison with nearby services
-- **Direct Connect** vs **VPN** (quick, encrypted internet) vs **VPC peering** (cloud-cloud, not on-prem).
+- **Direct Connect** versus **Site-to-Site VPN**: VPN is often **quicker** to stand up and runs over the **internet**; **Direct Connect** is a **private** circuit story with a different **provisioning** profile.
+- **VPC peering** connects **VPC to VPC** in the cloud; it is **not** the on-premises link.
 
 ## Example scenarios
-- Windows file server replication to **FSx** over DX instead of flaky internet uplink.
+- Replicating a **Windows file server** into **FSx** over **Direct Connect** so **nightly sync** jobs are **reliable** and **fast** compared with a **variable** internet uplink.
 
 ## Links to related questions
 - [Q: Windows file server → FSx + DataSync](../questions/q-windows-fileserver-datasync-fsx.md)

@@ -1,32 +1,34 @@
 # Serverless architecture
 
 ## What it is
-You build without provisioning or managing servers for major components: compute scales automatically, and you pay roughly for use (Lambda, Fargate, API Gateway, EventBridge, Aurora Serverless, Redshift Serverless, etc.).
+- You build so you **do not** provision or manage **servers** for the main building blocks: compute **scales** with demand, and you pay closer to **per use** for many services.
+- Examples include **AWS Lambda**, **AWS Fargate**, **Amazon API Gateway**, **Amazon EventBridge**, **Amazon Aurora Serverless**, and **Amazon Redshift Serverless**.
 
 ## When to use it
-Variable traffic, ops reduction goals, event-driven workflows, API backends, stream handlers, spiky analytics or OLTP.
+- Traffic is **variable**, you want **less operations** work, workflows are **event-driven**, or you need **API** backends and **stream** handlers without running a **fleet** you patch yourself.
 
 ## When NOT to use it
-Long-running always-on heavy compute where dedicated capacity is cheaper; strict low-level OS/hardware control; some licensing models tied to VMs.
+- Workloads are **always on** and **heavy** where **dedicated** capacity is **cheaper** at steady state.
+- You need **low-level** **operating system** or **hardware** control, or licensing ties you to **virtual machines**.
 
 ## Exam clues
-“No server management,” “scale to zero,” “pay per use,” “managed capacity,” “Serverless” in service names.
+- Phrases like **no server management**, **scale to zero** (where applicable), **pay per use**, **managed capacity**, and the word **Serverless** in **service names**.
 
 ## Common distractors
-- **EC2 + Auto Scaling** is elastic but **not** serverless in exam language.
-- **Practice (serverless modernization Q):** **EKS + Fargate** alone is not enough if distractor swaps **Aurora Serverless** → **provisioned Aurora** or **Redshift Serverless** → **provisioned Redshift**—read **serverless** literally in the stem.
+- **Amazon EC2** with **Auto Scaling** is **elastic** but **not** **serverless** in typical **exam** wording.
+- **Practice (serverless modernization question):** **Amazon EKS** with **Fargate** helps on the **compute** side, but a distractor may swap **Aurora Serverless** for **provisioned Aurora** or **Redshift Serverless** for **provisioned Redshift**—read **serverless** in the stem **literally**.
 
 ## Related AWS services
-Lambda, Fargate, EventBridge, Step Functions, Aurora Serverless, Redshift Serverless, API Gateway, AppSync.
+- **Lambda**, **Fargate**, **EventBridge**, **AWS Step Functions**, **Aurora Serverless**, **Redshift Serverless**, **API Gateway**, **AWS AppSync**.
 
 ## Comparison with nearby patterns
-**Serverless** vs **containers on EC2**: ops and unit of scaling differ; **PaaS** (Beanstalk) still hides servers but isn’t the same marketing bucket as Lambda/Fargate serverless.
+- **Serverless** differs from **containers on EC2** in who runs and **patches** worker **nodes**; **Elastic Beanstalk** still hides servers but is not the same bucket as **Lambda** or **Fargate** in many questions.
 
 ## Example scenarios
-Order pipeline: API Gateway → Lambda → DynamoDB; microservices on Fargate without node groups.
+- An order pipeline: **API Gateway** to **Lambda** to **DynamoDB**; **microservices** on **Fargate** without **self-managed** node groups.
 
 ## Links to related questions
 - [Q: Serverless modernization & multi-cloud](../questions/q-serverless-modernization-multicloud.md)
 
 ## Personal notes / memory hooks
-If the stem demands **serverless**, scan answers for Fargate/Lambda/Serverless data plane—not just “managed.”
+- If the stem demands **serverless**, scan answers for **Fargate**, **Lambda**, and **Serverless** **data** tiers—not only the word **managed**.

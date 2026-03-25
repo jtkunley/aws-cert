@@ -1,33 +1,39 @@
 # Amazon SNS
 
 ## What it is
-Managed **pub/sub** messaging: publishers send to a **topic**, subscribers (SQS, Lambda, HTTP, email, mobile) receive notifications.
+- **Amazon Simple Notification Service (SNS)** is a **managed pub/sub** messaging service.
+- Publishers send messages to an **SNS topic**. **Subscribers** (for example **Amazon SQS** queues, **Lambda** functions, **HTTP** endpoints, **email**, or **SMS**) each receive their own copy of the message.
 
 ## Personal notes / memory hooks
-- SNS = “one message, many subscribers.” Not the same as a centralized event bus.
+- One image that works is **“one announcement, many listeners.”** That is different from a full **event bus** with rich **routing rules**.
+- **Practice (serverless modernization question):** When an option uses **SNS** mainly to **route traffic to EC2 instances and databases**, compare it to **EventBridge** for **event-driven** wording and check whether the overall design is still **serverless**.
 
 ## When to use it
-Fan-out notifications, decoupling with multiple consumers, mobile push, email/SMS alerts, integrating with SQS for worker pools.
+- **Fan-out notifications**: operations alerts, **email** and **SMS**, **mobile push**.
+- You want several systems to **react in parallel** to the same message, often with **SQS** in front of workers for buffering.
 
 ## When NOT to use it
-Complex event **routing/filtering** across many event types and schedules—**EventBridge** is usually better; ordered, replayable stream processing—**Kinesis** or **MSK**.
+- You need **complex routing**, **content filtering**, **scheduled rules**, or many **SaaS** sources. **EventBridge** is usually the better match.
+- You need **strict ordering** or **replay** at streaming scale—consider **SQS FIFO**, **Kinesis**, or **MSK**.
 
 ## Exam clues
-- “Fan-out,” “topic,” “subscription,” “publish,” “notify many systems.”
-- **Practice (serverless modernization Q):** wording like **route incoming data** to **EC2 + databases**—SNS as glue vs **EventBridge** for **event-driven** architecture wording.
+- **Fan-out**, **topic**, **subscription**, **publish**, **notify many systems**.
 
 ## Common distractors
-- Using SNS as a full **event bus** replacement when the stem wants rule-based routing, SaaS sources, or schedules—EventBridge fits better.
-- **Practice (serverless modernization Q):** **SNS to route data to EC2 instances and databases** alongside **Aurora PostgreSQL**—does not meet **serverless** goal and blurs **event bus** vs **simple pub/sub**.
+- Treating **SNS** as a drop-in replacement for **EventBridge** when the scenario clearly needs an **event bus** with **rules** and **schedules**.
+- **Practice (serverless modernization question):** **SNS** plus **EC2 Auto Scaling** plus a single **Aurora PostgreSQL** answer often **fails** the **serverless** requirement and the **warehouse versus OLTP** split.
 
 ## Architecture patterns
-- Alarm → SNS → Lambda + email; order events → SNS → multiple SQS queues for workers.
+- A **CloudWatch** alarm publishes to **SNS**, which fans out to **email** and a **Lambda** pager function.
+- A business event goes to **SNS**, then to **multiple SQS queues** for independent workers.
 
 ## Comparison with nearby services
-- **SNS** vs **EventBridge** vs **SQS**: pub/sub topics vs event bus vs point-to-point queue.
+- **SNS:** **broadcast** pub/sub to many subscribers.
+- **EventBridge:** **event bus** with **rules** and **targets**.
+- **SQS:** **point-to-point** queue consumption.
 
 ## Example scenarios
-- Ops alerts, broadcasting configuration changes to many services.
+- **Operations** paging, **security** notifications, or **broadcasting configuration changes** to several services.
 
 ## Links to related questions
 - [Q: Serverless modernization & multi-cloud](../questions/q-serverless-modernization-multicloud.md)

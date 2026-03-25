@@ -1,32 +1,34 @@
 # Pub/sub fan-out
 
 ## What it is
-One publisher sends a message to a **topic**; many **subscribers** receive copies—classic **SNS** pattern (often combined with **SQS** for buffering).
+- One **publisher** sends a message to a **topic**, and **many subscribers** each receive a **copy** of that message.
+- **Amazon SNS** is the classic **AWS** service for this **fan-out** pattern, often combined with **Amazon SQS** for **buffering** and **worker** pools.
 
 ## When to use it
-Alerts, notifications, broadcasting the same message to Lambda + email + multiple queues, simple decoupled fan-out.
+- **Alerts**, **notifications**, **broadcasting** the same message to **Lambda**, **email**, and **multiple queues**, or **simple decoupled** fan-out.
 
 ## When NOT to use it
-Need per-event routing, transformation, and schedules across hundreds of event types—prefer **EventBridge**; strict ordering per key—**SQS FIFO** or **Kinesis**.
+- You need **per-event routing**, **transformation**, and **schedules** across **many event types**—prefer **EventBridge**.
+- You need **strict ordering** per key—**SQS FIFO** or **Kinesis** may fit better.
 
 ## Exam clues
-“Fan-out,” “topic,” “multiple subscribers,” “notify,” “publish.”
+- **Fan-out**, **topic**, **multiple subscribers**, **notify**, and **publish**.
 
 ## Common distractors
-- Choosing SNS when the scenario is clearly an **event bus** with rules and SaaS sources.
-- **Practice (serverless modernization Q):** **SNS** + **EC2/ASG** + **Aurora PostgreSQL-only**—wrong tool and wrong **serverless** posture for the stem.
+- Choosing **SNS** when the scenario is clearly an **event bus** with **rules** and **SaaS** sources.
+- **Practice (serverless modernization question):** **SNS** plus **EC2 Auto Scaling** plus a **single Aurora PostgreSQL** path is the wrong **tool** and the wrong **serverless** posture for that stem.
 
 ## Related AWS services
-SNS, SQS, Lambda, KMS for encryption, mobile push/email integrations.
+- **SNS**, **SQS**, **Lambda**, **KMS** for **encryption**, and **mobile** or **email** integrations.
 
 ## Comparison with nearby patterns
-**Pub/sub** vs **event bus**: SNS is simpler broadcast; EventBridge is richer routing/integration.
+- **Pub/sub** is a **broadcast** model; **EventBridge** adds **richer routing** and **integration** features.
 
 ## Example scenarios
-CloudWatch Alarm → SNS → Ops email + Lambda pager + SQS ticket queue.
+- A **CloudWatch** alarm publishes to **SNS**, which fans out to **email**, **Lambda**, and an **SQS** ticket queue.
 
 ## Links to related questions
 - [Q: Serverless modernization & multi-cloud](../questions/q-serverless-modernization-multicloud.md)
 
 ## Personal notes / memory hooks
-SNS = “radio broadcast.” EventBridge = “mail sorting facility with rules.”
+- Think of **SNS** as a **radio broadcast** and **EventBridge** as a **mail-sorting facility** with **rules**.

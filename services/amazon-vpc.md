@@ -1,32 +1,34 @@
 # Amazon VPC
 
 ## What it is
-Your **isolated network** in AWS: subnets, route tables, internet and NAT gateways, **security groups**, NACLs, and attachment points for hybrid connectivity (**Direct Connect**, **VPN**, **Transit Gateway**).
+- **Amazon Virtual Private Cloud (VPC)** is your **isolated network** inside an **AWS Region**.
+- You define **subnets**, **route tables**, **internet gateways**, **NAT gateways**, **security groups**, and **network ACLs**, and you attach **hybrid** connectivity such as **Direct Connect**, **Site-to-Site VPN**, or **AWS Transit Gateway**.
+- Many **managed services** expose **elastic network interfaces (ENIs)** inside your **VPC** so instances and other resources can reach them on **private IP** addresses.
 
 ## Personal notes / memory hooks
-**“In the VPC”** = private network home for ENI-based services like FSx.
+- When the stem says workloads or file shares are **in the VPC**, think about **private subnets**, **DNS**, and **ENI-based** services such as **Amazon FSx for Windows File Server**.
+- **Practice (Windows file server question):** **Windows** instances in **AWS** need a **share they can mount in the VPC**. **FSx** provides that; a design that leaves files **only** in **S3** or **only** behind an **on-premises** gateway often misses the **in-VPC file system** requirement.
 
 ## When to use it
-Every regional deployment; private subnets for workloads; **ENIs** for managed services (FSx, RDS, etc.) that live in the VPC.
+- Essentially **every** regional deployment: you place **compute**, **databases**, and **file systems** into **subnets** with the right **routing** and **security** controls.
 
 ## When NOT to use it
-N/A in AWS—VPC is foundational; avoid over-building (exam may prefer **VPC endpoints** vs full hybrid).
+- You rarely **skip** a **VPC** for normal **regional** workloads. Watch for **over-building**: some questions prefer **VPC endpoints** for **private** access to **AWS services** instead of sending traffic through **NAT** or the **public internet** when that is the point being tested.
 
 ## Exam clues
-- “Private subnets,” “VPC endpoints,” “peering,” “Direct Connect to the VPC,” “FSx in the VPC.”
-- **Practice (Windows file server Q):** **servers in AWS** live in **VPC**; file share must be reachable there (**FSx**), not only on-prem gateway SMB.
+- **Private subnets**, **VPC endpoints**, **peering**, **Direct Connect into the VPC**, and **FSx** or **RDS** **in the VPC**.
 
 ## Common distractors
-- Confusing **VPC** (network container) with **FSx/S3** (storage)—the stem may mention VPC only as the **destination network** for hybrid links.
+- Mixing up **VPC** (the **network container**) with **FSx** or **S3** (the **storage**). The stem may mention **VPC** only as the **destination network** for **hybrid** links while the **correct storage** service is still **FSx** or another file or object store.
 
 ## Architecture patterns
-Multi-AZ subnets; hybrid: DX/VPN → VPC; interface endpoints for S3/DynamoDB.
+- **Multi-AZ** subnets for resilience; **hybrid** entry via **Direct Connect** or **VPN** into the **VPC**; **interface endpoints** for services such as **Amazon S3** or **Amazon DynamoDB** when you want **private** access without **internet** egress.
 
 ## Comparison with nearby services
-**VPC** vs **global** edge (CloudFront) vs **account boundary**—VPC is regional isolation.
+- **VPC** is **regional** isolation and routing. **Amazon CloudFront** is **edge** delivery. **Accounts** and **Organizations** define **billing and policy** boundaries separate from **VPC** design.
 
 ## Example scenarios
-Direct Connect terminates into VPC; Windows instances mount **FSx** DNS name in same VPC/DNS setup.
+- **Direct Connect** terminates into the **VPC**; **Windows** instances resolve the **FSx** **DNS** name and mount **SMB** shares in the same **VPC** (or connected network).
 
 ## Links to related questions
 - [Q: Windows file server → FSx + DataSync](../questions/q-windows-fileserver-datasync-fsx.md)

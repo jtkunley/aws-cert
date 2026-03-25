@@ -1,32 +1,37 @@
 # AWS Transfer Family
 
 ## What it is
-Managed **FTP, SFTP, FTPS** endpoints that integrate with **S3** (and **EFS** in supported patterns), for partners and legacy transfer clients.
+- **AWS Transfer Family** provides **managed file transfer protocol** endpoints for **FTP**, **SFTP**, and **FTPS**.
+- Clients connect the way they always have; **AWS** runs the **protocol servers**. Data typically lands in **Amazon S3**, and **Amazon EFS** is supported in **supported** integration patterns where the exam scenario applies.
 
 ## Personal notes / memory hooks
-**Protocols (SFTP/FTP)** → Transfer Family. **Copy/sync jobs** → DataSync.
+- **Protocol names** in the stem (**SFTP**, **FTP**, **FTPS**) point toward **Transfer Family**. **Scheduled copy jobs** with a **DataSync agent** point toward **DataSync**.
+- **Practice (Windows file server question):** A distractor may bundle **Transfer Family** with **S3**. That gives you **FTP-style** access to **objects**, not a **SMB file share** in the **VPC** for **general Windows** application file serving.
 
 ## When to use it
-B2B file exchange via **SFTP/FTP**, replacing self-hosted transfer servers; ingest to **S3** without custom EC2 FTP.
+- **Business-to-business** file exchange where partners upload files with **SFTP** or legacy **FTP** clients.
+- You want to **retire self-hosted** transfer servers on **EC2** and use a **fully managed** endpoint with **IAM**-aware access to **S3** prefixes.
 
 ## When NOT to use it
-When the requirement is **SMB Windows shares** in VPC for general corporate file serving—**FSx** + **DataSync** beats “Transfer + S3” as the Windows file story.
+- The requirement is **SMB** **Windows shares** in the **VPC** for day-to-day corporate file access. **FSx for Windows** plus **DataSync** (when migrating from on premises) usually matches that story better than **Transfer Family** plus **S3** alone.
 
 ## Exam clues
-“SFTP/FTP,” “third-party upload to S3,” “managed file transfer,” B2B ingest.
+- **SFTP**, **FTP**, **third-party upload to S3**, **managed file transfer**, and **B2B ingest** language.
 
 ## Common distractors
-- Confusing with **DataSync** (agent-based copy/sync) or using Transfer as a **Windows file server** substitute.
-- **Practice (Windows file server Q):** bundled with **S3** in a distractor—**FTP/SFTP/FTPS** access pattern ≠ **SMB file share** for migrated Windows apps in VPC.
+- Treating **Transfer Family** as a **Windows file server** replacement for **SMB** workloads.
+- Confusing it with **DataSync**, which is an **agent-based** **copy and sync** engine, not a **protocol listener** for external partners.
 
 ## Architecture patterns
-- Transfer Family → S3 bucket; IAM mapping; optional PGP/decryption workflows with Lambda.
+- **Transfer Family** server in front of an **S3** bucket with **IAM** mappings; optional **AWS Lambda** for **decryption** or **post-processing** after upload.
 
 ## Comparison with nearby services
-**Transfer Family** (protocol servers) vs **DataSync** (migration/sync engine) vs **Storage Gateway** (hybrid).
+- **Transfer Family:** **protocol servers** for **FTP family** clients.
+- **DataSync:** **migration and synchronization** between **on-premises** agents and **AWS** storage.
+- **Storage Gateway:** **hybrid** appliance at the **edge** with **File**, **Volume**, or **Tape** modes.
 
 ## Example scenarios
-Vendor drops CSV via SFTP into a landing bucket.
+- A vendor drops **CSV** files via **SFTP** into a **landing bucket** for downstream **ETL**.
 
 ## Links to related questions
 - [Q: Windows file server → FSx + DataSync](../questions/q-windows-fileserver-datasync-fsx.md)

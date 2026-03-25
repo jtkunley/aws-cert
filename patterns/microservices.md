@@ -1,32 +1,35 @@
 # Microservices
 
 ## What it is
-Decomposing an application into small, independently deployable services aligned to business capabilities, communicating over networks (often APIs, events, or messages).
+- You split an application into **small**, **independently deployable** services that align with **business capabilities**.
+- Services talk over the **network** using **APIs**, **events**, or **messages** instead of sharing one **monolithic** deployment unit.
 
 ## When to use it
-Different scaling profiles per capability, team autonomy, need to modernize legacy monoliths gradually, polyglot stacks, fault isolation boundaries.
+- Different parts of the system need **different scaling** profiles, teams want **autonomy**, or you are **modernizing** a **legacy monolith** in steps.
+- You run **polyglot** stacks or want **fault** boundaries between capabilities.
 
 ## When NOT to use it
-Small teams/products where operational overhead exceeds benefit; strict latency inside a single transaction boundary; immature DevOps—monolith or modular monolith may win.
+- The team and product are **small** enough that **operational overhead** outweighs benefit, or **latency** inside a **single transaction** is extremely tight.
+- **DevOps** maturity is low—a **modular monolith** may be wiser.
 
 ## Exam clues
-“Break into services,” “independently scale,” “deploy separately,” “domain boundaries,” containers/Kubernetes/ECS.
+- Phrases like **break into services**, **independently scale**, **deploy separately**, **domain boundaries**, and **containers** with **Kubernetes** or **ECS**.
 
 ## Common distractors
-Microservices on **EC2 without** event integration or managed data paths—still “distributed monolith” if tightly coupled.
+- **Microservices on EC2** **without** **event** integration or **managed data** paths can still behave like a **distributed monolith** if everything is **tightly coupled**.
 
 ## Related AWS services
-ECS, EKS, Fargate, Lambda, API Gateway, EventBridge, SNS/SQS.
+- **Amazon ECS**, **Amazon EKS**, **Fargate**, **Lambda**, **API Gateway**, **EventBridge**, **SNS**, **SQS**.
 
 ## Comparison with nearby patterns
-**Microservices** vs **SOA** (similar ideas, different era/tooling); vs **serverless functions** (smaller units than “service” sometimes).
+- **Microservices** overlaps with older **service-oriented architecture** ideas but uses **modern** **container** and **serverless** tooling; **Lambda** can be **smaller** than a full **service** in some designs.
 
 ## Example scenarios
-- Checkout, inventory, shipping as separate deployable services behind a BFF or API layer.
-- **Practice (serverless modernization Q):** domain split mirrors **online sales, inventory, order processing, shipping logistics**—microservices + **containers** is the modernization path in options.
+- **Checkout**, **inventory**, and **shipping** as **separate** deployable services behind a **backend-for-frontend** or **API** layer.
+- **Practice (serverless modernization question):** The stem lists **online sales**, **inventory**, **order processing**, and **shipping**—that **domain split** pairs naturally with **microservices** and **containers** in the answer set.
 
 ## Links to related questions
 - [Q: Serverless modernization & multi-cloud](../questions/q-serverless-modernization-multicloud.md)
 
 ## Personal notes / memory hooks
-Microservices + **containers** + **events** is a common exam triple.
+- **Microservices** plus **containers** plus **events** is a common **exam triple**.

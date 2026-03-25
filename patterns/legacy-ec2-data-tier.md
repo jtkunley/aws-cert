@@ -1,32 +1,33 @@
 # Legacy EC2 data tier
 
 ## What it is
-Anti-pattern or transitional state: **self-managed databases** (MySQL, PostgreSQL, etc.) running on **EC2**—you patch OS, backups, failover, and scaling yourself.
+- A **transitional** or **undesirable** state where **databases** such as **MySQL** or **PostgreSQL** run **self-managed** on **Amazon EC2**.
+- You handle **patching**, **backups**, **failover**, and **scaling** yourself instead of using a **managed** database or **warehouse** service.
 
 ## When to use it
-Rare in greenfield; legacy compliance, exotic extensions, or migration interim states.
+- **Rare** in **greenfield** designs; sometimes **compliance**, **exotic extensions**, or a **migration** **interim** keeps engines on **EC2**.
 
 ## When NOT to use it
-Exam scenarios asking for **managed**, **serverless**, or **higher availability** with less ops—move toward **Aurora/RDS**, **DynamoDB**, **Redshift**, etc.
+- Exam scenarios ask for **managed**, **serverless**, or **higher availability** with **less operations**—answers should move toward **Amazon Aurora** or **RDS**, **DynamoDB**, **Redshift**, or other **managed** tiers.
 
 ## Exam clues
-“Database on EC2,” “self-managed,” “patching,” “manual failover,” “legacy.”
+- **Database on EC2**, **self-managed**, **patching**, **manual failover**, and **legacy** language.
 
 ## Common distractors
-Assuming EC2 + ASG “modernizes” the data plane—it doesn’t replace managed DB services.
+- Assuming **EC2** plus **Auto Scaling** **modernizes** the **data plane**—it does **not** replace **managed** database services by itself.
 
 ## Related AWS services
-EC2, EBS, RDS, Aurora, DMS for migration, backup strategies.
+- **EC2**, **EBS**, **RDS**, **Aurora**, **DMS** for **migration**, and **backup** strategies.
 
 ## Comparison with nearby patterns
-**Self-managed on EC2** vs **RDS/Aurora** (AWS manages engine ops); vs **data warehouse** (Redshift) for analytics workloads.
+- **Self-managed on EC2** differs from **RDS** or **Aurora**, where **AWS** manages more of the **engine** operations, and from **Redshift** for **analytics warehouse** roles.
 
 ## Example scenarios
-- Starting point in exam stems: e-commerce MySQL and analytics PostgreSQL both on EC2 before migration.
-- **Practice (serverless modernization Q):** **MySQL** (e-commerce) + **PostgreSQL** (analytics) **on EC2** → split targets **Aurora Serverless MySQL** (OLTP) + **Redshift Serverless** (warehouse), not one **Aurora PostgreSQL** for both roles.
+- **Starting state** in a stem: **e-commerce MySQL** and **analytics PostgreSQL** both on **EC2** before migration.
+- **Practice (serverless modernization question):** Split targets are **Aurora Serverless MySQL** for **OLTP** and **Redshift Serverless** for the **warehouse**, not **one** **Aurora PostgreSQL** cluster for **both** roles.
 
 ## Links to related questions
 - [Q: Serverless modernization & multi-cloud](../questions/q-serverless-modernization-multicloud.md)
 
 ## Personal notes / memory hooks
-Stem starts ugly (EC2 DBs) → answers should **lift data to managed/serverless** tiers.
+- When the stem opens with **ugly EC2 databases**, the **correct** path usually **lifts** data to **managed** or **serverless** tiers.

@@ -1,32 +1,33 @@
 # Storage Gateway hybrid access
 
 ## What it is
-**On-premises** or edge **gateway** presenting **SMB/NFS or iSCSI** while backing to **S3** (File/Volume/Tape modes)—**low-latency local** with cloud durability.
+- **AWS Storage Gateway** runs as an **appliance** or **virtual machine** **on premises** or at the **edge** and presents **SMB**, **NFS**, or **iSCSI** while backing data to **Amazon S3** or related **AWS** storage (depending on mode).
+- **File Gateway**, **Volume Gateway**, and **Tape Gateway** each target different **legacy** and **backup** patterns with **low-latency local** access and **durable** cloud backing.
 
 ## When to use it
-Branch offices, cached reads, extending legacy apps to cloud storage **without rewriting** to S3 API.
+- **Branch offices** need **cached** reads, or you extend **legacy** applications to **cloud** storage **without** rewriting them to the **S3 API** first.
 
 ## When NOT to use it
-When the exam wants **managed file system ENIs in VPC** for **instances in AWS**—compare carefully to **FSx**; gateway is often **on-prem centric**.
+- The exam wants a **managed file system** with **ENIs in the VPC** for **instances already in AWS**—compare carefully to **FSx**; the gateway story is often **on-premises-centric**.
 
 ## Exam clues
-“Storage Gateway,” “File Gateway,” “on-premises SMB,” “cache,” “tape backup.”
+- **Storage Gateway**, **File Gateway**, **on-premises SMB**, **cache**, and **tape backup** language.
 
 ## Common distractors
-Picking **File Gateway** when the answer should be **FSx in AWS** for migrated Windows compute **in the VPC**.
+- Choosing **File Gateway** when the correct answer is **FSx** for **Windows** workloads running **in the VPC**.
 
 ## Related AWS services
-Storage Gateway, S3, Direct Connect, DataSync.
+- **Storage Gateway**, **Amazon S3**, **Direct Connect**, **DataSync**.
 
 ## Comparison with nearby patterns
-**Gateway hybrid** vs **DataSync migration** vs **FSx native cloud file**.
+- **Gateway hybrid** access differs from **DataSync migration** jobs and from **FSx** as **native cloud file**.
 
 ## Example scenarios
-Office workers use SMB share that lands in S3; different from “AWS servers need FSx share.”
+- Office workers use an **SMB** share that lands in **S3**; that is a different shape from **AWS servers** that need an **FSx** share **in-Region**.
 
 ## Links to related questions
 - [Q: Windows file server → FSx + DataSync](../questions/q-windows-fileserver-datasync-fsx.md)
 
 ## Personal notes / memory hooks
-- Ask **where** the primary consumer lives: **on-prem users** vs **instances in VPC**.
-- **Practice (Windows file server Q):** distractor **replaces on-prem file server with File Gateway**—consumer story stays **on-prem–centric** vs **AWS servers** needing **FSx**.
+- Ask **where** the **primary consumers** live: **on-premises users** versus **instances in the VPC**.
+- **Practice (Windows file server question):** The distractor **replaces the on-premises file server with File Gateway** keeps the story at the **edge** instead of giving **AWS-resident** servers a **VPC** **FSx** share.

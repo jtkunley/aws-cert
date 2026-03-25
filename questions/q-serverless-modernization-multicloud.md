@@ -16,18 +16,19 @@ Which of the following options would most efficiently meet these requirements?
 **Option D:** Migrate app components to microservices with Amazon EKS using AWS Fargate. Change e-commerce MySQL to Amazon Aurora MySQL and analytics DB to Amazon Redshift. Use Amazon Kinesis for real-time data streaming.
 
 ## Correct answer
-Option C (exam-style intent: EKS + Fargate for portable microservices, Aurora Serverless + Redshift Serverless for serverless data tiers, EventBridge for event-driven flows—matches serverless + event-driven + multi-cloud Kubernetes narrative).
+- **Option C** is the best match for how this kind of question is usually scored.
+- It combines **Amazon EKS** with **AWS Fargate** so **microservices** run on **Kubernetes** without you managing worker nodes, uses **Amazon Aurora Serverless** and **Amazon Redshift Serverless** for **serverless** relational and **warehouse** tiers, and uses **Amazon EventBridge** to **route** and **integrate** events between services.
 
 ## Why it is correct
-- **Serverless:** Fargate removes worker-node management; **Aurora Serverless** and **Redshift Serverless** align with serverless data planes.
-- **Event-driven + streamlined flows:** **EventBridge** is the standard event-bus pattern for routing and integration between services.
-- **Real-time analytics:** **Redshift Serverless** supports the analytics/warehouse role that PostgreSQL-on-EC2 held; streaming/real-time can feed the warehouse via established patterns.
-- **Multi-cloud:** **EKS** (Kubernetes) matches portability across other CSPs’ Kubernetes clusters better than ECS in typical exam framing.
+- **Serverless posture:** **Fargate** removes **EC2 worker-node** management for the container plane, while **Aurora Serverless** and **Redshift Serverless** keep the **data** side aligned with a **serverless** ask in the stem.
+- **Event-driven flows:** **EventBridge** is the usual **event bus** answer when the scenario wants to **streamline** and **coordinate** data flow across **many services** with **rules** and **targets**.
+- **Real-time analytics:** **Redshift Serverless** fits the **analytics warehouse** role that **PostgreSQL on EC2** held; **real-time** paths can still **feed** the warehouse through **ingestion** patterns the exam accepts without forcing **Kinesis** into every correct option.
+- **Multi-cloud:** **EKS** (**Kubernetes**) lines up with running **similar clusters** on **other cloud providers** better than **ECS** in typical **exam framing**, because **Kubernetes** is the **portable** control plane across vendors.
 
 ## Why the other options are wrong
-- **Option A:** Strong on serverless containers and EventBridge, but **ECS** is less aligned with explicit **multi-cloud Kubernetes** portability than **EKS** when the stem calls out other cloud providers’ clusters.
-- **Option B:** **EC2 + ASG** is not **serverless**; consolidating analytics into **Aurora PostgreSQL** blurs OLTP vs **warehouse** (analytics PostgreSQL on EC2 → **Redshift** family is a better analytics target); **SNS** is pub/sub, not a full event-bus replacement for complex routing.
-- **Option D:** **EKS + Fargate** fits, and **Kinesis** fits **real-time streaming**, but **Aurora MySQL** and **Redshift** without **Serverless** weaken the explicit **serverless architecture** requirement compared to Option C’s **Aurora Serverless** + **Redshift Serverless**; EventBridge in C also maps cleanly to “streamline application data flows” as an integration bus.
+- **Option A** is strong on **serverless containers** and **EventBridge**, but **Amazon ECS** is a weaker fit than **EKS** when the stem **explicitly** calls out **additional clusters on other cloud service providers** and **Kubernetes** portability.
+- **Option B** keeps **EC2** and **Auto Scaling groups**, which is **not** a **serverless** architecture. Moving both **OLTP** and **analytics** into **one Amazon Aurora PostgreSQL** blurs **transactional** versus **warehouse** roles; **analytics PostgreSQL on EC2** usually maps to the **Redshift** family. **Amazon SNS** is **pub/sub**, not a full **event bus** replacement for **rich routing** like **EventBridge**.
+- **Option D** keeps **EKS** and **Fargate**, and **Amazon Kinesis** matches **real-time streaming** language, but **Amazon Aurora MySQL** and **Amazon Redshift** **without** the **Serverless** names weaken the stem’s **serverless architecture** requirement compared with **Option C**. **Option C** also maps **streamline application data flows** cleanly to **EventBridge** as an **integration bus**.
 
 ## Services involved
 - [Amazon EC2](../services/amazon-ec2.md), [EC2 Auto Scaling](../services/amazon-ec2-auto-scaling.md)
@@ -48,10 +49,12 @@ Option C (exam-style intent: EKS + Fargate for portable microservices, Aurora Se
 - [Legacy EC2 data tier](../patterns/legacy-ec2-data-tier.md)
 
 ## Trap type
-**Partial fit:** Options that sound modern (EKS, Kinesis, Aurora) but miss **serverless** qualifiers or swap **event bus** vs **streaming** vs **SNS** incorrectly; **ECS vs EKS** on multi-cloud wording.
+- **Partial fit:** Answers that sound modern (**EKS**, **Kinesis**, **Aurora**) but drop **serverless** qualifiers on the **data tier**, or mix up **event bus** (**EventBridge**), **streaming** (**Kinesis**), and **pub/sub** (**SNS**).
+- Watch **ECS versus EKS** when the stem mentions **multi-cloud** and **Kubernetes** on **other providers**.
 
 ## Confidence / review status
-Unreviewed — revisit after timed practice; validate against current AWS exam guides for wording on “serverless” (provisioned Aurora vs Aurora Serverless naming).
+- **Unreviewed** under exam conditions; revisit after **timed** practice.
+- Confirm wording against the **current** exam guide if **Amazon** tightens what **serverless** means (**provisioned Aurora** versus **Aurora Serverless** naming).
 
 ## Source asset
 - Screenshot: `/Users/james/.cursor/projects/Users-james-work-aws-cert/assets/Screenshot_2026-03-24_at_8.29.40_PM-caf5db23-2a64-47d9-a69f-1d9d5a32fef1.png`

@@ -1,32 +1,32 @@
 # Real-time analytics
 
 ## What it is
-Analyzing data with **low latency** from ingestion to insight: dashboards, alerts, fraud scoring, operational metrics as data arrives—not only nightly batches.
+- You analyze data with **low latency** from **ingestion** to **insight**: **dashboards**, **alerts**, **fraud** scoring, or **operational metrics** as data **arrives**, not only in **nightly** batches.
 
 ## When to use it
-Live ops dashboards, streaming KPIs, anomaly detection on streams, near-real-time personalization within SLA.
+- **Live operations** dashboards, **streaming KPIs**, **anomaly detection** on **streams**, or **near-real-time personalization** within a clear **SLA**.
 
 ## When NOT to use it
-Historical reporting tolerating hours delay—batch **Glue/EMR** or scheduled Redshift loads may suffice and cost less.
+- **Historical reporting** can tolerate **hours** of delay—**batch** jobs on **AWS Glue** or **Amazon EMR**, or **scheduled** **Redshift** loads, may **cost less** and stay simpler.
 
 ## Exam clues
-“Real-time,” “streaming,” “sub-minute,” “continuous ingest,” “live dashboard,” clickstream/IoT volume.
+- **Real-time**, **streaming**, **sub-minute**, **continuous ingest**, **live dashboard**, and **high-volume** **clickstream** or **IoT** language.
 
 ## Common distractors
-- **EventBridge** for app integration vs **Kinesis** for high-throughput stream analytics—match the stem’s volume and processing model.
-- **Practice (serverless modernization Q):** stem asks **real-time analytics**; **Kinesis** option is tempting but may lose on **serverless data plane** + **event bus** combo—**Redshift Serverless** + **EventBridge** can still satisfy analytics intent.
+- Confusing **EventBridge** (**application integration**) with **Kinesis** (**high-throughput stream analytics**)—match **volume** and **processing** model to the stem.
+- **Practice (serverless modernization question):** **Real-time analytics** makes **Kinesis** tempting, but another option may still win on **serverless data planes** plus an **event bus**—**Redshift Serverless** with **EventBridge** can still satisfy **analytics** intent without forcing **Kinesis** into the **keyed** answer.
 
 ## Related AWS services
-Kinesis (Streams, Firehose, Data Analytics), MSK, Lambda, OpenSearch, Redshift (including streaming ingestion patterns), QuickSight.
+- **Kinesis** (Data Streams, Data Firehose, Data Analytics), **Amazon MSK**, **Lambda**, **Amazon OpenSearch Service**, **Amazon Redshift** (including **streaming ingestion** patterns), **Amazon QuickSight**.
 
 ## Comparison with nearby patterns
-**Real-time analytics** vs **event-driven workflows**: overlap but analytics stresses **aggregate/query** paths on continuous data.
+- **Real-time analytics** overlaps with **event-driven** workflows, but **analytics** stresses **aggregate** and **query** paths on **continuous** data.
 
 ## Example scenarios
-Kinesis → Lambda/KDA → OpenSearch/Redshift for live sales and inventory metrics.
+- **Kinesis** to **Lambda** or **Kinesis Data Analytics** to **OpenSearch** or **Redshift** for **live** sales and **inventory** metrics.
 
 ## Links to related questions
 - [Q: Serverless modernization & multi-cloud](../questions/q-serverless-modernization-multicloud.md)
 
 ## Personal notes / memory hooks
-“Streaming + analytics” → Kinesis/MSK family; “business events between apps” → EventBridge.
+- **Streaming plus analytics** → **Kinesis** or **MSK** family; **business events between apps** → **EventBridge**.

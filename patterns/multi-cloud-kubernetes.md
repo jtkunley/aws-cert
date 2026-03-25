@@ -1,32 +1,35 @@
 # Multi-cloud with Kubernetes
 
 ## What it is
-Running the same **container workloads** and Kubernetes patterns on **EKS** and on other clouds’ Kubernetes (GKE, AKS, etc.) for portability, resilience, or latency—often same images, Helm charts, GitOps.
+- You run the **same container images** and **Kubernetes** patterns on **Amazon EKS** and on **other** clouds’ **Kubernetes** offerings (for example **GKE** or **AKS**) for **portability**, **resilience**, or **latency**.
+- Teams often reuse **Helm** charts, **GitOps**, and similar **tooling** across clusters.
 
 ## When to use it
-Regulatory/geo requirements, acquisition of multiple clouds, avoiding single-vendor API lock-in for the **orchestration** layer, global performance with local clusters.
+- **Regulatory** or **geography** rules, **acquisitions** that span **clouds**, or a strategy to avoid **lock-in** at the **orchestration** layer.
+- You want **global** performance with **local** clusters in more than one **cloud service provider**.
 
 ## When NOT to use it
-AWS-only roadmap with no K8s expertise—**ECS** may reduce complexity; small static workloads.
+- The roadmap is **AWS-only** and the team lacks **Kubernetes** depth—**Amazon ECS** can reduce **complexity** for some teams.
+- Workloads are **small** and **static**.
 
 ## Exam clues
-“Multi-cloud,” “other cloud providers,” “Kubernetes,” “portable workloads,” “same clusters elsewhere.”
+- **Multi-cloud**, **other cloud service providers**, **Kubernetes**, **portable workloads**, and **same clusters elsewhere**.
 
 ## Common distractors
-**ECS** is powerful on AWS but less aligned with “same as GKE/AKS” portability than **EKS**.
+- **Amazon ECS** is strong on **AWS** but is **less** aligned with “**same as** **GKE** or **AKS**” **portability** than **EKS** in typical **exam** framing.
 
 ## Related AWS services
-EKS, Fargate (EKS), ECR, App Mesh, ExternalDNS, cluster autoscaler, hybrid with Outposts (related but not multi-cloud CSP).
+- **Amazon EKS**, **Fargate** for **EKS**, **Amazon ECR**, **AWS App Mesh**, **ExternalDNS**, **cluster autoscaler**, and **related** hybrid offerings where the stem applies.
 
 ## Comparison with nearby patterns
-**Multi-cloud K8s** vs **single-cloud PaaS** (Elastic Beanstalk, Lightsail); vs **Lambda everywhere** (different portability story).
+- **Multi-cloud Kubernetes** differs from **single-cloud PaaS** (**Elastic Beanstalk**, **Lightsail**) and from **Lambda everywhere**, which is a different **portability** story.
 
 ## Example scenarios
-- E-commerce runs EKS in AWS and a second CSP region/cluster for failover or edge performance.
-- **Practice (serverless modernization Q):** explicit **“additional clusters on other cloud service providers”** tilts **EKS** over **ECS** even when both are otherwise serverless-ready.
+- **E-commerce** runs **EKS** in **AWS** and a **second** cluster at another **provider** for **failover** or **edge** performance.
+- **Practice (serverless modernization question):** When the stem explicitly mentions **additional clusters on other cloud service providers**, **EKS** often **beats** **ECS** even when both options look **modern** otherwise.
 
 ## Links to related questions
 - [Q: Serverless modernization & multi-cloud](../questions/q-serverless-modernization-multicloud.md)
 
 ## Personal notes / memory hooks
-Stem mentions **other cloud providers** + containers → **EKS** often beats **ECS** in exam intent.
+- **Other cloud providers** plus **containers** in the stem → lean toward **EKS** over **ECS** unless the question **narrows** the scope to **AWS-only** portability.

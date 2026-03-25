@@ -1,32 +1,34 @@
 # Event-driven architecture
 
 ## What it is
-Components react to **events** (state changes, signals, schedules) instead of synchronous chains only; producers don’t need to know all consumers; coupling is reduced.
+- Components **react** to **events** (state changes, signals, schedules) instead of relying only on **synchronous** call chains.
+- **Producers** do not need to know every **consumer** in advance, which **reduces coupling** between teams and services.
 
 ## When to use it
-Multiple downstream reactions to one business event, async workflows, extensibility (add consumers without changing producer), decoupled microservices.
+- One **business event** should trigger **several** independent downstream actions.
+- You want **asynchronous** workflows, **extensibility** (add consumers without changing the producer), or **decoupled microservices**.
 
 ## When NOT to use it
-Simple request/response with strict synchronous UX and no fan-out; debugging complexity unacceptable without strong observability.
+- The user experience is strictly **request–response** with **no fan-out**, or **observability** is too weak for the team to operate **async** flows safely.
 
 ## Exam clues
-“Event-driven,” “decouple,” “publish event,” “react to changes,” “orchestration vs choreography.”
+- Wording like **event-driven**, **decouple**, **publish event**, **react to changes**, and **choreography** versus **orchestration**.
 
 ## Common distractors
-Using **SNS** alone when the stem implies **routing rules**, schedules, or SaaS sources—**EventBridge** is often the better fit.
+- Choosing **Amazon SNS** alone when the stem implies **routing rules**, **schedules**, or **SaaS** sources—**Amazon EventBridge** is often the better fit.
 
 ## Related AWS services
-EventBridge, SNS, SQS, Lambda, Step Functions, Kinesis (stream of events), EventBridge Pipes.
+- **EventBridge**, **SNS**, **SQS**, **Lambda**, **Step Functions**, **Amazon Kinesis** (as a stream of events), **EventBridge Pipes**.
 
 ## Comparison with nearby patterns
-**Event-driven** vs **batch ETL** on a clock; vs **streaming** (continuous high-volume) where Kinesis leads.
+- **Event-driven** design differs from **batch ETL** on a **clock** and from **streaming** at **shard** scale where **Kinesis** leads.
 
 ## Example scenarios
-- `OrderCreated` event triggers payment, inventory, and analytics updates independently.
-- **Practice (serverless modernization Q):** **EventBridge** chosen to **streamline application data flows** between microservices vs **SNS** or **Kinesis** distractors.
+- An **OrderCreated** event triggers **payment**, **inventory**, and **analytics** updates **independently**.
+- **Practice (serverless modernization question):** **EventBridge** matches **streamline application data flows** between **microservices** better than **SNS-only** or **Kinesis-only** distractors in that framing.
 
 ## Links to related questions
 - [Q: Serverless modernization & multi-cloud](../questions/q-serverless-modernization-multicloud.md)
 
 ## Personal notes / memory hooks
-Event-driven + AWS exam → **EventBridge** is the default “bus” answer unless pure fan-out (SNS).
+- **Event-driven** plus **AWS** exam → draw **EventBridge** first as the **bus** unless the stem is pure **fan-out** (**SNS**).

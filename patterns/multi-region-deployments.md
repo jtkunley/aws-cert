@@ -1,32 +1,35 @@
 # Multi-region deployments
 
 ## What it is
-Running workloads in **more than one AWS Region** for latency to users, disaster recovery, regulatory residency, or capacity; data and traffic patterns must be designed (read replicas, Global Accelerator, Route 53, Aurora Global Database, etc.).
+- You run workloads in **more than one AWS Region** for **latency** to users, **disaster recovery**, **regulatory residency**, or **capacity**.
+- **Data** and **traffic** patterns must be designed on purpose: **read replicas**, **AWS Global Accelerator**, **Amazon Route 53** policies, **Aurora Global Database**, and similar building blocks.
 
 ## When to use it
-User bases spread globally, RTO/RPO requiring geographic failover, data sovereignty, scaling beyond a single region’s limits.
+- Users are spread **globally**, **RTO** and **RPO** call for **geographic failover**, **data sovereignty** applies, or a single **Region** limit matters.
 
 ## When NOT to use it
-Premature complexity for single-region users with no compliance driver; when the exam answer is cheaper single-region HA across **AZs** only.
+- **Complexity** is **premature** for **single-Region** users with **no** compliance driver.
+- The **exam** answer is **high availability across Availability Zones** **only** inside **one Region**.
 
 ## Exam clues
-- “Multiple regions,” “low latency worldwide,” “failover between regions,” “active-active,” “global audience,” “Aurora Global Database,” “Route 53 routing policies.”
-- **Practice (serverless modernization Q):** stem mentions **EC2 across multiple regions**—multi-region is **current-state context**; keyed answer may still pivot to **multi-cloud** (other CSPs) separately.
+- **Multiple Regions**, **low latency worldwide**, **failover between regions**, **active-active**, **global audience**, **Aurora Global Database**, and **Route 53 routing policies**.
+- **Practice (serverless modernization question):** **EC2 across multiple regions** describes **current state**; the **keyed** answer may still emphasize **multi-cloud** (**other providers**) as a **separate** requirement.
 
 ## Common distractors
-- Confusing **multi-AZ** (one region) with **multi-region**; choosing multi-region when stem only needs **AZ** high availability.
+- Mixing up **multi-AZ** (**one Region**) with **multi-region** designs.
+- Choosing **multi-region** when the stem only needs **AZ-level** resilience.
 
 ## Related AWS services
-Route 53, CloudFront, Global Accelerator, Aurora Global Database, DynamoDB global tables, S3 cross-region replication, multi-region KMS.
+- **Route 53**, **Amazon CloudFront**, **Global Accelerator**, **Aurora Global Database**, **DynamoDB global tables**, **S3 cross-Region replication**, **multi-Region KMS**.
 
 ## Comparison with nearby patterns
-**Multi-region** vs **multi-cloud**: different axis (AWS geography vs multiple CSPs); stems may require both.
+- **Multi-region** is **AWS geography**; **multi-cloud** is **multiple CSPs**; stems sometimes need **both**.
 
 ## Example scenarios
-E-commerce front ends in `us-east-1` and `eu-west-1` with regional data residency rules.
+- **E-commerce** front ends in **us-east-1** and **eu-west-1** with **data residency** rules per **jurisdiction**.
 
 ## Links to related questions
 - [Q: Serverless modernization & multi-cloud](../questions/q-serverless-modernization-multicloud.md)
 
 ## Personal notes / memory hooks
-Stem says “across multiple regions” → flag DR/latency patterns; combine with **multi-cloud** only when other CSPs are explicit.
+- **Across multiple regions** in the stem → flag **DR** and **latency** patterns; add **multi-cloud** only when **other providers** are **explicit**.

@@ -1,32 +1,36 @@
 # Hybrid cloud storage migration
 
 ## What it is
-Keeping **on-premises** systems while moving or mirroring data into AWS over **private or VPN** links (**Direct Connect**, Site-to-Site VPN), often during **phased** application migration.
+- You keep **on-premises** systems running while you **move** or **mirror** data into **AWS** over **private** or **VPN** links such as **AWS Direct Connect** or **Site-to-Site VPN**.
+- Migrations are often **phased**: part of the workload is already in the cloud, and data must stay **consistent** across both sides for a while.
 
 ## When to use it
-Partial workload already in cloud, **ongoing sync**, regulated networks, large datasets that need **predictable** pipe to VPC.
+- Part of the workload is **already in AWS**, but **source systems** or **users** remain on premises.
+- You need **ongoing sync**, **regulated** network paths, or **large** datasets that benefit from a **predictable** pipe into a **VPC**.
 
 ## When NOT to use it
-Greenfield all-in-cloud with no on-prem source; **offline** seed only—consider **Snow** for first load.
+- The project is **greenfield** and **fully in the cloud** with no on-premises source.
+- The first load is **offline-only**—**Snow Family** may headline the **initial seed** story.
 
 ## Exam clues
-“On-premises,” “Direct Connect to VPC,” “half migrated,” “hybrid,” “Windows server still on-prem.”
+- Look for **on-premises**, **Direct Connect to the VPC**, **half migrated**, **hybrid**, and **Windows server still on premises**.
 
 ## Common distractors
-Picking **only** connectivity (DX) without a **transfer or file** service; confusing **hybrid access** (gateway on-prem) with **cloud-native file** (FSx in VPC).
+- Choosing **only** **Direct Connect** without naming **how** data moves (**DataSync**, **Storage Gateway**, and so on) or **where** it lands (**FSx**, **S3**).
+- Mixing up **hybrid access** through a **gateway on premises** with a **cloud-native file system** (**FSx** **ENIs** in the **VPC**).
 
 ## Related AWS services
-Direct Connect, VPN, DataSync, Storage Gateway, FSx, S3, Snow Family.
+- **Direct Connect**, **VPN**, **DataSync**, **Storage Gateway**, **Amazon FSx**, **Amazon S3**, **AWS Snow Family**.
 
 ## Comparison with nearby patterns
-**Hybrid migration** vs **lift-and-shift all to EC2**; vs **cloud-only** greenfield.
+- **Hybrid migration** differs from **lift-and-shift everything to EC2** and from a **cloud-only** greenfield design.
 
 ## Example scenarios
-- 1 TB Windows share on-prem; Windows instances in VPC need the same data—**FSx + DataSync** over DX.
-- **Practice (Windows file server Q):** **~half** Windows workload migrated; **1 TB** + **5 GB/day**; **Direct Connect** already provisioned—still add **DataSync** + **FSx** for cloud-side file system.
+- About **1 TB** on a **Windows** share on premises; **Windows** instances in a **VPC** need that data on a **file system in AWS**—often **FSx** plus **DataSync** over **Direct Connect**.
+- **Practice (Windows file server question):** About **half** of **Windows** workloads migrated, **1 TB** plus **5 GB per day**, **Direct Connect** already there—you still add **DataSync** and **FSx** so **AWS** servers get a **proper share**.
 
 ## Links to related questions
 - [Q: Windows file server → FSx + DataSync](../questions/q-windows-fileserver-datasync-fsx.md)
 
 ## Personal notes / memory hooks
-**DX in the stem** → you still need **what moves the data** and **where it lands**.
+- **Direct Connect** in the stem means you already have a **path**; you still choose **what moves the bits** and **where they live**.

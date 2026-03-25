@@ -1,32 +1,35 @@
 # File storage vs object storage
 
 ## What it is
-**File** (NFS/SMB, folders, POSIX/Windows semantics) vs **object** (flat namespace, keys, HTTP API, different consistency model)—**EFS/FSx** vs **S3**.
+- **File** storage speaks **NFS** or **SMB**, uses **folders** and paths, and follows **POSIX** or **Windows** semantics on a **mountable** share.
+- **Object** storage (for example **Amazon S3**) uses **buckets** and **keys**, **REST**-style access, and a different **consistency** and **locking** model than a traditional **file server**.
+- **EFS** and **FSx** sit on the **file** side; **S3** sits on the **object** side.
 
 ## When to use it
-Disambiguate exam answers: apps need **mountable file paths** vs **PUT/GET objects** and analytics.
+- Use this lens to **disambiguate** answers when the stem says **file system** versus **bucket** or **object**.
+- Applications need either **mountable paths** or **PUT and GET** style **object** workflows and **analytics** on **S3**.
 
 ## When NOT to use it
-N/A—this is a lens, not a deployment choice by itself.
+- This section is a **mental model**, not a deployment choice by itself.
 
 ## Exam clues
-“File system for servers,” “SMB,” “NFS,” vs “bucket,” “object,” “S3.”
+- Contrast **file system for servers**, **SMB**, and **NFS** with **bucket**, **object**, and **S3**.
 
 ## Common distractors
-**DataSync to S3 + Transfer** presented as equivalent to **FSx** for Windows app storage—usually wrong when stem demands **file system** semantics in VPC.
+- **DataSync into S3** plus **Transfer Family** is presented as equal to **FSx** for **Windows application** storage; that is usually wrong when the stem insists on a **file system** in the **VPC** for **Windows** servers.
 
 ## Related AWS services
-S3, EFS, FSx (Windows/ONTAP/OpenZFS), EBS.
+- **Amazon S3**, **Amazon EFS**, **Amazon FSx** (Windows, ONTAP, OpenZFS), **Amazon EBS**.
 
 ## Comparison with nearby patterns
-**Block (EBS)** is third axis: attach volume to **one** instance (mostly).
+- Add **block** storage (**EBS**) as a third axis: volumes **attach** to an instance and are not a **shared SMB** story for many workloads.
 
 ## Example scenarios
-Windows apps in AWS need drive-letter style access → **file** tier, not raw S3 objects.
+- **Windows** applications in **AWS** expect **drive-letter** style access—choose the **file** tier, not raw **S3** objects, unless another service bridges the gap.
 
 ## Links to related questions
 - [Q: Windows file server → FSx + DataSync](../questions/q-windows-fileserver-datasync-fsx.md)
 
 ## Personal notes / memory hooks
-- Read “file system” literally—**S3 is not NTFS**.
-- **Practice (Windows file server Q):** **DataSync → S3** is still **object** landing zone; does not replace **SMB file share** semantics for typical Windows apps in VPC.
+- Read **file system** literally: **S3 is not NTFS**.
+- **Practice (Windows file server question):** **DataSync to S3** still lands **objects**; it does not satisfy **SMB share** semantics for typical **Windows** apps in the **VPC** by itself.
