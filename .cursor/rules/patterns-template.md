@@ -1,6 +1,6 @@
 # Pattern Name
 
-_Add new facts as markdown bullets (`-`) under each section; when ingesting questions, append bullets—do not replace the whole page._
+_Add new facts as markdown bullets (`-`) under each section; when ingesting questions, append bullets—do not replace the whole page. **Links to `../questions/` appear only under “Links to related questions”;** elsewhere use plain-text references, not question hyperlinks._
 
 ## What it is
 ## When to use it

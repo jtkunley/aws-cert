@@ -81,7 +81,9 @@ For **each** service linked from the question’s “Services involved” sectio
   - **Architecture patterns:** concrete combos (e.g. “DataSync + FSx + Direct Connect”) this question reinforces.
   - **Example scenarios:** short scenario bullets grounded in real question stems.
   - **Comparison with nearby services:** one bullet per new contrast the question forces (vs named alternates in options).
-  - **Links to related questions:** **one bullet per question**, e.g. `- [Q: short title](../questions/q-….md)`; append the current question if not already listed.
+  - **Links to related questions:** **only section** that may contain **markdown links** to `../questions/q-….md`—**one bullet per question**, e.g. `- [Q: short title](../questions/q-….md)`; append the current question if not already listed.
+
+- **No question links elsewhere (services):** In **every other section**, do **not** link to question files. Use plain text only (e.g. **Practice (serverless modernization Q):** … or a neutral stem summary). Links to **patterns** or **services** in body sections are allowed when helpful; **question** URLs belong solely under **Links to related questions**.
 
 - Keep wording **exam-oriented** (contrasts, traps), not marketing copy.
 
@@ -93,7 +95,7 @@ For **each** service linked from the question’s “Services involved” sectio
 
 For **each** pattern linked from the question’s “Pattern tags” section:
 
-- If **`patterns/<name>.md` exists**, apply the **same bullet-merge discipline as services**: for each **new** insight from this question, add **one `-` bullet** under the best section—**Exam clues**, **Common distractors**, **Related AWS services**, **Comparison with nearby patterns**, **Example scenarios**, **Personal notes / memory hooks**, or **When to use / When NOT** when the question adds a new condition. Preserve existing bullets; **append** only. **Links to related questions:** one bullet link per question file, including the new one.
+- If **`patterns/<name>.md` exists**, apply the **same bullet-merge discipline as services**: for each **new** insight from this question, add **one `-` bullet** under the best section—**Exam clues**, **Common distractors**, **Related AWS services**, **Comparison with nearby patterns**, **Example scenarios**, **Personal notes / memory hooks**, or **When to use / When NOT** when the question adds a new condition. Preserve existing bullets; **append** only. **Links to related questions** is the **only** section that may link to `../questions/q-….md`; other sections use plain-text references only (same rule as services).
 - If **missing**, create using **`.cursor/rules/patterns-template.md`** headings (note: **Related AWS services** instead of “Architecture patterns”). Seed sections with bullets from this question where possible.
 
 Typical patterns to consider (only if the question touches them):
@@ -111,8 +113,8 @@ Typical patterns to consider (only if the question touches them):
 - Use **relative paths** from the file being edited:
   - From `questions/q-….md` → `../services/...`, `../patterns/...`
   - From `services/*.md` or `patterns/*.md` → `../questions/q-….md`
-- **Every** service page created or updated for this intake should link back to the question file under “Links to related questions.”
-- **Every** pattern page created or updated for this intake should link back to the question file the same way.
+- **Every** service page created or updated for this intake should list the question under **“Links to related questions”** only (no question links in other sections).
+- **Every** pattern page created or updated for this intake should list the question under **“Links to related questions”** only (same rule).
 - Keep **one question per file**; if the user pastes multiple questions, create multiple `q-….md` files and merge services/patterns once per batch.
 
 ---
