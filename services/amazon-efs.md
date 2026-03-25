@@ -3,6 +3,9 @@
 ## What it is
 Managed **NFS** file storage that **scales elastically**, shared across **many** Linux instances/AZ; POSIX file API.
 
+## Personal notes / memory hooks
+**Linux + NFS** → EFS. **Windows + SMB** → FSx for Windows.
+
 ## When to use it
 Linux web/content tiers, containers needing shared file state, CI artifacts, **high concurrency** readers/writers with NFS.
 
@@ -27,6 +30,3 @@ Auto-scaling Linux fleet sharing `/mnt/content`; **not** the best answer for cla
 
 ## Links to related questions
 - [Q: Windows file server → FSx + DataSync](../questions/q-windows-fileserver-datasync-fsx.md)
-
-## Personal notes / memory hooks
-**Linux + NFS** → EFS. **Windows + SMB** → FSx for Windows.

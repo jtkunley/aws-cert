@@ -3,6 +3,9 @@
 ## What it is
 Real-time **streaming data** platform (Data Streams, Data Firehose, Data Analytics, Video Streams) for ingest, processing, and delivery of continuous data.
 
+## Personal notes / memory hooks
+“Real-time analytics” + **continuous ingest** → Kinesis is a strong signal (vs EventBridge for app integration).
+
 ## When to use it
 High-volume **real-time** ingestion, clickstreams, IoT telemetry, log aggregation, stream processing (KDA/Flink), building custom consumers with shards.
 
@@ -28,6 +31,3 @@ Loose **application integration** and business events between services—**Event
 
 ## Links to related questions
 - [Q: Serverless modernization & multi-cloud](../questions/q-serverless-modernization-multicloud.md)
-
-## Personal notes / memory hooks
-“Real-time analytics” + **continuous ingest** → Kinesis is a strong signal (vs EventBridge for app integration).

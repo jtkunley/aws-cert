@@ -3,6 +3,9 @@
 ## What it is
 Serverless **event bus**: ingest events from AWS services, custom applications, SaaS partners, and route/filter/transform to targets (Lambda, SQS, ECS, API destinations, etc.).
 
+## Personal notes / memory hooks
+“Streamline application data flows” + decoupling → **EventBridge** is a flagship answer.
+
 ## When to use it
 **Event-driven** architectures, decoupled microservices, scheduled rules (cron), SaaS integration, cross-account event sharing, schema registry workflows.
 
@@ -30,6 +33,3 @@ Simple fan-out to many subscribers where **SNS** is enough and you don’t need 
 
 ## Links to related questions
 - [Q: Serverless modernization & multi-cloud](../questions/q-serverless-modernization-multicloud.md)
-
-## Personal notes / memory hooks
-“Streamline application data flows” + decoupling → **EventBridge** is a flagship answer.

@@ -3,6 +3,10 @@
 ## What it is
 Serverless compute for containers: run ECS or EKS pods without provisioning or managing EC2 instances for the worker layer.
 
+## Personal notes / memory hooks
+- Fargate = “containers without the node fleet.” Pairs with ECS *or* EKS.
+- **Practice (serverless modernization Q):** **serverless** requirement applies to **compute (Fargate)** and often to **data (Aurora Serverless, Redshift Serverless)** in the same keyed answer.
+
 ## When to use it
 Containerized workloads where you want **no EC2 patching/scaling** for workers, variable traffic, and simpler ops than self-managed node groups.
 
@@ -28,7 +32,3 @@ Calling Fargate “Lambda for containers” in a pedantic sense—it’s still l
 
 ## Links to related questions
 - [Q: Serverless modernization & multi-cloud](../questions/q-serverless-modernization-multicloud.md)
-
-## Personal notes / memory hooks
-- Fargate = “containers without the node fleet.” Pairs with ECS *or* EKS.
-- **Practice (serverless modernization Q):** **serverless** requirement applies to **compute (Fargate)** and often to **data (Aurora Serverless, Redshift Serverless)** in the same keyed answer.

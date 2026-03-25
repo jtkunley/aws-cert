@@ -3,6 +3,9 @@
 ## What it is
 Managed **FTP, SFTP, FTPS** endpoints that integrate with **S3** (and **EFS** in supported patterns), for partners and legacy transfer clients.
 
+## Personal notes / memory hooks
+**Protocols (SFTP/FTP)** → Transfer Family. **Copy/sync jobs** → DataSync.
+
 ## When to use it
 B2B file exchange via **SFTP/FTP**, replacing self-hosted transfer servers; ingest to **S3** without custom EC2 FTP.
 
@@ -27,6 +30,3 @@ Vendor drops CSV via SFTP into a landing bucket.
 
 ## Links to related questions
 - [Q: Windows file server → FSx + DataSync](../questions/q-windows-fileserver-datasync-fsx.md)
-
-## Personal notes / memory hooks
-**Protocols (SFTP/FTP)** → Transfer Family. **Copy/sync jobs** → DataSync.

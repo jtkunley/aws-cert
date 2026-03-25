@@ -3,6 +3,9 @@
 ## What it is
 AWS-native container orchestration: run Docker containers as tasks/services, integrated with IAM, VPC, and AWS load balancers.
 
+## Personal notes / memory hooks
+ECS = “AWS’s own scheduler.” EKS = “Kubernetes as a service.”
+
 ## When to use it
 AWS-centric microservices, tight integration with AWS APIs, simpler learning curve than Kubernetes for teams standardized on AWS.
 
@@ -30,6 +33,3 @@ When the exam emphasizes **portable Kubernetes** workloads across clouds or stro
 
 ## Links to related questions
 - [Q: Serverless modernization & multi-cloud](../questions/q-serverless-modernization-multicloud.md)
-
-## Personal notes / memory hooks
-ECS = “AWS’s own scheduler.” EKS = “Kubernetes as a service.”

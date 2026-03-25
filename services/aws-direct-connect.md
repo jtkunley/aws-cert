@@ -3,6 +3,9 @@
 ## What it is
 Dedicated or hosted **private network connectivity** from on-premises to AWS, bypassing the public internet for **stable bandwidth and lower latency** into **VPC** (and many AWS services via **public/private VIFs**).
 
+## Personal notes / memory hooks
+- DX = **pipe**; look for another service that **moves or serves** the bits.
+
 ## When to use it
 Hybrid workloads, **large ongoing data movement**, predictable throughput, compliance-sensitive paths; pairs with **DataSync**, **Storage Gateway**, hybrid AD, etc.
 
@@ -27,6 +30,3 @@ Small sporadic transfers where **Site-to-Site VPN** is enough; need instant zero
 
 ## Links to related questions
 - [Q: Windows file server → FSx + DataSync](../questions/q-windows-fileserver-datasync-fsx.md)
-
-## Personal notes / memory hooks
-- DX = **pipe**; look for another service that **moves or serves** the bits.

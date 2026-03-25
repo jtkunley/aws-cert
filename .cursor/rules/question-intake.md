@@ -70,17 +70,17 @@ For **each** service linked from the question’s “Services involved” sectio
 - If **`services/<name>.md` already exists**, **merge and grow the note**: extract every **new, non-duplicate** insight from this question (stem, correct path, wrong options) and add it as **one markdown bullet per insight** (`- …`) under the **best-matching section(s)**. Do **not** replace prior content; **append** bullets. If a section is still a single paragraph from an older pass, **convert** that paragraph to bullets when you touch it, or leave legacy prose and add a new bullet list block below it—prefer consistency in the file over time.
 - If **missing**, create the file using the **exact section headings** from `.cursor/rules/services-template.md`:
 
-  `What it is` → `When to use it` → `When NOT to use it` → `Exam clues` → `Common distractors` → `Architecture patterns` → `Comparison with nearby services` → `Example scenarios` → `Links to related questions` → `Personal notes / memory hooks`
+  `What it is` → `Personal notes / memory hooks` → `When to use it` → `When NOT to use it` → `Exam clues` → `Common distractors` → `Architecture patterns` → `Comparison with nearby services` → `Example scenarios` → `Links to related questions`
 
 - **Where to put bullets (services):**
+  - **What it is:** add bullets sparingly—only for **new factual** nuggets not already stated; otherwise use other sections.
+  - **Personal notes / memory hooks:** mnemonic bullets from this question (section sits **directly under What it is** in every service page).
+  - **When to use / When NOT:** add bullets only when the question adds a **new** condition or exception; keep each bullet one line when possible.
   - **Exam clues:** new phrases, pairings, or stem keywords tied to this service.
   - **Common distractors:** wrong answers or traps that abuse this service vs a neighbor.
   - **Architecture patterns:** concrete combos (e.g. “DataSync + FSx + Direct Connect”) this question reinforces.
   - **Example scenarios:** short scenario bullets grounded in real question stems.
   - **Comparison with nearby services:** one bullet per new contrast the question forces (vs named alternates in options).
-  - **When to use / When NOT:** add bullets only when the question adds a **new** condition or exception; keep each bullet one line when possible.
-  - **What it is:** add bullets sparingly—only for **new factual** nuggets not already stated; otherwise use other sections.
-  - **Personal notes / memory hooks:** mnemonic bullets from this question.
   - **Links to related questions:** **one bullet per question**, e.g. `- [Q: short title](../questions/q-….md)`; append the current question if not already listed.
 
 - Keep wording **exam-oriented** (contrasts, traps), not marketing copy.

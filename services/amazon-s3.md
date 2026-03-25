@@ -3,6 +3,9 @@
 ## What it is
 Object storage: buckets, keys, virtually unlimited scale, **11 nines** durability (standard tier), lifecycle, versioning, and many analytics/ML integrations.
 
+## Personal notes / memory hooks
+**File system vs bucket**—read the stem literally.
+
 ## When to use it
 Backups, data lakes, static assets, **Transfer Family** landing zone, **Storage Gateway** backing store, cross-region replication.
 
@@ -27,6 +30,3 @@ Archive and analytics landing zone; **not** the primary answer for “Windows fi
 
 ## Links to related questions
 - [Q: Windows file server → FSx + DataSync](../questions/q-windows-fileserver-datasync-fsx.md)
-
-## Personal notes / memory hooks
-**File system vs bucket**—read the stem literally.

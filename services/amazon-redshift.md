@@ -3,6 +3,9 @@
 ## What it is
 Cloud **data warehouse** for analytics: columnar storage, MPP SQL queries, integrates with the data lake (Spectrum), ML (Redshift ML), and serverless options (**Redshift Serverless**).
 
+## Personal notes / memory hooks
+“Analytics DB” in the stem → Redshift family. “Online orders row-by-row” → OLTP elsewhere.
+
 ## When to use it
 Business intelligence, large historical analytics, aggregations across huge datasets, integrating warehouse queries with S3 data.
 
@@ -28,6 +31,3 @@ Primary **OLTP** for web transactions—use **Aurora/RDS/DynamoDB**; low-latency
 
 ## Links to related questions
 - [Q: Serverless modernization & multi-cloud](../questions/q-serverless-modernization-multicloud.md)
-
-## Personal notes / memory hooks
-“Analytics DB” in the stem → Redshift family. “Online orders row-by-row” → OLTP elsewhere.

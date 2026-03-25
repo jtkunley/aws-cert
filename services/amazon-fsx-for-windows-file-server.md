@@ -3,6 +3,10 @@
 ## What it is
 Fully managed **Windows file shares** (SMB) in AWS, built on Windows Server, with **Active Directory** integration, **DFS**, shadow copies, and native Windows file semantics.
 
+## Personal notes / memory hooks
+- **Windows + SMB + “file system in AWS”** → FSx for Windows first.
+- **Practice (Windows file server Q):** keyed combo **FSx + daily DataSync** over existing **Direct Connect**.
+
 ## When to use it
 Lift-and-shift or hybrid **Windows** apps needing **SMB**, ACLs, and Office/legacy file workflows; users or instances in the VPC need a **real file server** without self-managing Windows EC2 file servers.
 
@@ -28,7 +32,3 @@ Primarily **Linux** scale-out with NFS and POSIX-heavy patterns—consider **EFS
 
 ## Links to related questions
 - [Q: Windows file server → FSx + DataSync](../questions/q-windows-fileserver-datasync-fsx.md)
-
-## Personal notes / memory hooks
-- **Windows + SMB + “file system in AWS”** → FSx for Windows first.
-- **Practice (Windows file server Q):** keyed combo **FSx + daily DataSync** over existing **Direct Connect**.

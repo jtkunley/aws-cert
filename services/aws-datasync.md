@@ -3,6 +3,9 @@
 ## What it is
 Managed **online data transfer** between on-premises storage (NFS, SMB, HDFS) and AWS (**S3**, **EFS**, **FSx** families), with scheduling, bandwidth limits, encryption, and data verification.
 
+## Personal notes / memory hooks
+- Stem pairs **on-prem share + AWS filesystem/bucket + schedule** → **DataSync** is the default hammer.
+
 ## When to use it
 **Recurring or one-time migration**, **incremental sync**, hybrid copies over **Direct Connect** or VPN; when the exam mentions **scheduled tasks** copying large datasets to AWS.
 
@@ -28,6 +31,3 @@ One-off **offline** petabyte seed where **Snow Family** wins; database **logical
 
 ## Links to related questions
 - [Q: Windows file server → FSx + DataSync](../questions/q-windows-fileserver-datasync-fsx.md)
-
-## Personal notes / memory hooks
-- Stem pairs **on-prem share + AWS filesystem/bucket + schedule** → **DataSync** is the default hammer.

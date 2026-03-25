@@ -3,6 +3,10 @@
 ## What it is
 Virtual servers in the cloud: you choose instance types, AMIs, and run full OS-level control over the machine.
 
+## Personal notes / memory hooks
+- EC2 = “I own the box.” If the stem screams serverless, EC2 is usually wrong.
+- **Practice (serverless modernization Q):** legacy baseline includes **EC2 in multiple regions**—modern target shifts to **serverless** compute/data, not more EC2.
+
 ## When to use it
 Lift-and-shift, strict OS/kernel needs, software not supported on managed platforms, long-running steady workloads where reserved capacity is cheaper, or when you need instance store or very specific hardware.
 
@@ -31,7 +35,3 @@ When the exam asks for **serverless**, minimal ops, or automatic scale-to-zero; 
 
 ## Links to related questions
 - [Q: Serverless modernization & multi-cloud](../questions/q-serverless-modernization-multicloud.md)
-
-## Personal notes / memory hooks
-- EC2 = “I own the box.” If the stem screams serverless, EC2 is usually wrong.
-- **Practice (serverless modernization Q):** legacy baseline includes **EC2 in multiple regions**—modern target shifts to **serverless** compute/data, not more EC2.

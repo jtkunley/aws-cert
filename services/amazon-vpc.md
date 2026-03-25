@@ -3,6 +3,9 @@
 ## What it is
 Your **isolated network** in AWS: subnets, route tables, internet and NAT gateways, **security groups**, NACLs, and attachment points for hybrid connectivity (**Direct Connect**, **VPN**, **Transit Gateway**).
 
+## Personal notes / memory hooks
+**“In the VPC”** = private network home for ENI-based services like FSx.
+
 ## When to use it
 Every regional deployment; private subnets for workloads; **ENIs** for managed services (FSx, RDS, etc.) that live in the VPC.
 
@@ -27,6 +30,3 @@ Direct Connect terminates into VPC; Windows instances mount **FSx** DNS name in 
 
 ## Links to related questions
 - [Q: Windows file server → FSx + DataSync](../questions/q-windows-fileserver-datasync-fsx.md)
-
-## Personal notes / memory hooks
-**“In the VPC”** = private network home for ENI-based services like FSx.

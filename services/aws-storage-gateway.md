@@ -3,6 +3,9 @@
 ## What it is
 Hybrid storage service: on-premises appliance/vm connects to AWS. Modes include **File Gateway** (SMB/NFS → **S3** objects), **Volume Gateway** (iSCSI block volumes), **Tape Gateway** (VTL).
 
+## Personal notes / memory hooks
+Gateway = **bridge at the edge**; FSx = **file service in the cloud**.
+
 ## When to use it
 Extend cloud storage to the data center with **low-latency local cache**, backup/archive to S3/Glacier, or legacy **iSCSI** apps.
 
@@ -27,6 +30,3 @@ Branch office access with local cache; not the best fit when AWS-side Windows in
 
 ## Links to related questions
 - [Q: Windows file server → FSx + DataSync](../questions/q-windows-fileserver-datasync-fsx.md)
-
-## Personal notes / memory hooks
-Gateway = **bridge at the edge**; FSx = **file service in the cloud**.

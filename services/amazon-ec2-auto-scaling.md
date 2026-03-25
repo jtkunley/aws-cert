@@ -3,6 +3,9 @@
 ## What it is
 Automatically adjusts the number of EC2 instances (or other resources in broader Auto Scaling concepts) based on demand, schedules, or health.
 
+## Personal notes / memory hooks
+ASG = “more VMs when busy.” It does not make the architecture serverless by itself.
+
 ## When to use it
 Variable traffic on EC2, need high availability across AZs, replace unhealthy instances, scheduled scale for known peaks.
 
@@ -28,6 +31,3 @@ When requirements call for **serverless** compute (Fargate/Lambda) or managed sc
 
 ## Links to related questions
 - [Q: Serverless modernization & multi-cloud](../questions/q-serverless-modernization-multicloud.md)
-
-## Personal notes / memory hooks
-ASG = “more VMs when busy.” It does not make the architecture serverless by itself.

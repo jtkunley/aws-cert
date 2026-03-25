@@ -3,6 +3,9 @@
 ## What it is
 AWS-designed relational database compatible with **MySQL** or **PostgreSQL**, with storage auto-scaling, fast failover replicas, and global database options.
 
+## Personal notes / memory hooks
+OLTP + MySQL/Postgres → Aurora. Warehouse/analytics → Redshift, not Aurora.
+
 ## When to use it
 Managed OLTP needing PostgreSQL/MySQL compatibility, high durability, read scaling with replicas, or global/low-latency read patterns (Global Database).
 
@@ -30,6 +33,3 @@ Pure key-value or document at massive scale—**DynamoDB**; analytics warehouse�
 
 ## Links to related questions
 - [Q: Serverless modernization & multi-cloud](../questions/q-serverless-modernization-multicloud.md)
-
-## Personal notes / memory hooks
-OLTP + MySQL/Postgres → Aurora. Warehouse/analytics → Redshift, not Aurora.

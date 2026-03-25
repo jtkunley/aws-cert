@@ -3,6 +3,9 @@
 ## What it is
 Managed **pub/sub** messaging: publishers send to a **topic**, subscribers (SQS, Lambda, HTTP, email, mobile) receive notifications.
 
+## Personal notes / memory hooks
+- SNS = “one message, many subscribers.” Not the same as a centralized event bus.
+
 ## When to use it
 Fan-out notifications, decoupling with multiple consumers, mobile push, email/SMS alerts, integrating with SQS for worker pools.
 
@@ -28,6 +31,3 @@ Complex event **routing/filtering** across many event types and schedules—**Ev
 
 ## Links to related questions
 - [Q: Serverless modernization & multi-cloud](../questions/q-serverless-modernization-multicloud.md)
-
-## Personal notes / memory hooks
-- SNS = “one message, many subscribers.” Not the same as a centralized event bus.

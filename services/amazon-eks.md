@@ -3,6 +3,9 @@
 ## What it is
 Managed Kubernetes control plane on AWS: you use standard Kubernetes APIs; AWS runs the control plane and integrates with VPC, IAM, and load balancers.
 
+## Personal notes / memory hooks
+Stem says “Kubernetes” or “multi-cloud same as other providers” → think **EKS**.
+
 ## When to use it
 Kubernetes skills/portability, multi-team platforms, Helm charts, service mesh, or exam scenarios mentioning **multi-cloud** / same manifests on other CSPs’ Kubernetes.
 
@@ -28,6 +31,3 @@ Small AWS-only teams with no K8s need—**ECS** can be simpler; very simple stat
 
 ## Links to related questions
 - [Q: Serverless modernization & multi-cloud](../questions/q-serverless-modernization-multicloud.md)
-
-## Personal notes / memory hooks
-Stem says “Kubernetes” or “multi-cloud same as other providers” → think **EKS**.
