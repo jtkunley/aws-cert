@@ -1,5 +1,5 @@
 ---
-description: Enforce simple, human-readable, technically precise writing for AWS certification notes
+description: Enforce simple, human-readable, technically precise writing for AWS certification notes (services, patterns, questions — not seed-bank.md; see question-seed.mdc).
 globs:
   - services/**/*.md
   - patterns/**/*.md

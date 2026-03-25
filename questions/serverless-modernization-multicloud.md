@@ -55,33 +55,56 @@ Which of the following options would most efficiently meet these requirements?
 
 ## Question Seed
 
-- Scenario summary: A multi-region **EC2** estate with **self-managed MySQL** for transactions and **PostgreSQL on EC2** for analytics must become **event-driven** and **serverless**, support **real-time analytics** and smoother **data flows**, and align with **multi-cloud** plans that include **Kubernetes** on **other cloud providers**.
-- Correct answer pattern: **Microservices** on **Kubernetes** (**EKS**) with **serverless workers** (**Fargate**); split **OLTP** onto **Aurora Serverless** (MySQL-compatible line in the option) and **analytics** onto **Redshift Serverless**; use **EventBridge** as the **event bus** to route and integrate cross-service flows.
-- Key services: **Amazon EKS**, **AWS Fargate**, **Amazon Aurora Serverless**, **Amazon Redshift Serverless**, **Amazon EventBridge**; contrast with **Amazon ECS**, **Amazon EC2**/**Auto Scaling**, **Amazon SNS**, **Amazon Kinesis**, **provisioned Aurora**/**Redshift**.
+- Scenario summary: Legacy platforms and databases on EC2 across regions must move to an event-driven serverless model with real-time analytics, cleaner cross-service data flow, and Kubernetes clusters on other cloud providers.
+- Primary driver: The stem insists on serverless end-to-end, an integration bus for data flows, and Kubernetes portability to other clouds—so compute, data planes, and messaging must all line up with those keywords, not partial matches.
+- Decision focus: Tests whether you pick EKS over ECS for multi-cloud Kubernetes, keep Aurora Serverless and Redshift Serverless (not provisioned) when “serverless architecture” is explicit, and use EventBridge rather than SNS or Kinesis alone for streamlining flows.
+- Correct answer pattern: Microservices on EKS with Fargate; Aurora Serverless for transactional MySQL; Redshift Serverless for analytics; EventBridge to integrate and route flows between services.
+
+- Key services:
+  - Amazon EKS
+  - AWS Fargate
+  - Amazon Aurora Serverless
+  - Amazon Redshift Serverless
+  - Amazon EventBridge
+
+- Common distractor services:
+  - Amazon ECS
+  - Amazon EC2
+  - EC2 Auto Scaling
+  - Amazon SNS
+  - Amazon Kinesis
+  - Amazon Aurora (provisioned)
+  - Amazon Redshift (provisioned)
+
 - Key signals:
-  - Stem repeats **serverless** and names **event-driven** architecture.
-  - Stem asks to **streamline application data flows** (integration bus language).
-  - Stem mentions **real-time analytics** and **multi-cloud** with **clusters on other cloud service providers**.
+  - serverless architecture
+  - event-driven
+  - streamline application data flows
+  - real-time analytics
+  - multi-cloud
+  - Kubernetes on other cloud providers
+
 - Constraints:
-  - **Serverless** must apply to major components, not only **elastic EC2**.
-  - **OLTP** and **warehouse-style analytics** should stay in the right **data** roles, not collapsed into one generic relational store.
-  - **Multi-cloud Kubernetes** portability favors **EKS** over **ECS** in typical exam intent.
+  - major components must be serverless, not just auto-scaling EC2
+  - OLTP and analytics must stay in separate appropriate tiers
+  - portability to non-AWS Kubernetes favors EKS over ECS when the stem says so
+
 - Common traps:
-  - **Strong serverless stack** but **ECS** instead of **EKS** when **other providers’ Kubernetes** is explicit.
-  - **EKS** and **Kinesis** with **provisioned Aurora** and **provisioned Redshift**, which breaks the **serverless architecture** requirement.
-  - **EC2**/**Auto Scaling**, **SNS** “routing,” and **single Aurora PostgreSQL** for both **e-commerce** and **analytics** workloads.
+  - ECS with Fargate instead of EKS when other CSP Kubernetes is explicit
+  - EKS with Kinesis but provisioned Aurora and Redshift
+  - EC2 Auto Scaling with SNS routing and one Aurora PostgreSQL for both OLTP and analytics
+
 - Why traps are wrong:
-  - **ECS** is less portable across **non-AWS Kubernetes** than **EKS** when the stem stresses **multi-cloud** **Kubernetes**.
-  - **Kinesis** answers **streaming** language but does not fix **missing Serverless** on **Aurora**/**Redshift** when the stem insists on **serverless**; **EventBridge** still matches **streamline flows** better than **Kinesis** alone for **service integration**.
-  - **Elastic EC2** is not **serverless**; **SNS** is **fan-out**, not a full **event bus**; one **Aurora PostgreSQL** muddles **transactional** versus **warehouse** targets (**Redshift** family for analytics).
+  - ECS → weaker multi-cloud Kubernetes portability vs EKS when other providers’ clusters are explicit
+  - provisioned Aurora/Redshift → violates serverless architecture constraint even if Kinesis satisfies “streaming” language
+  - EC2 + SNS + single Aurora PostgreSQL → not serverless; SNS is not a full event bus; one relational store mixes OLTP and warehouse roles
+
 - Pattern tags:
-  - #multi-region-deployments
-  - #microservices
-  - #serverless-architecture
-  - #event-driven-architecture
-  - #real-time-analytics
-  - #multi-cloud-kubernetes
-  - #event-bus-integration
-  - #pub-sub-fan-out
-  - #streaming-data-ingestion
-  - #legacy-ec2-data-tier
+  - #serverless
+  - #event-driven
+  - #eks-fargate
+  - #aurora-serverless
+  - #redshift-serverless
+  - #eventbridge
+  - #multi-cloud-k8s
+  - #oltp-vs-warehouse

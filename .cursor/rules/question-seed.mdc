@@ -1,54 +1,76 @@
 ---
-description: Convert every analyzed question into a normalized Question Seed format for downstream generation
+description: Enforce normalized Question Seed format with clear, human-readable tone and generation-ready structure
 globs:
   - questions/**/*.md
+  - seed-bank.md
 alwaysApply: true
 ---
 
-# Question Seed Extraction Rule
+# Question Seed Format & Tone Rule
 
 ## Goal
-Every question file must contain a **Question Seed section** that summarizes the question in a compact, structured format.
+Each question must include a **clean, consistent Question Seed** that is:
+- easy to read
+- easy to scan
+- structured for reuse
+- suitable for generating new questions
 
-This seed is used later to generate new questions, so it must focus on:
-- patterns
-- signals
-- traps
-- decision logic
-
-Do NOT copy the original question text into the seed.
-
-Write each seed field in **plain English** with **complete thoughts** per bullet (same readability standard as `.cursor/rules/tone.mdc`).
+The seed should represent:
+- the pattern
+- the signals
+- the constraints
+- the traps
+- the decision logic
 
 ---
 
-## Required Section
+## Required Structure
 
-Each question file must include:
+Every question file must contain:
 
 ## Question Seed
 
-With the following structure:
+With this exact structure:
 
 ```md
 ## Question Seed
 
-- Scenario summary: <1–2 sentence summary of the problem>
-- Correct answer pattern: <architecture pattern, not just service names>
-- Key services: <list of AWS services involved>
+- Scenario summary: <1–2 sentence problem summary, no fluff>
+- Primary driver: <main deciding factor>
+- Decision focus: <what the question is testing>
+- Correct answer pattern: <general architecture pattern, not full answer wording>
+
+- Key services:
+  - <service 1>
+  - <service 2>
+
+- Common distractor services:
+  - <service 1>
+  - <service 2>
+
 - Key signals:
-  - <signal 1>
-  - <signal 2>
-  - <signal 3>
+  - <short phrase>
+  - <short phrase>
+
 - Constraints:
-  - <constraint 1>
-  - <constraint 2>
+  - <constraint>
+  - <constraint>
+
 - Common traps:
-  - <trap 1>
-  - <trap 2>
+  - <trap>
+  - <trap>
+
 - Why traps are wrong:
-  - <brief explanation per trap>
+  - <trap → violated constraint>
+  - <trap → violated constraint>
+
 - Pattern tags:
-  - #<tag1>
-  - #<tag2>
-  - #<tag3>
+  - #<tag>
+  - #<tag>
+```
+
+---
+
+## Seed bank (`seed-bank.md`)
+
+Repo root **`seed-bank.md`** contains **only** merged seeds: for each question, a **`##`** heading matching that question’s **`#` title**, then the **same bullet list** as its **`## Question Seed`** (including blank lines between sections). **Alphabetical** by title. Update **`seed-bank.md`** whenever you add or change a question’s seed.
