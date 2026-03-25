@@ -1,0 +1,11 @@
+---
+description: User commits manually; agent must not create git commits
+alwaysApply: true
+---
+
+# Git workflow
+
+- **Do not run `git commit`** or any script whose purpose is to create a commit (e.g. `git add && git commit`).
+- **Do not** stage changes for the user **for the purpose of committing** unless they explicitly ask you to stage.
+- The user **always commits manually**; offer a short summary of changed files if useful, but leave `git commit` to them.
+- If the user **explicitly** asks you to commit, then committing is allowed.
