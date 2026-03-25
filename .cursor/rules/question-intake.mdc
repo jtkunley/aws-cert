@@ -4,20 +4,24 @@ alwaysApply: false
 
 # Question intake (image or text)
 
-**Tone:** All edits under `services/**/*.md`, `patterns/**/*.md`, and question pages (except verbatim **Original question**) must follow **`tone.mdc`**: bullets, short lines, scan in seconds, decision cues—no narrative or filler.
+**Templates** for section headings live in **`.cursor/rules/`**: `questions-template.mdc`, `services-template.mdc`, `patterns-template.mdc`. Content files live only under `questions/`, `services/`, and `patterns/` at the repo root.
 
-**Templates:** `questions-template.mdc`, `services-template.mdc`, `patterns-template.mdc` in this folder. Content lives in repo `questions/`, `services/`, `patterns/`.
+When the user shares an **AWS certification question** (screenshot, pasted image, or copied text), run this workflow **end to end**: analyze the stem and every answer choice, then **populate** `questions/`, `services/`, and `patterns/` under the workspace root (`aws-cert/`). Do not stop after a summary unless the user explicitly asked for analysis only.
 
-On a posted exam question (image/text), run end-to-end: question file + merge services + merge patterns—unless user says **report only**.
+### Mandatory: save the posted question under `questions/` every time
 
-**Mandatory:** Save `questions/q-<slug>.md` every time. On repost, update that file. No question markdown links outside each page’s **Links to related questions** (services/patterns).
+- **Always** persist the question to disk as **`questions/q-<slug>.md`** (create or update). A chat-only breakdown is **not** enough when the user posts a question—unless they used the **report only** exception below.
+- **Create** a new file the first time that question appears; **update** the same file on repost (refresh transcript, add/refresh **Source asset** path, rationales, links)—do not skip writes because the question “already exists.”
+- The `questions/` folder must contain the full **Original question** text (stem + all options) so the repo is the source of truth for what was posted.
+- **Improve existing notes:** for every intake, update each touched **`services/*.md`** and **`patterns/*.md`** by **appending new information as individual `-` bullets** (see §4 and §5). Wrong answers are a primary source of new distractor and comparison bullets.
 
 ---
 
 ## 1. Capture the question faithfully
 
-- Transcribe full stem + all options; keep exam keywords (**serverless**, **multi-cloud**, etc.).
-- Normalize options to **A–D** in the saved file.
+- Transcribe the **full stem** and **every option** (A/B/C/D or 1–4) into the question file. Preserve exam wording; do not paraphrase requirements away (e.g. keep “serverless,” “multi-cloud,” “real-time”).
+- If the user attached an **image**, use the provided image description or read the saved asset path if given; if text is incomplete, state what is assumed and fill from the image description when available.
+- Normalize option labels to **A–D** in the markdown question file for consistency, even if the original used numbers.
 
 ---
 
@@ -33,13 +37,13 @@ On a posted exam question (image/text), run end-to-end: question file + merge se
 - One file per **distinct AWS service** (or tightly coupled pair only when the exam always names them together, e.g. “ECS with Fargate” → still prefer separate `amazon-ecs.md` and `aws-fargate.md` unless the repo already merges them).
 - **Filename:** kebab-case, prefix `amazon-` for most AWS services, `aws-` for cross-cutting brands (e.g. `aws-fargate.md`, `aws-datasync.md`, `aws-direct-connect.md`, `aws-storage-gateway.md`), e.g. `amazon-eventbridge.md`.
 - Include **foundational** services named in the stem when they anchor the scenario (e.g. **Amazon VPC** when hybrid links terminate “to the VPC,” **Direct Connect** when given as the path).
-- **Do not overwrite** `.cursor/rules/services-template.mdc` — heading checklist only; content under `services/<name>.md`.
+- **Do not overwrite** the service **template** at `.cursor/rules/services-template.mdc` — use it as the heading checklist only; all new service content lives under `services/<name>.md`.
 
 ### Pattern files
 
 - One file per **reusable exam pattern** (not every buzzword). Include patterns implied by the **stem** (goals, constraints) and by **wrong answers** (distractor patterns).
 - **Filename:** kebab-case, e.g. `event-driven-architecture.md`, `multi-cloud-kubernetes.md`.
-- **Do not overwrite** `.cursor/rules/patterns-template.mdc`.
+- **Do not overwrite** the pattern **template** at `.cursor/rules/patterns-template.mdc`.
 
 ---
 
@@ -58,7 +62,7 @@ Use the section headings from `.cursor/rules/questions-template.mdc` exactly:
 | `## Pattern tags` | Bullet list of **markdown links** to every `../patterns/<file>.md` that applies |
 | `## Trap type` | Short label (e.g. partial fit, service confusion, OLTP vs analytics, serverless vs elastic EC2) |
 | `## Confidence / review status` | Note if answer is inferred; suggest user verify against official practice |
-| `## Related pages` | Links to `../.cursor/rules/services-template.mdc`, `patterns-template.mdc`, `questions-template.mdc` |
+| `## Related pages` | Links to the three templates under `.cursor/rules/` (e.g. from `questions/q-….md`: `../.cursor/rules/services-template.mdc`, `../.cursor/rules/patterns-template.mdc`, `../.cursor/rules/questions-template.mdc`) |
 | `## Source asset` (recommended) | If an image was posted/saved by the IDE, record the **full path** to the screenshot under workspace or `.cursor/projects/.../assets/` for traceability |
 
 ---
@@ -85,7 +89,7 @@ For **each** service linked from the question’s “Services involved” sectio
 
 - **No question links elsewhere (services):** In **every other section**, do **not** link to question files. Use plain text only (e.g. **Practice (serverless modernization Q):** … or a neutral stem summary). Links to **patterns** or **services** in body sections are allowed when helpful; **question** URLs belong solely under **Links to related questions**.
 
-- Keep wording **exam-oriented** (contrasts, traps); match **`tone.mdc`** (bullets, brevity).
+- Keep wording **exam-oriented** (contrasts, traps), not marketing copy.
 
 - **Dedup:** if an equivalent bullet already exists, skip or merge into a slightly sharper single bullet instead of duplicating.
 
@@ -96,7 +100,7 @@ For **each** service linked from the question’s “Services involved” sectio
 For **each** pattern linked from the question’s “Pattern tags” section:
 
 - If **`patterns/<name>.md` exists**, apply the **same bullet-merge discipline as services**: for each **new** insight from this question, add **one `-` bullet** under the best section—**Exam clues**, **Common distractors**, **Related AWS services**, **Comparison with nearby patterns**, **Example scenarios**, **Personal notes / memory hooks**, or **When to use / When NOT** when the question adds a new condition. Preserve existing bullets; **append** only. **Links to related questions** is the **only** section that may link to `../questions/q-….md`; other sections use plain-text references only (same rule as services).
-- If **missing**, create using **`.cursor/rules/patterns-template.mdc`** headings (note: **Related AWS services**). Seed sections with bullets from this question where possible.
+- If **missing**, create using **`.cursor/rules/patterns-template.mdc`** headings (note: **Related AWS services** instead of “Architecture patterns”). Seed sections with bullets from this question where possible.
 
 Typical patterns to consider (only if the question touches them):
 
@@ -144,13 +148,12 @@ In **all other cases**, saving **`questions/q-….md` is required every time** a
 | Question pages | `questions/q-<slug>.md` |
 | Service pages | `services/<service>.md` |
 | Pattern pages | `patterns/<pattern>.md` |
-| Section templates (do not use as live content paths) | `.cursor/rules/questions-template.mdc`, `services-template.mdc`, `patterns-template.mdc` |
+| Section templates (do not use as live content paths) | `.cursor/rules/questions-template.mdc`, `.cursor/rules/services-template.mdc`, `.cursor/rules/patterns-template.mdc` |
 
 ---
 
 ## 10. Quality bar
 
-- Obey **`tone.mdc`** on every touched page (bullets, compression, decisive phrasing).
 - **Every new question** should leave touched service/pattern pages **strictly richer**: more bullets or sharper bullets, not silent no-ops when there is something to learn from wrong options.
 - Prefer **distinguishing** services and patterns examiners swap (e.g. SNS vs EventBridge, Kinesis vs EventBridge, Aurora vs Redshift, ECS vs EKS for multi-cloud).  
 - For **file and data movement** questions, contrast **file vs object**, **SMB/Windows vs NFS/Linux**, **DataSync vs Transfer Family vs Storage Gateway**, and **hybrid on-prem gateway vs cloud file system (FSx/EFS) for compute in VPC**.  

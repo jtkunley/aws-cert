@@ -1,34 +1,32 @@
 # Pub/sub fan-out
 
 ## What it is
-- One publish to **topic**; N subscribers get copy—**SNS**.
+One publisher sends a message to a **topic**; many **subscribers** receive copies—classic **SNS** pattern (often combined with **SQS** for buffering).
 
 ## When to use it
-- Alerts; email/SMS; parallel Lambda + SQS from same message.
+Alerts, notifications, broadcasting the same message to Lambda + email + multiple queues, simple decoupled fan-out.
 
 ## When NOT to use it
-- Per-event routing across types—**EventBridge**.
-- Per-key ordering—**SQS FIFO / Kinesis**.
+Need per-event routing, transformation, and schedules across hundreds of event types—prefer **EventBridge**; strict ordering per key—**SQS FIFO** or **Kinesis**.
 
 ## Exam clues
-- Topic, fan-out, publish, subscription.
+“Fan-out,” “topic,” “multiple subscribers,” “notify,” “publish.”
 
 ## Common distractors
-- SNS when stem clearly needs **EventBridge** rules/SaaS.
+- Choosing SNS when the scenario is clearly an **event bus** with rules and SaaS sources.
+- **Practice (serverless modernization Q):** **SNS** + **EC2/ASG** + **Aurora PostgreSQL-only**—wrong tool and wrong **serverless** posture for the stem.
 
 ## Related AWS services
-- SNS, SQS, Lambda, KMS, mobile push.
+SNS, SQS, Lambda, KMS for encryption, mobile push/email integrations.
 
 ## Comparison with nearby patterns
-- **SNS:** broadcast.
-- **EventBridge:** routed bus.
+**Pub/sub** vs **event bus**: SNS is simpler broadcast; EventBridge is richer routing/integration.
 
 ## Example scenarios
-- Alarm → SNS → email + Lambda + queue.
-- **Practice (serverless Q):** SNS + ASG + Aurora PG-only option = wrong stack.
+CloudWatch Alarm → SNS → Ops email + Lambda pager + SQS ticket queue.
 
 ## Links to related questions
 - [Q: Serverless modernization & multi-cloud](../questions/q-serverless-modernization-multicloud.md)
 
 ## Personal notes / memory hooks
-- SNS = radio broadcast; EventBridge = sorted mail with rules.
+SNS = “radio broadcast.” EventBridge = “mail sorting facility with rules.”

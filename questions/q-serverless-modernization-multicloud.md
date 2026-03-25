@@ -16,18 +16,18 @@ Which of the following options would most efficiently meet these requirements?
 **Option D:** Migrate app components to microservices with Amazon EKS using AWS Fargate. Change e-commerce MySQL to Amazon Aurora MySQL and analytics DB to Amazon Redshift. Use Amazon Kinesis for real-time data streaming.
 
 ## Correct answer
-- **C**
+Option C (exam-style intent: EKS + Fargate for portable microservices, Aurora Serverless + Redshift Serverless for serverless data tiers, EventBridge for event-driven flows—matches serverless + event-driven + multi-cloud Kubernetes narrative).
 
 ## Why it is correct
-- **Serverless:** Fargate; **Aurora Serverless MySQL**; **Redshift Serverless**.
-- **Event-driven:** **EventBridge** = “streamline application data flows.”
-- **Real-time analytics:** warehouse role → **Redshift Serverless** (ex–analytics PostgreSQL on EC2).
-- **Multi-cloud:** stem names **other CSPs’ clusters** → **EKS** beats **ECS**.
+- **Serverless:** Fargate removes worker-node management; **Aurora Serverless** and **Redshift Serverless** align with serverless data planes.
+- **Event-driven + streamlined flows:** **EventBridge** is the standard event-bus pattern for routing and integration between services.
+- **Real-time analytics:** **Redshift Serverless** supports the analytics/warehouse role that PostgreSQL-on-EC2 held; streaming/real-time can feed the warehouse via established patterns.
+- **Multi-cloud:** **EKS** (Kubernetes) matches portability across other CSPs’ Kubernetes clusters better than ECS in typical exam framing.
 
 ## Why the other options are wrong
-- **A:** **ECS** loses **Kubernetes portability** framing vs **EKS** when multi-cloud explicit.
-- **B:** **EC2+ASG** ≠ serverless; **one Aurora PostgreSQL** for OLTP+analytics → wrong split (warehouse → **Redshift**); **SNS** ≠ bus for this stem.
-- **D:** **Provisioned** Aurora MySQL + **provisioned** Redshift—drops **Serverless** keyword; **Kinesis** does not fix that gap.
+- **Option A:** Strong on serverless containers and EventBridge, but **ECS** is less aligned with explicit **multi-cloud Kubernetes** portability than **EKS** when the stem calls out other cloud providers’ clusters.
+- **Option B:** **EC2 + ASG** is not **serverless**; consolidating analytics into **Aurora PostgreSQL** blurs OLTP vs **warehouse** (analytics PostgreSQL on EC2 → **Redshift** family is a better analytics target); **SNS** is pub/sub, not a full event-bus replacement for complex routing.
+- **Option D:** **EKS + Fargate** fits, and **Kinesis** fits **real-time streaming**, but **Aurora MySQL** and **Redshift** without **Serverless** weaken the explicit **serverless architecture** requirement compared to Option C’s **Aurora Serverless** + **Redshift Serverless**; EventBridge in C also maps cleanly to “streamline application data flows” as an integration bus.
 
 ## Services involved
 - [Amazon EC2](../services/amazon-ec2.md), [EC2 Auto Scaling](../services/amazon-ec2-auto-scaling.md)
@@ -48,13 +48,13 @@ Which of the following options would most efficiently meet these requirements?
 - [Legacy EC2 data tier](../patterns/legacy-ec2-data-tier.md)
 
 ## Trap type
-- Partial fit: modern stack but wrong **Serverless** SKU, wrong **bus vs stream vs SNS**, **ECS vs EKS** on multi-cloud.
+**Partial fit:** Options that sound modern (EKS, Kinesis, Aurora) but miss **serverless** qualifiers or swap **event bus** vs **streaming** vs **SNS** incorrectly; **ECS vs EKS** on multi-cloud wording.
 
 ## Confidence / review status
-- Unreviewed. Re-check exam wording on **Aurora Serverless** vs provisioned.
+Unreviewed — revisit after timed practice; validate against current AWS exam guides for wording on “serverless” (provisioned Aurora vs Aurora Serverless naming).
 
 ## Source asset
-- `/Users/james/.cursor/projects/Users-james-work-aws-cert/assets/Screenshot_2026-03-24_at_8.29.40_PM-caf5db23-2a64-47d9-a69f-1d9d5a32fef1.png`
+- Screenshot: `/Users/james/.cursor/projects/Users-james-work-aws-cert/assets/Screenshot_2026-03-24_at_8.29.40_PM-caf5db23-2a64-47d9-a69f-1d9d5a32fef1.png`
 
 ## Related pages
 - [Services template](../.cursor/rules/services-template.mdc)

@@ -1,32 +1,32 @@
 # Legacy EC2 data tier
 
 ## What it is
-- **Self-managed DB** on **EC2** (MySQL, PostgreSQL, …): you own patching, HA, backup.
+Anti-pattern or transitional state: **self-managed databases** (MySQL, PostgreSQL, etc.) running on **EC2**—you patch OS, backups, failover, and scaling yourself.
 
 ## When to use it
-- Rare greenfield; exotic extensions; interim migration.
+Rare in greenfield; legacy compliance, exotic extensions, or migration interim states.
 
 ## When NOT to use it
-- Stem asks managed/serverless—move to **Aurora/RDS/Redshift/DynamoDB**.
+Exam scenarios asking for **managed**, **serverless**, or **higher availability** with less ops—move toward **Aurora/RDS**, **DynamoDB**, **Redshift**, etc.
 
 ## Exam clues
-- Database on EC2, self-managed, manual failover.
+“Database on EC2,” “self-managed,” “patching,” “manual failover,” “legacy.”
 
 ## Common distractors
-- ASG “modernizes” the **data** layer—false.
+Assuming EC2 + ASG “modernizes” the data plane—it doesn’t replace managed DB services.
 
 ## Related AWS services
-- EC2, EBS, RDS, Aurora, DMS.
+EC2, EBS, RDS, Aurora, DMS for migration, backup strategies.
 
 ## Comparison with nearby patterns
-- **EC2 DB** vs **RDS/Aurora** (managed engine) vs **Redshift** (warehouse).
+**Self-managed on EC2** vs **RDS/Aurora** (AWS manages engine ops); vs **data warehouse** (Redshift) for analytics workloads.
 
 ## Example scenarios
-- E-commerce MySQL + analytics PostgreSQL both on EC2 at start of stem.
-- **Practice (serverless Q):** split targets **Aurora Serverless MySQL** + **Redshift Serverless**, not one Aurora PG for both.
+- Starting point in exam stems: e-commerce MySQL and analytics PostgreSQL both on EC2 before migration.
+- **Practice (serverless modernization Q):** **MySQL** (e-commerce) + **PostgreSQL** (analytics) **on EC2** → split targets **Aurora Serverless MySQL** (OLTP) + **Redshift Serverless** (warehouse), not one **Aurora PostgreSQL** for both roles.
 
 ## Links to related questions
 - [Q: Serverless modernization & multi-cloud](../questions/q-serverless-modernization-multicloud.md)
 
 ## Personal notes / memory hooks
-- Ugly EC2 DB opening → answers lift to **managed/serverless** tiers.
+Stem starts ugly (EC2 DBs) → answers should **lift data to managed/serverless** tiers.

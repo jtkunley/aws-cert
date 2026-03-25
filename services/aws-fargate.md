@@ -1,35 +1,34 @@
 # AWS Fargate
 
 ## What it is
-- Serverless **container** run: no EC2 worker patching for ECS or EKS pods.
+Serverless compute for containers: run ECS or EKS pods without provisioning or managing EC2 instances for the worker layer.
 
 ## Personal notes / memory hooks
-- Containers without a node fleet.
-- **Practice (serverless Q):** serverless = Fargate **and** Aurora Serverless + Redshift Serverless in keyed answer.
+- Fargate = “containers without the node fleet.” Pairs with ECS *or* EKS.
+- **Practice (serverless modernization Q):** **serverless** requirement applies to **compute (Fargate)** and often to **data (Aurora Serverless, Redshift Serverless)** in the same keyed answer.
 
 ## When to use it
-- No node ops; spiky or variable container load.
+Containerized workloads where you want **no EC2 patching/scaling** for workers, variable traffic, and simpler ops than self-managed node groups.
 
 ## When NOT to use it
-- Steady maxed CPU 24/7 on bare metal—dedicated nodes can cost less.
-- DaemonSets / host-level agents—limited vs EC2 nodes.
+Extreme cost optimization at steady high CPU/memory with predictable 24/7 load (dedicated EC2 nodes *can* be cheaper); very low latency custom kernel tuning; DaemonSet-style node agents that require host access (limitations vs EC2 nodes).
 
 ## Exam clues
-- “Serverless containers,” Fargate + **ECS or EKS**.
+“Serverless containers,” “no clusters to manage” (worker nodes), “Fargate,” with **ECS** or **EKS**.
 
 ## Common distractors
-- Fargate ≠ Lambda (long-running tasks OK).
+Calling Fargate “Lambda for containers” in a pedantic sense—it’s still long-running container tasks/pods, not the Lambda invocation model.
 
 ## Architecture patterns
-- ECS service on Fargate; EKS Fargate profile; ALB + private subnets.
+- ECS services on Fargate; EKS pods on Fargate profiles; often paired with ALB and private subnets.
+- **Practice (serverless modernization Q):** **EKS + Fargate** is the preferred **serverless containers** combo when **Kubernetes + multi-cloud** is emphasized; **ECS + Fargate** is the distractor twin.
 
 ## Comparison with nearby services
-- **Fargate vs EC2 nodes:** ops vs control vs price.
-- **Lambda:** not a general container runtime.
+- **Fargate** vs **EC2 launch type / managed node groups**: trade ops burden vs control and price; **Lambda** for short event-driven functions, not arbitrary long-lived containers.
 
 ## Example scenarios
-- EC2 → containers without K8s ops (ECS+Fargate).
-- K8s portability (EKS+Fargate).
+- Microservices modernization from EC2 without Kubernetes ops (ECS+Fargate) or with K8s portability (EKS+Fargate).
+- **Practice (serverless modernization Q):** winning stack uses Fargate for **compute** plus **Aurora Serverless** + **Redshift Serverless** for **serverless data** plane.
 
 ## Links to related questions
 - [Q: Serverless modernization & multi-cloud](../questions/q-serverless-modernization-multicloud.md)

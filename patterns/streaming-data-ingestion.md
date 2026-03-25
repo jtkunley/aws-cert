@@ -1,33 +1,32 @@
 # Streaming data ingestion
 
 ## What it is
-- Continuous high-volume **streams**: shards/partitions, many consumers—**Kinesis/MSK**.
+Continuous, high-volume data enters the system as a **stream** with producers, shards/partitions, and consumers—**Kinesis** or **MSK** are common anchors.
 
 ## When to use it
-- Clickstream, IoT, logs, replay, parallel consumers.
+Clickstreams, logs, IoT, gaming telemetry, real-time aggregations, replay, multiple independent consumer applications.
 
 ## When NOT to use it
-- Low-volume app events—**EventBridge/SQS**.
+Low-volume business events between a few microservices—**EventBridge** or **SQS** may be simpler and cheaper.
 
 ## Exam clues
-- Shards, producers/consumers, millions/sec, KDA.
+“Streaming,” “shards,” “producers and consumers,” “millions of records,” “Kinesis Data Analytics,” “replay.”
 
 ## Common distractors
-- **EventBridge** for massive ordered telemetry.
+Using **EventBridge** for firehose-scale telemetry—wrong tool for massive ordered stream processing.
 
 ## Related AWS services
-- Kinesis Data Streams, Firehose, Data Analytics, MSK, Lambda consumers.
+Kinesis Data Streams, Firehose, Data Analytics, Lambda event source mapping, MSK, Flink.
 
 ## Comparison with nearby patterns
-- **Streams:** volume + ordering + processors.
-- **Events:** integration between apps.
+**Streaming ingestion** vs **event-driven integration**: streams emphasize volume/ordering/processing frameworks; events emphasize app decoupling.
 
 ## Example scenarios
-- App → Kinesis → enrich → S3/Redshift.
-- **Practice (serverless Q):** Kinesis in distractor; check **serverless** + **EventBridge** fit.
+Mobile app analytics pipeline: app → Kinesis → Lambda enrichment → S3/Redshift.
 
 ## Links to related questions
 - [Q: Serverless modernization & multi-cloud](../questions/q-serverless-modernization-multicloud.md)
 
 ## Personal notes / memory hooks
-- Huge continuous ingest → Kinesis family.
+- Volume + continuous + analytics processing → **Kinesis** family.
+- **Practice (serverless modernization Q):** **Kinesis** appears with **EKS + Fargate** but **provisioned** Aurora/Redshift—trap when stem insists on **serverless** + **EventBridge**-style integration.

@@ -1,34 +1,32 @@
 # Amazon S3
 
 ## What it is
-- **Object** storage: buckets, keys, versioning, lifecycle, events.
+Object storage: buckets, keys, virtually unlimited scale, **11 nines** durability (standard tier), lifecycle, versioning, and many analytics/ML integrations.
 
 ## Personal notes / memory hooks
-- File system vs bucket—read stem literally.
-- **Practice (Windows file Q):** DataSync→S3 + Transfer Family ≠ VPC **Windows file system** for app servers.
+**File system vs bucket**—read the stem literally.
 
 ## When to use it
-- Data lake, backup target, static assets, Transfer Family landing, Gateway backing store.
+Backups, data lakes, static assets, **Transfer Family** landing zone, **Storage Gateway** backing store, cross-region replication.
 
 ## When NOT to use it
-- Stem requires **SMB/NTFS app semantics** without FSx/Gateway overlay.
+When the stem requires a **POSIX/SMB file system** semantics for legacy Windows apps—not **S3** as “the file server” without an overlay (FSx, File Gateway caching story, etc.).
 
 ## Exam clues
-- Bucket, object, DataSync to S3, Glacier lifecycle.
+“Object storage,” “bucket,” “DataSync to S3,” “static website,” “Glacier transition,” “Transfer Family” targets.
 
 ## Common distractors
-- S3 sold as drop-in **Windows app file share**.
+- Treating **S3** as a drop-in replacement for **NTFS/SMB application storage** without clarifying access pattern.
+- **Practice (Windows file server Q):** **DataSync to S3 + Transfer Family** does not satisfy **general Windows file system in VPC** for app servers like **FSx** does.
 
 ## Architecture patterns
-- Lake; DataSync→S3; File Gateway SMB→objects; S3→Lambda/SQS events.
+- Data lake on S3; **DataSync** → S3; **File Gateway** SMB → S3 objects; event notifications to Lambda/SQS.
 
 ## Comparison with nearby services
-- **S3:** object.
-- **EBS:** block, one instance (mostly).
-- **EFS/FSx:** file.
+**S3** (object) vs **EBS** (block, single AZ attach) vs **FSx/EFS** (file).
 
 ## Example scenarios
-- Landing zone for analytics; static site.
+Archive and analytics landing zone; **not** the primary answer for “Windows file system for apps in VPC” when FSx fits.
 
 ## Links to related questions
 - [Q: Windows file server → FSx + DataSync](../questions/q-windows-fileserver-datasync-fsx.md)

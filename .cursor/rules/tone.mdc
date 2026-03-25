@@ -1,5 +1,5 @@
 ---
-description: Enforce concise, technical, and scan-friendly tone for AWS certification knowledge base
+description: Enforce simple, human-readable, technically precise writing for AWS certification notes
 globs:
   - services/**/*.md
   - patterns/**/*.md
@@ -7,107 +7,77 @@ globs:
 alwaysApply: true
 ---
 
-# Tone & Writing Style Rules
+# Tone and Writing Style
 
-## Core Principle
-Write for **fast recognition and decision-making**, not for teaching or storytelling.
-
-Content should be:
+## Core goal
+Write in a way that is:
 - technically correct
-- extremely concise
-- easy to scan in under 10 seconds
-- optimized for memorization and recall
+- simple to read
+- easy to scan
+- easy to memorize
 
----
+The writing should sound like a smart human explaining AWS clearly, not like compressed machine notes.
 
-## Writing Style
+## Writing style
+- Use simple, direct language.
+- Use precise technical terms when needed.
+- Explain concepts in plain English first.
+- Keep the wording natural and readable.
+- Prefer clarity over compression.
 
-### Use:
-- short sentences (prefer <15 words)
-- bullet points over paragraphs
-- clear, direct language
-- consistent structure across all files
+## Readability rules
+- Do not write in shorthand unless the shorthand is already obvious.
+- Do not overuse acronyms.
+- When using an acronym, prefer naming the full service or concept clearly at least once when helpful.
+- Do not write dense “note fragments” that feel like broken shorthand.
+- Each bullet should read like a complete thought.
 
-### Avoid:
-- long explanations
-- storytelling or narrative tone
-- unnecessary adjectives
-- filler phrases (e.g., "it is important to note that")
+## Formatting rules
+- Prefer bullets over paragraphs.
+- Each important statement should usually be its own bullet.
+- Use short sections with clear headers.
+- Keep paragraphs very short.
+- Avoid large walls of text.
 
----
+## Bullet style
+- Each bullet should contain one main idea.
+- Bullets should be short, but still read naturally.
+- Bullets should not feel clipped, robotic, or incomplete.
+- For enumerations, always use bullets.
 
-## Structure Rules
+## Language rules
+- Use simple words where possible.
+- Use technical terms only where they improve precision.
+- Avoid filler.
+- Avoid buzzword-heavy phrasing.
+- Avoid overly compressed wording.
 
-### Prefer this:
-- bullets
-- sections with clear headers
-- lists of signals, constraints, and decisions
+## Good examples
 
-### Avoid this:
-- large paragraphs
-- dense text blocks
-- mixed formatting
+### Bad
+- SMB req. FSx. EFS no. SG maybe. Hybrid mig path.
 
----
+### Good
+- Use Amazon FSx for Windows File Server when the workload requires SMB file shares.
+- Do not choose Amazon EFS for this case because EFS uses NFS, not SMB.
+- AWS DataSync is often the right migration tool for moving file data into FSx.
 
-## Language Rules
+### Bad
+- Long-run async container compute, no infra mgmt, event trig.
 
-### Use:
-- concrete technical terms
-- explicit constraints (e.g., "requires SMB", "NFS only", "max 15 minutes")
-- decisive wording
+### Good
+- AWS Fargate is a good fit for long-running container workloads.
+- It is useful when you want to run containers without managing EC2 instances.
+- It often appears in event-driven designs, such as processing work after an Amazon S3 upload.
 
-### Avoid:
-- vague language (e.g., "can be used for", "generally helpful")
-- hedging (e.g., "might", "could", "sometimes")
+## Compression guardrail
+Do not shorten content so much that it becomes hard to read.
+Do not trade readability for brevity.
+A slightly longer bullet is better than a cryptic bullet.
 
----
-
-## Decision-Focused Writing
-
-Every section should help answer:
-
-- When do I use this?
-- When do I NOT use this?
-- What are the closest alternatives?
-- What constraint makes this the correct answer?
-
----
-
-## Example Transformations
-
-### ❌ Bad
-AWS Fargate is a serverless compute engine that can be used to run containers without managing servers. It is useful in many scenarios where scalability is required.
-
-### ✅ Good
-- Run containers without managing servers
-- Use for long-running or event-driven workloads
-- No instance provisioning
-
----
-
-### ❌ Bad
-Amazon EFS is generally used for shared file storage and can be helpful in environments where multiple instances need access to the same data.
-
-### ✅ Good
-- Shared file system (NFS)
-- Multi-instance access
-- Not for Windows (no SMB)
-
----
-
-## Compression Rule
-
-If a section feels long:
-- shorten it
-- remove explanations
-- keep only decision-critical facts
-
----
-
-## Output Goal
-
-The reader should be able to:
-- scan the page in seconds
-- recognize patterns instantly
-- eliminate wrong answers quickly
+## Output standard
+The result should feel like:
+- clean study notes
+- written by a technical human
+- easy to review quickly
+- clear enough to understand without rereading

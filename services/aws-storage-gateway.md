@@ -1,34 +1,32 @@
 # AWS Storage Gateway
 
 ## What it is
-- Hybrid appliance: **File** (SMB/NFS→S3), **Volume** (iSCSI), **Tape** (VTL).
+Hybrid storage service: on-premises appliance/vm connects to AWS. Modes include **File Gateway** (SMB/NFS → **S3** objects), **Volume Gateway** (iSCSI block volumes), **Tape Gateway** (VTL).
 
 ## Personal notes / memory hooks
-- Edge bridge to S3—not the same as **FSx ENI in VPC** for cloud Windows compute.
-- **Practice (Windows file Q):** replace on-prem server with **File Gateway SMB** → consumer stays **on-prem–centric**; stem wants **AWS servers** + **FSx**.
+Gateway = **bridge at the edge**; FSx = **file service in the cloud**.
 
 ## When to use it
-- Branch cache; tape backup to S3/Glacier; iSCSI lift.
+Extend cloud storage to the data center with **low-latency local cache**, backup/archive to S3/Glacier, or legacy **iSCSI** apps.
 
 ## When NOT to use it
-- Stem: managed **Windows file system inside VPC** for migrated instances → **FSx** primary.
+When the stem asks for a **fully managed Windows file system inside AWS VPC** for migrated **EC2/Windows** workloads—**FSx for Windows** is usually cleaner than “SMB at the office backed by S3” as the *primary* answer.
 
 ## Exam clues
-- File Gateway, cache, on-premises appliance, iSCSI, tape.
+“On-premises gateway,” “File Gateway,” “cache,” “iSCSI,” “tape backup to S3,” hybrid SMB.
 
 ## Common distractors
-- File Gateway “replace file server” when answer is **FSx for AWS-side** workloads.
+- Choosing **File Gateway** to “replace file server” when the exam wants **native FSx** for **servers in AWS** consuming shares **in-region**.
+- **Practice (Windows file server Q):** **SMB on-prem via File Gateway** + “point shares to gateway”—keeps emphasis at **edge**, not **FSx ENI in VPC** for **AWS-resident** Windows compute.
 
 ## Architecture patterns
-- SMB on-prem → S3 objects; volume snapshots; tape → Glacier.
+- File Gateway SMB share on-prem → S3; Volume Gateway snapshots to EBS/S3; Tape Gateway to Glacier.
 
 ## Comparison with nearby services
-- **Gateway:** hybrid edge.
-- **DataSync:** bulk migration.
-- **FSx:** cloud file service.
+**Storage Gateway** (hybrid edge) vs **DataSync** (bulk migration) vs **FSx** (cloud file server).
 
 ## Example scenarios
-- Office SMB with local cache; not primary for “instances in VPC need Windows FS.”
+Branch office access with local cache; not the best fit when AWS-side Windows instances need FS in the VPC.
 
 ## Links to related questions
 - [Q: Windows file server → FSx + DataSync](../questions/q-windows-fileserver-datasync-fsx.md)

@@ -1,32 +1,32 @@
 # Event-driven architecture
 
 ## What it is
-- Components react to **events**; producers decoupled from consumers.
+Components react to **events** (state changes, signals, schedules) instead of synchronous chains only; producers don’t need to know all consumers; coupling is reduced.
 
 ## When to use it
-- One event → many reactions; add consumers without editing producer.
+Multiple downstream reactions to one business event, async workflows, extensibility (add consumers without changing producer), decoupled microservices.
 
 ## When NOT to use it
-- Strict sync UX only; no fan-out need.
+Simple request/response with strict synchronous UX and no fan-out; debugging complexity unacceptable without strong observability.
 
 ## Exam clues
-- Event-driven, decouple, publish, choreography.
+“Event-driven,” “decouple,” “publish event,” “react to changes,” “orchestration vs choreography.”
 
 ## Common distractors
-- **SNS** only when stem needs **rules, schedules, SaaS**—**EventBridge**.
+Using **SNS** alone when the stem implies **routing rules**, schedules, or SaaS sources—**EventBridge** is often the better fit.
 
 ## Related AWS services
-- EventBridge, SNS, SQS, Lambda, Step Functions, Kinesis, Pipes.
+EventBridge, SNS, SQS, Lambda, Step Functions, Kinesis (stream of events), EventBridge Pipes.
 
 ## Comparison with nearby patterns
-- **Events** vs **batch cron ETL** vs **high-volume streams** (Kinesis).
+**Event-driven** vs **batch ETL** on a clock; vs **streaming** (continuous high-volume) where Kinesis leads.
 
 ## Example scenarios
-- OrderCreated → payment + inventory + notify async.
-- **Practice (serverless Q):** **EventBridge** over SNS/Kinesis-only distractors for “streamline flows.”
+- `OrderCreated` event triggers payment, inventory, and analytics updates independently.
+- **Practice (serverless modernization Q):** **EventBridge** chosen to **streamline application data flows** between microservices vs **SNS** or **Kinesis** distractors.
 
 ## Links to related questions
 - [Q: Serverless modernization & multi-cloud](../questions/q-serverless-modernization-multicloud.md)
 
 ## Personal notes / memory hooks
-- Event-driven on AWS → **EventBridge** unless pure dumb fan-out (SNS).
+Event-driven + AWS exam → **EventBridge** is the default “bus” answer unless pure fan-out (SNS).

@@ -1,34 +1,32 @@
 # AWS Direct Connect
 
 ## What it is
-- **Private** circuit on-prem ↔ AWS; predictable bandwidth into **VPC** (VIFs).
+Dedicated or hosted **private network connectivity** from on-premises to AWS, bypassing the public internet for **stable bandwidth and lower latency** into **VPC** (and many AWS services via **public/private VIFs**).
 
 ## Personal notes / memory hooks
-- DX is the **pipe**—still need DataSync/FSx/SGW/DMS for the workload.
-- **Practice (Windows file Q):** DX exists; add **DataSync + FSx**, not “DX alone.”
+- DX = **pipe**; look for another service that **moves or serves** the bits.
 
 ## When to use it
-- Steady large hybrid traffic; compliance; low jitter vs internet.
+Hybrid workloads, **large ongoing data movement**, predictable throughput, compliance-sensitive paths; pairs with **DataSync**, **Storage Gateway**, hybrid AD, etc.
 
 ## When NOT to use it
-- Sporadic small traffic—**Site-to-Site VPN** enough.
+Small sporadic transfers where **Site-to-Site VPN** is enough; need instant zero-commit connectivity without provisioning lead time.
 
 ## Exam clues
-- Direct Connect to VPC, private link, hybrid migration diagrams.
+- “Direct Connect to the VPC,” “private connection from on-premises,” “consistent network for migration,” hybrid diagrams.
+- **Practice (Windows file server Q):** DX already in place from on-prem to **VPC**—pair with **DataSync** + **FSx**, not DX as sole solution.
 
 ## Common distractors
-- DX alone “migrates” data—false; needs a **data service**.
+- Assuming **Direct Connect alone** migrates data—it **provides the path**; you still pick **DataSync/SGW/DMS** for the workload.
 
 ## Architecture patterns
-- Private VIF → VPC; redundant DX; TGW (advanced).
+- DX + **private VIF** to VPC; redundant connections; integration with **transit gateway** (advanced).
 
 ## Comparison with nearby services
-- **DX:** private circuit.
-- **VPN:** IPsec over internet.
-- **Peering:** cloud-to-cloud.
+- **Direct Connect** vs **VPN** (quick, encrypted internet) vs **VPC peering** (cloud-cloud, not on-prem).
 
 ## Example scenarios
-- Replicate file data to FSx over stable pipe vs flaky internet.
+- Windows file server replication to **FSx** over DX instead of flaky internet uplink.
 
 ## Links to related questions
 - [Q: Windows file server → FSx + DataSync](../questions/q-windows-fileserver-datasync-fsx.md)

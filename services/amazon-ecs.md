@@ -1,35 +1,35 @@
 # Amazon ECS
 
 ## What it is
-- AWS-native container orchestration: tasks, services, IAM/VPC/LB integration.
+AWS-native container orchestration: run Docker containers as tasks/services, integrated with IAM, VPC, and AWS load balancers.
 
 ## Personal notes / memory hooks
-- AWS API scheduler—not Kubernetes.
-- **Practice (serverless Q):** ECS+Fargate+serverless data+EventBridge loses when stem names **other CSPs’ Kubernetes** → **EKS** wins.
+ECS = “AWS’s own scheduler.” EKS = “Kubernetes as a service.”
 
 ## When to use it
-- AWS-only microservices; team wants simpler path than EKS.
+AWS-centric microservices, tight integration with AWS APIs, simpler learning curve than Kubernetes for teams standardized on AWS.
 
 ## When NOT to use it
-- Stem: **multi-cloud**, same manifests on GKE/AKS → **EKS**.
+When the exam emphasizes **portable Kubernetes** workloads across clouds or strong multi-cloud **same control plane** story—**EKS** often fits that narrative better than ECS.
 
 ## Exam clues
-- Task definition, service, Fargate vs EC2 launch type, `awsvpc`.
+“ECS task definition,” “service,” “Fargate launch type,” “EC2 launch type,” “awsvpc network mode.”
 
 ## Common distractors
-- ECS vs EKS confused.
-- **Practice (serverless Q):** strong stack, wrong only on **K8s portability** wording.
+- Confusing ECS with EKS; choosing ECS when stem requires **Kubernetes** everywhere (GKE/AKS parity).
+- **Practice (serverless modernization Q):** **ECS + Fargate + Aurora Serverless + Redshift Serverless + EventBridge** is strong but loses when stem explicitly names **additional clusters on other cloud providers**—**EKS** wins portability framing.
 
 ## Architecture patterns
-- Microservices + ALB; App Mesh; EventBridge/Lambda beside tasks.
+- Microservices behind ALB, sidecars, service mesh (App Mesh), EventBridge/Lambda alongside tasks.
+- **Practice (serverless modernization Q):** ECS appears as **microservices** host with **EventBridge** data flow—valid pattern, wrong option only because of **multi-cloud Kubernetes** wording.
 
 ## Comparison with nearby services
-- **ECS:** AWS control plane.
-- **EKS:** Kubernetes API; both support **Fargate**.
+- **ECS** = AWS API; **EKS** = Kubernetes API; both can use **Fargate** for serverless containers.
+- **Practice (serverless modernization Q):** compare **ECS vs EKS** when stem says **multi-cloud** and **other CSPs’ clusters**.
 
 ## Example scenarios
-- Retail microservices on AWS only.
-- **Practice (serverless Q):** ECS+Fargate+EventBridge valid—eliminated by **multi-cloud clusters** line.
+- Retail microservices on AWS only, batch jobs as scheduled ECS tasks.
+- **Practice (serverless modernization Q):** **ECS + Fargate** + serverless data + **EventBridge** is a plausible modern stack—eliminated only by **multi-cloud Kubernetes** requirement.
 
 ## Links to related questions
 - [Q: Serverless modernization & multi-cloud](../questions/q-serverless-modernization-multicloud.md)

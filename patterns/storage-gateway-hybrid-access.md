@@ -1,34 +1,32 @@
 # Storage Gateway hybrid access
 
 ## What it is
-- On-prem **gateway**: SMB/NFS or iSCSI front; **S3** (or tape) back; local cache.
+**On-premises** or edge **gateway** presenting **SMB/NFS or iSCSI** while backing to **S3** (File/Volume/Tape modes)—**low-latency local** with cloud durability.
 
 ## When to use it
-- Branch low-latency reads; legacy iSCSI; tape-to-S3.
+Branch offices, cached reads, extending legacy apps to cloud storage **without rewriting** to S3 API.
 
 ## When NOT to use it
-- Primary ask: **ENI file service in VPC** for cloud instances—compare **FSx**.
+When the exam wants **managed file system ENIs in VPC** for **instances in AWS**—compare carefully to **FSx**; gateway is often **on-prem centric**.
 
 ## Exam clues
-- Storage Gateway, File Gateway, on-prem SMB, cache, tape VTL.
+“Storage Gateway,” “File Gateway,” “on-premises SMB,” “cache,” “tape backup.”
 
 ## Common distractors
-- File Gateway “replace file server” when **AWS servers** need **FSx**.
+Picking **File Gateway** when the answer should be **FSx in AWS** for migrated Windows compute **in the VPC**.
 
 ## Related AWS services
-- Storage Gateway, S3, Direct Connect, DataSync.
+Storage Gateway, S3, Direct Connect, DataSync.
 
 ## Comparison with nearby patterns
-- **Gateway:** edge hybrid.
-- **DataSync:** bulk sync.
-- **FSx:** cloud-native file.
+**Gateway hybrid** vs **DataSync migration** vs **FSx native cloud file**.
 
 ## Example scenarios
-- Office SMB → S3 objects behind cache.
-- **Practice (Windows file Q):** distractor shifts share to **on-prem Gateway**; stem wants **cloud** Windows FS.
+Office workers use SMB share that lands in S3; different from “AWS servers need FSx share.”
 
 ## Links to related questions
 - [Q: Windows file server → FSx + DataSync](../questions/q-windows-fileserver-datasync-fsx.md)
 
 ## Personal notes / memory hooks
-- Who consumes: **on-prem users** vs **instances in VPC**.
+- Ask **where** the primary consumer lives: **on-prem users** vs **instances in VPC**.
+- **Practice (Windows file server Q):** distractor **replaces on-prem file server with File Gateway**—consumer story stays **on-prem–centric** vs **AWS servers** needing **FSx**.
