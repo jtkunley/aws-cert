@@ -10,10 +10,11 @@ User bases spread globally, RTO/RPO requiring geographic failover, data sovereig
 Premature complexity for single-region users with no compliance driver; when the exam answer is cheaper single-region HA across **AZs** only.
 
 ## Exam clues
-“Multiple regions,” “low latency worldwide,” “failover between regions,” “active-active,” “global audience,” “Aurora Global Database,” “Route 53 routing policies.”
+- “Multiple regions,” “low latency worldwide,” “failover between regions,” “active-active,” “global audience,” “Aurora Global Database,” “Route 53 routing policies.”
+- **Practice (serverless modernization Q):** stem mentions **EC2 across multiple regions**—multi-region is **current-state context**; keyed answer may still pivot to **multi-cloud** (other CSPs) separately.
 
 ## Common distractors
-Confusing **multi-AZ** (one region) with **multi-region**; choosing multi-region when stem only needs **AZ** high availability.
+- Confusing **multi-AZ** (one region) with **multi-region**; choosing multi-region when stem only needs **AZ** high availability.
 
 ## Related AWS services
 Route 53, CloudFront, Global Accelerator, Aurora Global Database, DynamoDB global tables, S3 cross-region replication, multi-region KMS.

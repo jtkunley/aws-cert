@@ -13,10 +13,11 @@ When the requirement is **SMB Windows shares** in VPC for general corporate file
 “SFTP/FTP,” “third-party upload to S3,” “managed file transfer,” B2B ingest.
 
 ## Common distractors
-Confusing with **DataSync** (agent-based copy/sync) or using Transfer as a **Windows file server** substitute.
+- Confusing with **DataSync** (agent-based copy/sync) or using Transfer as a **Windows file server** substitute.
+- **Practice (Windows file server Q):** bundled with **S3** in a distractor—**FTP/SFTP/FTPS** access pattern ≠ **SMB file share** for migrated Windows apps in VPC.
 
 ## Architecture patterns
-Transfer Family → S3 bucket; IAM mapping; optional PGP/decryption workflows with Lambda.
+- Transfer Family → S3 bucket; IAM mapping; optional PGP/decryption workflows with Lambda.
 
 ## Comparison with nearby services
 **Transfer Family** (protocol servers) vs **DataSync** (migration/sync engine) vs **Storage Gateway** (hybrid).

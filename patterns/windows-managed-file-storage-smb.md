@@ -28,4 +28,5 @@ Replace on-prem 1 TB share with FSx in VPC for instances in AWS.
 - [Q: Windows file server → FSx + DataSync](../questions/q-windows-fileserver-datasync-fsx.md)
 
 ## Personal notes / memory hooks
-**Windows** in the first sentence of the stem → **FSx for Windows** until proven otherwise.
+- **Windows** in the first sentence of the stem → **FSx for Windows** until proven otherwise.
+- **Practice (Windows file server Q):** requirement **“file system for the servers in AWS”** → **FSx in VPC**, not **File Gateway SMB on-prem** or **S3 + Transfer**.

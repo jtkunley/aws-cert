@@ -13,10 +13,11 @@ When the stem requires a **POSIX/SMB file system** semantics for legacy Windows 
 “Object storage,” “bucket,” “DataSync to S3,” “static website,” “Glacier transition,” “Transfer Family” targets.
 
 ## Common distractors
-Treating **S3** as a drop-in replacement for **NTFS/SMB application storage** without clarifying access pattern.
+- Treating **S3** as a drop-in replacement for **NTFS/SMB application storage** without clarifying access pattern.
+- **Practice (Windows file server Q):** **DataSync to S3 + Transfer Family** does not satisfy **general Windows file system in VPC** for app servers like **FSx** does.
 
 ## Architecture patterns
-Data lake on S3; **DataSync** → S3; **File Gateway** SMB → S3 objects; event notifications to Lambda/SQS.
+- Data lake on S3; **DataSync** → S3; **File Gateway** SMB → S3 objects; event notifications to Lambda/SQS.
 
 ## Comparison with nearby services
 **S3** (object) vs **EBS** (block, single AZ attach) vs **FSx/EFS** (file).

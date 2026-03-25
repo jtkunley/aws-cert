@@ -13,7 +13,8 @@ Historical reporting tolerating hours delay—batch **Glue/EMR** or scheduled Re
 “Real-time,” “streaming,” “sub-minute,” “continuous ingest,” “live dashboard,” clickstream/IoT volume.
 
 ## Common distractors
-**EventBridge** for app integration vs **Kinesis** for high-throughput stream analytics—match the stem’s volume and processing model.
+- **EventBridge** for app integration vs **Kinesis** for high-throughput stream analytics—match the stem’s volume and processing model.
+- **Practice (serverless modernization Q):** stem asks **real-time analytics**; **Kinesis** option is tempting but may lose on **serverless data plane** + **event bus** combo—**Redshift Serverless** + **EventBridge** can still satisfy analytics intent.
 
 ## Related AWS services
 Kinesis (Streams, Firehose, Data Analytics), MSK, Lambda, OpenSearch, Redshift (including streaming ingestion patterns), QuickSight.

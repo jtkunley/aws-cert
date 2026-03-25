@@ -1,5 +1,7 @@
 # Pattern Name
 
+_Add new facts as markdown bullets (`-`) under each section; when ingesting questions, append bullets—do not replace the whole page._
+
 ## What it is
 ## When to use it
 ## When NOT to use it

@@ -28,4 +28,5 @@ EventBridge, Lambda, SQS, SNS, Step Functions, API Destinations.
 - [Q: Serverless modernization & multi-cloud](../questions/q-serverless-modernization-multicloud.md)
 
 ## Personal notes / memory hooks
-“Streamline data flows” between many services → draw EventBridge first.
+- “Streamline data flows” between many services → draw EventBridge first.
+- **Practice (serverless modernization Q):** exact stem phrase **“streamline application data flows”** → **EventBridge** over **SNS** “routing” or **Kinesis** alone.

@@ -13,7 +13,8 @@ Long-running always-on heavy compute where dedicated capacity is cheaper; strict
 “No server management,” “scale to zero,” “pay per use,” “managed capacity,” “Serverless” in service names.
 
 ## Common distractors
-**EC2 + Auto Scaling** is elastic but **not** serverless in exam language.
+- **EC2 + Auto Scaling** is elastic but **not** serverless in exam language.
+- **Practice (serverless modernization Q):** **EKS + Fargate** alone is not enough if distractor swaps **Aurora Serverless** → **provisioned Aurora** or **Redshift Serverless** → **provisioned Redshift**—read **serverless** literally in the stem.
 
 ## Related AWS services
 Lambda, Fargate, EventBridge, Step Functions, Aurora Serverless, Redshift Serverless, API Gateway, AppSync.

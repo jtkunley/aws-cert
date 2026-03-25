@@ -22,7 +22,8 @@ Direct Connect, VPN, DataSync, Storage Gateway, FSx, S3, Snow Family.
 **Hybrid migration** vs **lift-and-shift all to EC2**; vs **cloud-only** greenfield.
 
 ## Example scenarios
-1 TB Windows share on-prem; Windows instances in VPC need the same data—**FSx + DataSync** over DX.
+- 1 TB Windows share on-prem; Windows instances in VPC need the same data—**FSx + DataSync** over DX.
+- **Practice (Windows file server Q):** **~half** Windows workload migrated; **1 TB** + **5 GB/day**; **Direct Connect** already provisioned—still add **DataSync** + **FSx** for cloud-side file system.
 
 ## Links to related questions
 - [Q: Windows file server → FSx + DataSync](../questions/q-windows-fileserver-datasync-fsx.md)

@@ -28,4 +28,5 @@ Nightly sync of 5 GB/day from file server to FSx.
 - [Q: Windows file server → FSx + DataSync](../questions/q-windows-fileserver-datasync-fsx.md)
 
 ## Personal notes / memory hooks
-**Schedule + replicate + on-prem agent** → DataSync.
+- **Schedule + replicate + on-prem agent** → DataSync.
+- **Practice (Windows file server Q):** **daily task** language + on-prem **Windows SMB** → **DataSync** destination must match workload (**FSx for Windows**, not EFS/S3 for this stem).

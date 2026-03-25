@@ -13,16 +13,18 @@ Primary **OLTP** for web transactions—use **Aurora/RDS/DynamoDB**; low-latency
 “Analytics,” “data warehouse,” “BI,” “Redshift Spectrum,” “Serverless,” “PostgreSQL wire protocol” (compatibility note—still warehouse semantics).
 
 ## Common distractors
-Putting the **e-commerce transactional** database in Redshift because “PostgreSQL” was mentioned for analytics—keep OLTP on Aurora, analytics on Redshift.
+- Putting the **e-commerce transactional** database in Redshift because “PostgreSQL” was mentioned for analytics—keep OLTP on Aurora, analytics on Redshift.
+- **Practice (serverless modernization Q):** **Redshift** without **Serverless** vs **Redshift Serverless**—stem requires **serverless**; prefer **Redshift Serverless** in keyed answer.
 
 ## Architecture patterns
-ETL/ELT from S3/Kinesis/Firehose into Redshift; separate workgroups (Serverless); datasharing.
+- ETL/ELT from S3/Kinesis/Firehose into Redshift; separate workgroups (Serverless); datasharing.
 
 ## Comparison with nearby services
-**Redshift** vs **Athena** (ad-hoc S3 SQL) vs **OpenSearch** (search/logs) vs **Aurora** (OLTP).
+- **Redshift** vs **Athena** (ad-hoc S3 SQL) vs **OpenSearch** (search/logs) vs **Aurora** (OLTP).
 
 ## Example scenarios
-PostgreSQL-on-EC2 analytics migrated to **Redshift Serverless**; dashboards on sales/inventory history.
+- PostgreSQL-on-EC2 analytics migrated to **Redshift Serverless**; dashboards on sales/inventory history.
+- **Practice (serverless modernization Q):** **PostgreSQL-on-EC2 for analytics** → **Redshift Serverless**, not **Aurora PostgreSQL** for warehouse workloads.
 
 ## Links to related questions
 - [Q: Serverless modernization & multi-cloud](../questions/q-serverless-modernization-multicloud.md)

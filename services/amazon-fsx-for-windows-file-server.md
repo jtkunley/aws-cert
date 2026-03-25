@@ -10,22 +10,25 @@ Lift-and-shift or hybrid **Windows** apps needing **SMB**, ACLs, and Office/lega
 Primarily **Linux** scale-out with NFS and POSIX-heavy patterns—consider **EFS**; **read-heavy analytics** on objects—**S3**; if the stem only needs **FTP to a bucket**—not FSx.
 
 ## Exam clues
-“Windows file server,” “SMB,” “migrate on-premises Windows shares,” “AD domain,” “SQL Server file share backups,” pair with **DataSync** from on-prem.
+- “Windows file server,” “SMB,” “migrate on-premises Windows shares,” “AD domain,” “SQL Server file share backups,” pair with **DataSync** from on-prem.
+- **Practice (Windows file server Q):** create **FSx for Windows** share in console; target for **DataSync** from on-premises **SMB**; data must be a **file system for servers in AWS**.
 
 ## Common distractors
-Choosing **EFS** for the same Windows file-server story; choosing **S3** when the requirement is a **file system** for Windows apps.
+- Choosing **EFS** for the same Windows file-server story; choosing **S3** when the requirement is a **file system** for Windows apps.
 
 ## Architecture patterns
-FSx in VPC + **Direct Connect**/VPN; **DataSync** from on-premises SMB to FSx; multi-AZ file systems; DFS namespaces.
+- FSx in VPC + **Direct Connect**/VPN; **DataSync** from on-premises SMB to FSx; multi-AZ file systems; DFS namespaces.
 
 ## Comparison with nearby services
-**FSx for Windows** (SMB/Windows) vs **FSx for NetApp ONTAP / OpenZFS** (multi-protocol, different use cases) vs **EFS** (NFS, Linux-leaning) vs **S3** (object).
+- **FSx for Windows** (SMB/Windows) vs **FSx for NetApp ONTAP / OpenZFS** (multi-protocol, different use cases) vs **EFS** (NFS, Linux-leaning) vs **S3** (object).
 
 ## Example scenarios
-1 TB on-prem Windows share; daily deltas; workloads already in AWS need the same share semantics.
+- 1 TB on-prem Windows share; daily deltas; workloads already in AWS need the same share semantics.
+- **Practice (Windows file server Q):** **~1 TB** existing + **~5 GB/day** new data; **~half** of Windows workload already in AWS—FSx holds authoritative copy **in VPC** for cloud servers.
 
 ## Links to related questions
 - [Q: Windows file server → FSx + DataSync](../questions/q-windows-fileserver-datasync-fsx.md)
 
 ## Personal notes / memory hooks
-**Windows + SMB + “file system in AWS”** → FSx for Windows first.
+- **Windows + SMB + “file system in AWS”** → FSx for Windows first.
+- **Practice (Windows file server Q):** keyed combo **FSx + daily DataSync** over existing **Direct Connect**.

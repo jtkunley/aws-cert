@@ -10,10 +10,11 @@ Every regional deployment; private subnets for workloads; **ENIs** for managed s
 N/A in AWS—VPC is foundational; avoid over-building (exam may prefer **VPC endpoints** vs full hybrid).
 
 ## Exam clues
-“Private subnets,” “VPC endpoints,” “peering,” “Direct Connect to the VPC,” “FSx in the VPC.”
+- “Private subnets,” “VPC endpoints,” “peering,” “Direct Connect to the VPC,” “FSx in the VPC.”
+- **Practice (Windows file server Q):** **servers in AWS** live in **VPC**; file share must be reachable there (**FSx**), not only on-prem gateway SMB.
 
 ## Common distractors
-Confusing **VPC** (network container) with **FSx/S3** (storage)—the stem may mention VPC only as the **destination network** for hybrid links.
+- Confusing **VPC** (network container) with **FSx/S3** (storage)—the stem may mention VPC only as the **destination network** for hybrid links.
 
 ## Architecture patterns
 Multi-AZ subnets; hybrid: DX/VPN → VPC; interface endpoints for S3/DynamoDB.

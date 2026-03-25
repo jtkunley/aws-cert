@@ -22,7 +22,8 @@ EC2, EBS, RDS, Aurora, DMS for migration, backup strategies.
 **Self-managed on EC2** vs **RDS/Aurora** (AWS manages engine ops); vs **data warehouse** (Redshift) for analytics workloads.
 
 ## Example scenarios
-Starting point in exam stems: e-commerce MySQL and analytics PostgreSQL both on EC2 before migration.
+- Starting point in exam stems: e-commerce MySQL and analytics PostgreSQL both on EC2 before migration.
+- **Practice (serverless modernization Q):** **MySQL** (e-commerce) + **PostgreSQL** (analytics) **on EC2** → split targets **Aurora Serverless MySQL** (OLTP) + **Redshift Serverless** (warehouse), not one **Aurora PostgreSQL** for both roles.
 
 ## Links to related questions
 - [Q: Serverless modernization & multi-cloud](../questions/q-serverless-modernization-multicloud.md)

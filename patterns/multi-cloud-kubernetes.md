@@ -22,7 +22,8 @@ EKS, Fargate (EKS), ECR, App Mesh, ExternalDNS, cluster autoscaler, hybrid with 
 **Multi-cloud K8s** vs **single-cloud PaaS** (Elastic Beanstalk, Lightsail); vs **Lambda everywhere** (different portability story).
 
 ## Example scenarios
-E-commerce runs EKS in AWS and a second CSP region/cluster for failover or edge performance.
+- E-commerce runs EKS in AWS and a second CSP region/cluster for failover or edge performance.
+- **Practice (serverless modernization Q):** explicit **“additional clusters on other cloud service providers”** tilts **EKS** over **ECS** even when both are otherwise serverless-ready.
 
 ## Links to related questions
 - [Q: Serverless modernization & multi-cloud](../questions/q-serverless-modernization-multicloud.md)

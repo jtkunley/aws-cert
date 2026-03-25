@@ -13,7 +13,8 @@ Need per-event routing, transformation, and schedules across hundreds of event t
 “Fan-out,” “topic,” “multiple subscribers,” “notify,” “publish.”
 
 ## Common distractors
-Choosing SNS when the scenario is clearly an **event bus** with rules and SaaS sources.
+- Choosing SNS when the scenario is clearly an **event bus** with rules and SaaS sources.
+- **Practice (serverless modernization Q):** **SNS** + **EC2/ASG** + **Aurora PostgreSQL-only**—wrong tool and wrong **serverless** posture for the stem.
 
 ## Related AWS services
 SNS, SQS, Lambda, KMS for encryption, mobile push/email integrations.

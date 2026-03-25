@@ -10,19 +10,21 @@ Variable traffic on EC2, need high availability across AZs, replace unhealthy in
 When requirements call for **serverless** compute (Fargate/Lambda) or managed scaling at the service layer (Aurora Serverless, etc.)—ASG still implies **EC2 fleets**.
 
 ## Exam clues
-“Scale out/in,” “ASG,” “target tracking,” “scheduled scaling,” “health checks,” “across Availability Zones.”
+- “Scale out/in,” “ASG,” “target tracking,” “scheduled scaling,” “health checks,” “across Availability Zones.”
+- **Practice (serverless modernization Q):** answer choice pairs ASG with **fixed instance counts** per component—still **EC2-centric**.
 
 ## Common distractors
-Picking ASG + EC2 as “modern serverless”—it scales **instances**, not serverless units.
+- Picking ASG + EC2 as “modern serverless”—it scales **instances**, not serverless units.
+- **Practice (serverless modernization Q):** ASG + **SNS “routing” to EC2 and DBs** does not satisfy **serverless** or **event-driven bus** requirements in the stem.
 
 ## Architecture patterns
-Web tier behind ALB with ASG; worker tier scaling on queue depth (CloudWatch custom metrics).
+- Web tier behind ALB with ASG; worker tier scaling on queue depth (CloudWatch custom metrics).
 
 ## Comparison with nearby services
-**ASG** scales EC2; **Application Auto Scaling** scales ECS tasks, DynamoDB, Aurora replicas, etc.; **Fargate** capacity is abstracted differently.
+- **ASG** scales EC2; **Application Auto Scaling** scales ECS tasks, DynamoDB, Aurora replicas, etc.; **Fargate** capacity is abstracted differently.
 
 ## Example scenarios
-Three-tier app: ASG for app servers, fixed or separate DB tier.
+- Three-tier app: ASG for app servers, fixed or separate DB tier.
 
 ## Links to related questions
 - [Q: Serverless modernization & multi-cloud](../questions/q-serverless-modernization-multicloud.md)

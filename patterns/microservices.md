@@ -22,7 +22,8 @@ ECS, EKS, Fargate, Lambda, API Gateway, EventBridge, SNS/SQS.
 **Microservices** vs **SOA** (similar ideas, different era/tooling); vs **serverless functions** (smaller units than “service” sometimes).
 
 ## Example scenarios
-Checkout, inventory, shipping as separate deployable services behind a BFF or API layer.
+- Checkout, inventory, shipping as separate deployable services behind a BFF or API layer.
+- **Practice (serverless modernization Q):** domain split mirrors **online sales, inventory, order processing, shipping logistics**—microservices + **containers** is the modernization path in options.
 
 ## Links to related questions
 - [Q: Serverless modernization & multi-cloud](../questions/q-serverless-modernization-multicloud.md)

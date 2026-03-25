@@ -22,7 +22,8 @@ EventBridge, SNS, SQS, Lambda, Step Functions, Kinesis (stream of events), Event
 **Event-driven** vs **batch ETL** on a clock; vs **streaming** (continuous high-volume) where Kinesis leads.
 
 ## Example scenarios
-`OrderCreated` event triggers payment, inventory, and analytics updates independently.
+- `OrderCreated` event triggers payment, inventory, and analytics updates independently.
+- **Practice (serverless modernization Q):** **EventBridge** chosen to **streamline application data flows** between microservices vs **SNS** or **Kinesis** distractors.
 
 ## Links to related questions
 - [Q: Serverless modernization & multi-cloud](../questions/q-serverless-modernization-multicloud.md)

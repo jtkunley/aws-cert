@@ -28,4 +28,5 @@ Windows apps in AWS need drive-letter style access → **file** tier, not raw S3
 - [Q: Windows file server → FSx + DataSync](../questions/q-windows-fileserver-datasync-fsx.md)
 
 ## Personal notes / memory hooks
-Read “file system” literally—**S3 is not NTFS**.
+- Read “file system” literally—**S3 is not NTFS**.
+- **Practice (Windows file server Q):** **DataSync → S3** is still **object** landing zone; does not replace **SMB file share** semantics for typical Windows apps in VPC.

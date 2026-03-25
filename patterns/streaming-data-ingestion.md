@@ -28,4 +28,5 @@ Mobile app analytics pipeline: app → Kinesis → Lambda enrichment → S3/Reds
 - [Q: Serverless modernization & multi-cloud](../questions/q-serverless-modernization-multicloud.md)
 
 ## Personal notes / memory hooks
-Volume + continuous + analytics processing → **Kinesis** family.
+- Volume + continuous + analytics processing → **Kinesis** family.
+- **Practice (serverless modernization Q):** **Kinesis** appears with **EKS + Fargate** but **provisioned** Aurora/Redshift—trap when stem insists on **serverless** + **EventBridge**-style integration.

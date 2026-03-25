@@ -28,4 +28,5 @@ Office workers use SMB share that lands in S3; different from “AWS servers nee
 - [Q: Windows file server → FSx + DataSync](../questions/q-windows-fileserver-datasync-fsx.md)
 
 ## Personal notes / memory hooks
-Ask **where** the primary consumer lives: **on-prem users** vs **instances in VPC**.
+- Ask **where** the primary consumer lives: **on-prem users** vs **instances in VPC**.
+- **Practice (Windows file server Q):** distractor **replaces on-prem file server with File Gateway**—consumer story stays **on-prem–centric** vs **AWS servers** needing **FSx**.

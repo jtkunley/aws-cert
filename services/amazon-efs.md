@@ -13,10 +13,11 @@ Primary **Windows SMB / AD-integrated file server** replacement—exam usually p
 “NFS,” “Linux,” “thousands of connections,” “elastic file,” “mount targets in subnets.”
 
 ## Common distractors
-Picking **EFS** when the stem screams **Windows file server** and **SMB**—wrong workload fit.
+- Picking **EFS** when the stem screams **Windows file server** and **SMB**—wrong workload fit.
+- **Practice (Windows file server Q):** **EFS + DataSync + mount on Windows**—exam trap; **NFS/Linux-leaning** vs **FSx for Windows** for SMB semantics.
 
 ## Architecture patterns
-EFS mount targets per AZ; ECS/EKS persistent shared storage; hybrid copy via **DataSync** to EFS.
+- EFS mount targets per AZ; ECS/EKS persistent shared storage; hybrid copy via **DataSync** to EFS.
 
 ## Comparison with nearby services
 **EFS** (NFS, Linux-leaning) vs **FSx for Windows** (SMB) vs **FSx ONTAP** (multi-protocol enterprise).

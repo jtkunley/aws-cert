@@ -9,6 +9,7 @@ When the user shares an **AWS certification question** (screenshot, pasted image
 - **Always** persist the question to disk as **`questions/q-<slug>.md`** (create or update). A chat-only breakdown is **not** enough when the user posts a question—unless they used the **report only** exception below.
 - **Create** a new file the first time that question appears; **update** the same file on repost (refresh transcript, add/refresh **Source asset** path, rationales, links)—do not skip writes because the question “already exists.”
 - The `questions/` folder must contain the full **Original question** text (stem + all options) so the repo is the source of truth for what was posted.
+- **Improve existing notes:** for every intake, update each touched **`services/*.md`** and **`patterns/*.md`** by **appending new information as individual `-` bullets** (see §4 and §5). Wrong answers are a primary source of new distractor and comparison bullets.
 
 ---
 
@@ -66,13 +67,25 @@ Use the section headings from `.cursor/rules/questions-template.md` exactly:
 
 For **each** service linked from the question’s “Services involved” section:
 
-- If **`services/<name>.md` already exists**, **merge**: add any new exam clues, distractors, or scenarios that this question surfaces; extend “Links to related questions” with a link to the new `../questions/q-….md`. Prefer minimal edits; do not flatten existing structure.
+- If **`services/<name>.md` already exists**, **merge and grow the note**: extract every **new, non-duplicate** insight from this question (stem, correct path, wrong options) and add it as **one markdown bullet per insight** (`- …`) under the **best-matching section(s)**. Do **not** replace prior content; **append** bullets. If a section is still a single paragraph from an older pass, **convert** that paragraph to bullets when you touch it, or leave legacy prose and add a new bullet list block below it—prefer consistency in the file over time.
 - If **missing**, create the file using the **exact section headings** from `.cursor/rules/services-template.md`:
 
   `What it is` → `When to use it` → `When NOT to use it` → `Exam clues` → `Common distractors` → `Architecture patterns` → `Comparison with nearby services` → `Example scenarios` → `Links to related questions` → `Personal notes / memory hooks`
 
-- **Links to related questions:** include at least the current question: `[Q: short title](../questions/q-….md)`.
-- Keep prose **exam-oriented**: contrasts (e.g. EventBridge vs SNS, Aurora vs Redshift, ECS vs EKS), not product marketing.
+- **Where to put bullets (services):**
+  - **Exam clues:** new phrases, pairings, or stem keywords tied to this service.
+  - **Common distractors:** wrong answers or traps that abuse this service vs a neighbor.
+  - **Architecture patterns:** concrete combos (e.g. “DataSync + FSx + Direct Connect”) this question reinforces.
+  - **Example scenarios:** short scenario bullets grounded in real question stems.
+  - **Comparison with nearby services:** one bullet per new contrast the question forces (vs named alternates in options).
+  - **When to use / When NOT:** add bullets only when the question adds a **new** condition or exception; keep each bullet one line when possible.
+  - **What it is:** add bullets sparingly—only for **new factual** nuggets not already stated; otherwise use other sections.
+  - **Personal notes / memory hooks:** mnemonic bullets from this question.
+  - **Links to related questions:** **one bullet per question**, e.g. `- [Q: short title](../questions/q-….md)`; append the current question if not already listed.
+
+- Keep wording **exam-oriented** (contrasts, traps), not marketing copy.
+
+- **Dedup:** if an equivalent bullet already exists, skip or merge into a slightly sharper single bullet instead of duplicating.
 
 ---
 
@@ -80,8 +93,8 @@ For **each** service linked from the question’s “Services involved” sectio
 
 For **each** pattern linked from the question’s “Pattern tags” section:
 
-- If **`patterns/<name>.md` exists**, merge new clues and add the new question link under “Links to related questions.”
-- If **missing**, create using **`.cursor/rules/patterns-template.md`** headings (note: **Related AWS services** instead of “Architecture patterns”).
+- If **`patterns/<name>.md` exists**, apply the **same bullet-merge discipline as services**: for each **new** insight from this question, add **one `-` bullet** under the best section—**Exam clues**, **Common distractors**, **Related AWS services**, **Comparison with nearby patterns**, **Example scenarios**, **Personal notes / memory hooks**, or **When to use / When NOT** when the question adds a new condition. Preserve existing bullets; **append** only. **Links to related questions:** one bullet link per question file, including the new one.
+- If **missing**, create using **`.cursor/rules/patterns-template.md`** headings (note: **Related AWS services** instead of “Architecture patterns”). Seed sections with bullets from this question where possible.
 
 Typical patterns to consider (only if the question touches them):
 
@@ -107,8 +120,8 @@ Typical patterns to consider (only if the question touches them):
 ## 7. Execution order (for the agent)
 
 1. **Write or update** `questions/q-….md` first (at minimum: **Original question** transcribed; slug + heading). Expand with rationales and links in the same pass or immediately after—**do not** end the turn without a saved question file unless **report only**.
-2. List **all** services (stem + every option) → create/merge service files → finalize “Services involved” links.  
-3. List **all** patterns → create/merge pattern files → finalize “Pattern tags” links.  
+2. List **all** services (stem + every option) → create/merge service files (**append bullet entries** per §4) → finalize “Services involved” links.  
+3. List **all** patterns → create/merge pattern files (**append bullet entries** per §5) → finalize “Pattern tags” links.  
 4. Complete rationales (correct + wrong options), trap type, confidence; add **Source asset** when an image path is known.  
 5. Quick pass: no broken relative links; do **not** overwrite `.cursor/rules/*-template.md` unless the user asked to change templates.
 
@@ -135,6 +148,7 @@ In **all other cases**, saving **`questions/q-….md` is required every time** a
 
 ## 10. Quality bar
 
+- **Every new question** should leave touched service/pattern pages **strictly richer**: more bullets or sharper bullets, not silent no-ops when there is something to learn from wrong options.
 - Prefer **distinguishing** services and patterns examiners swap (e.g. SNS vs EventBridge, Kinesis vs EventBridge, Aurora vs Redshift, ECS vs EKS for multi-cloud).  
 - For **file and data movement** questions, contrast **file vs object**, **SMB/Windows vs NFS/Linux**, **DataSync vs Transfer Family vs Storage Gateway**, and **hybrid on-prem gateway vs cloud file system (FSx/EFS) for compute in VPC**.  
 - Call out **requirement keywords** from the stem (serverless, real-time, multi-cloud, event-driven, **file system**, **Windows**, **scheduled replication**, etc.) in rationales.  

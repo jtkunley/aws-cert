@@ -13,10 +13,11 @@ When the stem asks for a **fully managed Windows file system inside AWS VPC** fo
 “On-premises gateway,” “File Gateway,” “cache,” “iSCSI,” “tape backup to S3,” hybrid SMB.
 
 ## Common distractors
-Choosing **File Gateway** to “replace file server” when the exam wants **native FSx** for **servers in AWS** consuming shares **in-region**.
+- Choosing **File Gateway** to “replace file server” when the exam wants **native FSx** for **servers in AWS** consuming shares **in-region**.
+- **Practice (Windows file server Q):** **SMB on-prem via File Gateway** + “point shares to gateway”—keeps emphasis at **edge**, not **FSx ENI in VPC** for **AWS-resident** Windows compute.
 
 ## Architecture patterns
-File Gateway SMB share on-prem → S3; Volume Gateway snapshots to EBS/S3; Tape Gateway to Glacier.
+- File Gateway SMB share on-prem → S3; Volume Gateway snapshots to EBS/S3; Tape Gateway to Glacier.
 
 ## Comparison with nearby services
 **Storage Gateway** (hybrid edge) vs **DataSync** (bulk migration) vs **FSx** (cloud file server).
