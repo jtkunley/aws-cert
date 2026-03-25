@@ -1,32 +1,32 @@
 # Real-time analytics
 
 ## What it is
-Analyzing data with **low latency** from ingestion to insight: dashboards, alerts, fraud scoring, operational metrics as data arrives—not only nightly batches.
+- Low-latency ingest → insight: dashboards, alerts, stream aggregates.
 
 ## When to use it
-Live ops dashboards, streaming KPIs, anomaly detection on streams, near-real-time personalization within SLA.
+- Live KPIs; fraud on streams; ops telemetry at speed.
 
 ## When NOT to use it
-Historical reporting tolerating hours delay—batch **Glue/EMR** or scheduled Redshift loads may suffice and cost less.
+- Hourly/daily batch enough—scheduled ETL cheaper.
 
 ## Exam clues
-“Real-time,” “streaming,” “sub-minute,” “continuous ingest,” “live dashboard,” clickstream/IoT volume.
+- Real-time, streaming, sub-minute, live dashboard, clickstream volume.
 
 ## Common distractors
-- **EventBridge** for app integration vs **Kinesis** for high-throughput stream analytics—match the stem’s volume and processing model.
-- **Practice (serverless modernization Q):** stem asks **real-time analytics**; **Kinesis** option is tempting but may lose on **serverless data plane** + **event bus** combo—**Redshift Serverless** + **EventBridge** can still satisfy analytics intent.
+- **EventBridge** for firehose-scale telemetry.
+- **Practice (serverless Q):** **Kinesis** distractor; keyed path still **serverless** + **EventBridge** + **Redshift Serverless**.
 
 ## Related AWS services
-Kinesis (Streams, Firehose, Data Analytics), MSK, Lambda, OpenSearch, Redshift (including streaming ingestion patterns), QuickSight.
+- Kinesis, MSK, Lambda, OpenSearch, Redshift, Firehose, QuickSight.
 
 ## Comparison with nearby patterns
-**Real-time analytics** vs **event-driven workflows**: overlap but analytics stresses **aggregate/query** paths on continuous data.
+- **Analytics on streams** vs **app integration events** (EventBridge).
 
 ## Example scenarios
-Kinesis → Lambda/KDA → OpenSearch/Redshift for live sales and inventory metrics.
+- Kinesis → KDA → OpenSearch/Redshift for live sales view.
 
 ## Links to related questions
 - [Q: Serverless modernization & multi-cloud](../questions/q-serverless-modernization-multicloud.md)
 
 ## Personal notes / memory hooks
-“Streaming + analytics” → Kinesis/MSK family; “business events between apps” → EventBridge.
+- “Streaming analytics” → Kinesis/MSK; “business events between services” → EventBridge.

@@ -1,33 +1,36 @@
 # AWS DataSync
 
 ## What it is
-Managed **online data transfer** between on-premises storage (NFS, SMB, HDFS) and AWS (**S3**, **EFS**, **FSx** families), with scheduling, bandwidth limits, encryption, and data verification.
+- Managed **copy/sync** from on-prem NFS/SMB/HDFS to **S3, EFS, FSx**; schedule, throttle, verify.
 
 ## Personal notes / memory hooks
-- Stem pairs **on-prem share + AWS filesystem/bucket + schedule** → **DataSync** is the default hammer.
+- On-prem share + AWS destination + **schedule** → DataSync default.
+- **Practice (Windows file Q):** **daily** job on-prem Windows server → **FSx**; incremental after **1 TB** bulk over **DX**.
 
 ## When to use it
-**Recurring or one-time migration**, **incremental sync**, hybrid copies over **Direct Connect** or VPN; when the exam mentions **scheduled tasks** copying large datasets to AWS.
+- One-time or recurring migration; incremental deltas; DX/VPN path.
 
 ## When NOT to use it
-One-off **offline** petabyte seed where **Snow Family** wins; database **logical** migration—use **DMS**; ultra-custom protocol needs beyond supported agents/endpoints.
+- Offline PB seed—**Snow**.
+- DB ongoing replication—**DMS**.
+- SFTP partner ingest—**Transfer Family**.
 
 ## Exam clues
-- “Schedule a daily task,” “replicate/sync to S3/EFS/FSx,” “on-premises to AWS,” “verify transferred data,” agent on-prem.
-- **Practice (Windows file server Q):** **daily scheduled** replication between **on-prem Windows file server** and **FSx** (keyed answer).
+- Daily task, replicate, agent, on-premises to FSx/S3/EFS.
 
 ## Common distractors
-- Confusing with **Transfer Family** (managed file transfer *protocols* into S3, not the same as DataSync’s copy engine story).
+- Confused with **Transfer Family** (protocol endpoints, not bulk sync engine).
 
 ## Architecture patterns
-- DataSync agent on-prem → **Direct Connect** → FSx/S3/EFS; initial bulk + **incremental** for daily **GB** churn.
+- Agent on-prem → DX → FSx/S3/EFS; bulk then incremental.
 
 ## Comparison with nearby services
-- **DataSync** (copy/sync jobs) vs **Storage Gateway** (hybrid local caching/gateway modes) vs **Snowball** (offline) vs **Transfer Family** (SFTP/FTP/FTPS to S3).
+- **DataSync:** migration/sync jobs.
+- **Storage Gateway:** hybrid cache/presentation.
+- **Transfer Family:** SFTP/FTP to S3.
 
 ## Example scenarios
-- 5 GB/day new data from Windows file server to **FSx** with nightly task.
-- **Practice (Windows file server Q):** same volume/churn numbers justify **incremental** sync after initial bulk over **Direct Connect**.
+- Nightly 5 GB/day Windows share → FSx.
 
 ## Links to related questions
 - [Q: Windows file server → FSx + DataSync](../questions/q-windows-fileserver-datasync-fsx.md)

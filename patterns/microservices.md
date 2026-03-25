@@ -1,32 +1,32 @@
 # Microservices
 
 ## What it is
-Decomposing an application into small, independently deployable services aligned to business capabilities, communicating over networks (often APIs, events, or messages).
+- Small deployable services by capability; network calls (API, events).
 
 ## When to use it
-Different scaling profiles per capability, team autonomy, need to modernize legacy monoliths gradually, polyglot stacks, fault isolation boundaries.
+- Different scale per domain; team boundaries; isolate failures.
 
 ## When NOT to use it
-Small teams/products where operational overhead exceeds benefit; strict latency inside a single transaction boundary; immature DevOps—monolith or modular monolith may win.
+- Tiny team; tight sync latency inside one transaction; no ops maturity.
 
 ## Exam clues
-“Break into services,” “independently scale,” “deploy separately,” “domain boundaries,” containers/Kubernetes/ECS.
+- Break into services, deploy separately, ECS/EKS, domain language.
 
 ## Common distractors
-Microservices on **EC2 without** event integration or managed data paths—still “distributed monolith” if tightly coupled.
+- Microservices on EC2 **without** events/queues—still a distributed monolith.
 
 ## Related AWS services
-ECS, EKS, Fargate, Lambda, API Gateway, EventBridge, SNS/SQS.
+- ECS, EKS, Fargate, Lambda, API Gateway, EventBridge, SNS/SQS.
 
 ## Comparison with nearby patterns
-**Microservices** vs **SOA** (similar ideas, different era/tooling); vs **serverless functions** (smaller units than “service” sometimes).
+- **Microservices** vs **SOA** (era/tooling) vs **Lambda-only** (finer grain).
 
 ## Example scenarios
-- Checkout, inventory, shipping as separate deployable services behind a BFF or API layer.
-- **Practice (serverless modernization Q):** domain split mirrors **online sales, inventory, order processing, shipping logistics**—microservices + **containers** is the modernization path in options.
+- Checkout, inventory, shipping as separate services.
+- **Practice (serverless Q):** sales, inventory, orders, shipping → container microservices in answers.
 
 ## Links to related questions
 - [Q: Serverless modernization & multi-cloud](../questions/q-serverless-modernization-multicloud.md)
 
 ## Personal notes / memory hooks
-Microservices + **containers** + **events** is a common exam triple.
+- Microservices + **containers** + **events** = common exam triple.

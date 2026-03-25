@@ -1,33 +1,33 @@
 # Amazon Redshift
 
 ## What it is
-Cloud **data warehouse** for analytics: columnar storage, MPP SQL queries, integrates with the data lake (Spectrum), ML (Redshift ML), and serverless options (**Redshift Serverless**).
+- Columnar **data warehouse**; MPP SQL; Spectrum; ML; **Redshift Serverless** option.
 
 ## Personal notes / memory hooks
-“Analytics DB” in the stem → Redshift family. “Online orders row-by-row” → OLTP elsewhere.
+- “Analytics DB” in stem → Redshift family.
+- **Practice (serverless Q):** **Redshift Serverless** in keyed answer; provisioned Redshift in distractor fails **serverless** keyword.
 
 ## When to use it
-Business intelligence, large historical analytics, aggregations across huge datasets, integrating warehouse queries with S3 data.
+- BI; big aggregates; historical analytics; lake queries (Spectrum).
 
 ## When NOT to use it
-Primary **OLTP** for web transactions—use **Aurora/RDS/DynamoDB**; low-latency single-row app lookups.
+- OLTP row lookups—**Aurora/DynamoDB**.
 
 ## Exam clues
-“Analytics,” “data warehouse,” “BI,” “Redshift Spectrum,” “Serverless,” “PostgreSQL wire protocol” (compatibility note—still warehouse semantics).
+- Warehouse, BI, Spectrum, Serverless workgroup.
 
 ## Common distractors
-- Putting the **e-commerce transactional** database in Redshift because “PostgreSQL” was mentioned for analytics—keep OLTP on Aurora, analytics on Redshift.
-- **Practice (serverless modernization Q):** **Redshift** without **Serverless** vs **Redshift Serverless**—stem requires **serverless**; prefer **Redshift Serverless** in keyed answer.
+- Put **transactional** e-commerce DB here because “PostgreSQL” appeared.
 
 ## Architecture patterns
-- ETL/ELT from S3/Kinesis/Firehose into Redshift; separate workgroups (Serverless); datasharing.
+- ETL from S3/Kinesis/Firehose; Serverless workgroups; datasharing.
 
 ## Comparison with nearby services
-- **Redshift** vs **Athena** (ad-hoc S3 SQL) vs **OpenSearch** (search/logs) vs **Aurora** (OLTP).
+- **Redshift** vs **Athena** (S3 SQL) vs **OpenSearch** vs **Aurora** (OLTP).
 
 ## Example scenarios
-- PostgreSQL-on-EC2 analytics migrated to **Redshift Serverless**; dashboards on sales/inventory history.
-- **Practice (serverless modernization Q):** **PostgreSQL-on-EC2 for analytics** → **Redshift Serverless**, not **Aurora PostgreSQL** for warehouse workloads.
+- PostgreSQL-on-EC2 analytics → **Redshift Serverless**.
+- **Practice (serverless Q):** analytics role ≠ **Aurora PostgreSQL** consolidation option.
 
 ## Links to related questions
 - [Q: Serverless modernization & multi-cloud](../questions/q-serverless-modernization-multicloud.md)

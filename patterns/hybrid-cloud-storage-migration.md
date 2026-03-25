@@ -1,32 +1,33 @@
 # Hybrid cloud storage migration
 
 ## What it is
-Keeping **on-premises** systems while moving or mirroring data into AWS over **private or VPN** links (**Direct Connect**, Site-to-Site VPN), often during **phased** application migration.
+- On-prem + AWS over **DX/VPN**; phased copy while apps split across locations.
 
 ## When to use it
-Partial workload already in cloud, **ongoing sync**, regulated networks, large datasets that need **predictable** pipe to VPC.
+- Partial migration done; large ongoing sync; private pipe to **VPC**.
 
 ## When NOT to use it
-Greenfield all-in-cloud with no on-prem source; **offline** seed only—consider **Snow** for first load.
+- All-cloud greenfield; **Snow**-only offline seed with no hybrid steady state.
 
 ## Exam clues
-“On-premises,” “Direct Connect to VPC,” “half migrated,” “hybrid,” “Windows server still on-prem.”
+- On-premises, Direct Connect to VPC, half migrated, hybrid file/DB moves.
 
 ## Common distractors
-Picking **only** connectivity (DX) without a **transfer or file** service; confusing **hybrid access** (gateway on-prem) with **cloud-native file** (FSx in VPC).
+- **DX only**—no DataSync/SGW/FSx picked.
+- Gateway-on-prem confused with **cloud FSx** for **instances in VPC**.
 
 ## Related AWS services
-Direct Connect, VPN, DataSync, Storage Gateway, FSx, S3, Snow Family.
+- Direct Connect, VPN, DataSync, Storage Gateway, FSx, S3, Snow.
 
 ## Comparison with nearby patterns
-**Hybrid migration** vs **lift-and-shift all to EC2**; vs **cloud-only** greenfield.
+- **Hybrid migration** vs **all-in EC2 lift** vs **cloud-native only**.
 
 ## Example scenarios
-- 1 TB Windows share on-prem; Windows instances in VPC need the same data—**FSx + DataSync** over DX.
-- **Practice (Windows file server Q):** **~half** Windows workload migrated; **1 TB** + **5 GB/day**; **Direct Connect** already provisioned—still add **DataSync** + **FSx** for cloud-side file system.
+- 1 TB on-prem share; instances in VPC need same files—**FSx + DataSync + DX**.
+- **Practice (Windows file Q):** **half** Windows in cloud; **1 TB + 5 GB/day**; DX present.
 
 ## Links to related questions
 - [Q: Windows file server → FSx + DataSync](../questions/q-windows-fileserver-datasync-fsx.md)
 
 ## Personal notes / memory hooks
-**DX in the stem** → you still need **what moves the data** and **where it lands**.
+- DX in stem → still pick **mover** + **landing** service.

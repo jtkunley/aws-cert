@@ -1,32 +1,33 @@
 # Amazon VPC
 
 ## What it is
-Your **isolated network** in AWS: subnets, route tables, internet and NAT gateways, **security groups**, NACLs, and attachment points for hybrid connectivity (**Direct Connect**, **VPN**, **Transit Gateway**).
+- Regional isolated network: subnets, routes, IGW/NAT, **security groups**, NACLs, hybrid attach (DX, VPN, TGW).
 
 ## Personal notes / memory hooks
-**“In the VPC”** = private network home for ENI-based services like FSx.
+- “In the VPC” = ENI services (FSx, RDS, etc.) live here.
+- **Practice (Windows file Q):** **servers in AWS** need share **in VPC**—not only on-prem Gateway SMB.
 
 ## When to use it
-Every regional deployment; private subnets for workloads; **ENIs** for managed services (FSx, RDS, etc.) that live in the VPC.
+- Every regional workload; private subnets; endpoints.
 
 ## When NOT to use it
-N/A in AWS—VPC is foundational; avoid over-building (exam may prefer **VPC endpoints** vs full hybrid).
+- Overbuild: stem may need endpoints only, not full redesign.
 
 ## Exam clues
-- “Private subnets,” “VPC endpoints,” “peering,” “Direct Connect to the VPC,” “FSx in the VPC.”
-- **Practice (Windows file server Q):** **servers in AWS** live in **VPC**; file share must be reachable there (**FSx**), not only on-prem gateway SMB.
+- Subnets, endpoints, peering, DX to VPC, FSx in VPC.
 
 ## Common distractors
-- Confusing **VPC** (network container) with **FSx/S3** (storage)—the stem may mention VPC only as the **destination network** for hybrid links.
+- VPC confused with **storage**—VPC is network shell.
 
 ## Architecture patterns
-Multi-AZ subnets; hybrid: DX/VPN → VPC; interface endpoints for S3/DynamoDB.
+- Multi-AZ subnets; DX/VPN → VPC; interface endpoints.
 
 ## Comparison with nearby services
-**VPC** vs **global** edge (CloudFront) vs **account boundary**—VPC is regional isolation.
+- **VPC:** regional network.
+- **CloudFront:** edge cache (different layer).
 
 ## Example scenarios
-Direct Connect terminates into VPC; Windows instances mount **FSx** DNS name in same VPC/DNS setup.
+- DX terminates in VPC; instances mount FSx DNS in same VPC.
 
 ## Links to related questions
 - [Q: Windows file server → FSx + DataSync](../questions/q-windows-fileserver-datasync-fsx.md)

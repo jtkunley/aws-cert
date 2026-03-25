@@ -1,33 +1,35 @@
 # Amazon EC2 Auto Scaling
 
 ## What it is
-Automatically adjusts the number of EC2 instances (or other resources in broader Auto Scaling concepts) based on demand, schedules, or health.
+- Scales **EC2 instance count** (or related resources) on metrics, schedule, health.
 
 ## Personal notes / memory hooks
-ASG = “more VMs when busy.” It does not make the architecture serverless by itself.
+- More VMs when busy—not serverless units.
+- **Practice (serverless Q):** ASG + fixed counts + SNS to EC2/DB → wrong for **serverless** stem.
 
 ## When to use it
-Variable traffic on EC2, need high availability across AZs, replace unhealthy instances, scheduled scale for known peaks.
+- Variable traffic on EC2; AZ spread; replace unhealthy nodes; scheduled peaks.
 
 ## When NOT to use it
-When requirements call for **serverless** compute (Fargate/Lambda) or managed scaling at the service layer (Aurora Serverless, etc.)—ASG still implies **EC2 fleets**.
+- Stem asks **serverless** compute → Fargate/Lambda, not ASG fleets.
 
 ## Exam clues
-- “Scale out/in,” “ASG,” “target tracking,” “scheduled scaling,” “health checks,” “across Availability Zones.”
-- **Practice (serverless modernization Q):** answer choice pairs ASG with **fixed instance counts** per component—still **EC2-centric**.
+- ASG, target tracking, scheduled scaling, health checks, multi-AZ.
+- **Practice (serverless Q):** ASG per component still = EC2 story.
 
 ## Common distractors
-- Picking ASG + EC2 as “modern serverless”—it scales **instances**, not serverless units.
-- **Practice (serverless modernization Q):** ASG + **SNS “routing” to EC2 and DBs** does not satisfy **serverless** or **event-driven bus** requirements in the stem.
+- “Elastic” ASG labeled **serverless** → wrong.
 
 ## Architecture patterns
-- Web tier behind ALB with ASG; worker tier scaling on queue depth (CloudWatch custom metrics).
+- ALB + ASG; workers scale on queue depth (custom metric).
 
 ## Comparison with nearby services
-- **ASG** scales EC2; **Application Auto Scaling** scales ECS tasks, DynamoDB, Aurora replicas, etc.; **Fargate** capacity is abstracted differently.
+- **ASG:** EC2 fleet size.
+- **Application Auto Scaling:** ECS tasks, DynamoDB, Aurora replicas, etc.
+- **Fargate:** no EC2 node fleet to scale.
 
 ## Example scenarios
-- Three-tier app: ASG for app servers, fixed or separate DB tier.
+- Three-tier: ASG app servers; DB separate.
 
 ## Links to related questions
 - [Q: Serverless modernization & multi-cloud](../questions/q-serverless-modernization-multicloud.md)

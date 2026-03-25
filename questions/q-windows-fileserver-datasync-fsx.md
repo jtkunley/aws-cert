@@ -15,24 +15,20 @@ Which of the following options is the **recommended migration strategy** for thi
 **Option D:** Use AWS Storage Gateway - File Gateway to create an SMB share on the on-premises data center to replace the existing Windows file server. Point the existing file shares to the new file gateway share.
 
 ## Correct answer
-
-**Option A** — FSx for Windows File Server provides a **fully managed SMB/Windows-native file system in AWS** for instances in the VPC; **DataSync** handles **scheduled, incremental** replication over the existing **Direct Connect** path.
+- **A**
 
 ## Why it is correct
-
-- The requirement is a **file system** (not only object storage) that **Windows workloads in AWS** can use like a traditional share.
-- **FSx for Windows File Server** is purpose-built for **SMB, AD integration, and Windows semantics** (permissions, NTFS-style behavior).
-- **DataSync** is the standard exam answer for **ongoing or scheduled copy** from on-premises NFS/SMB to AWS file or object stores, with bandwidth control and verification.
-- **~5 GB/day** fits incremental replication; initial **1 TB** can be seeded over Direct Connect with scheduled syncs afterward.
+- Stem needs **SMB file system in VPC** for **Windows instances in AWS**.
+- **FSx for Windows** = managed SMB/NTFS semantics.
+- **DataSync** + **daily task** = incremental over **DX** after **1 TB** bulk.
+- **5 GB/day** = incremental sync pattern.
 
 ## Why the other options are wrong
-
-- **Option B:** **EFS** is **NFS-oriented** and optimized for **Linux** elastic workloads; it is a **poor primary fit** for “Windows file server” semantics versus **FSx for Windows**. Exam distractor: “EFS + DataSync + mount on Windows” ignores the usual **workload/storage pairing**.
-- **Option C:** **S3** is **object storage**, not a POSIX/SMB **file system** for typical Windows app expectations. **Transfer Family** is **FTP/SFTP/FTPS** style access to S3—not a substitute for a **managed Windows file share** in VPC for general file-server replacement.
-- **Option D:** **File Gateway** exposes **on-premises SMB** backed primarily by **S3**; it **does not** deliver the stem’s goal of having the corpus on an **AWS-resident Windows file system** for **servers in AWS** as cleanly as **FSx**. It also frames **replacing** the on-prem server with a **local** gateway share rather than landing data in **FSx in the VPC** for migrated workloads.
+- **B:** **EFS** = **NFS/Linux** fit; wrong primary for Windows file-server stem.
+- **C:** **S3** = object; **Transfer** = SFTP/FTP-style, not general SMB share for apps.
+- **D:** **File Gateway** = on-prem SMB front to S3; stem wants **AWS-resident** Windows FS for **servers in VPC** → **FSx**.
 
 ## Services involved
-
 - [Amazon VPC](../services/amazon-vpc.md)
 - [Amazon FSx for Windows File Server](../services/amazon-fsx-for-windows-file-server.md)
 - [AWS DataSync](../services/aws-datasync.md)
@@ -43,7 +39,6 @@ Which of the following options is the **recommended migration strategy** for thi
 - [AWS Storage Gateway](../services/aws-storage-gateway.md)
 
 ## Pattern tags
-
 - [Hybrid cloud storage migration](../patterns/hybrid-cloud-storage-migration.md)
 - [DataSync migration and replication](../patterns/datasync-migration-replication.md)
 - [Windows managed file storage (SMB)](../patterns/windows-managed-file-storage-smb.md)
@@ -51,20 +46,15 @@ Which of the following options is the **recommended migration strategy** for thi
 - [Storage Gateway hybrid access](../patterns/storage-gateway-hybrid-access.md)
 
 ## Trap type
-
-**Workload/storage mismatch:** EFS vs FSx for Windows; **object vs file** (S3 + Transfer vs FSx); **hybrid gateway on-prem** vs **cloud file system** for AWS compute.
+- **EFS vs FSx**; **object+Transfer vs file**; **Gateway on-prem vs FSx in VPC**.
 
 ## Confidence / review status
-
-Matches highlighted practice answer; align with current AWS exam wording if question source updates.
+- Matches highlighted practice key.
 
 ## Source asset
-
 - `/Users/james/.cursor/projects/Users-james-work-aws-cert/assets/Screenshot_2026-03-24_at_8.43.40_PM-5d86702b-204b-477c-8535-c53776663600.png`
 
 ## Related pages
-
-- [Services template](../.cursor/rules/services-template.md)
-- [Patterns template](../.cursor/rules/patterns-template.md)
-- [Questions template](../.cursor/rules/questions-template.md)
-
+- [Services template](../.cursor/rules/services-template.mdc)
+- [Patterns template](../.cursor/rules/patterns-template.mdc)
+- [Questions template](../.cursor/rules/questions-template.mdc)

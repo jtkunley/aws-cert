@@ -1,35 +1,38 @@
 # Amazon Aurora
 
 ## What it is
-AWS-designed relational database compatible with **MySQL** or **PostgreSQL**, with storage auto-scaling, fast failover replicas, and global database options.
+- MySQL- or PostgreSQL-compatible relational DB; AWS storage layer; replicas; Global Database.
 
 ## Personal notes / memory hooks
-OLTP + MySQL/Postgres → Aurora. Warehouse/analytics → Redshift, not Aurora.
+- OLTP here; warehouse → **Redshift**, not Aurora.
+- **Practice (serverless Q):** one **Aurora PostgreSQL** for OLTP+analytics → wrong split.
+- **Practice (serverless Q):** stem says **serverless** → **Aurora Serverless** beats provisioned Aurora in keyed answer.
 
 ## When to use it
-Managed OLTP needing PostgreSQL/MySQL compatibility, high durability, read scaling with replicas, or global/low-latency read patterns (Global Database).
+- Managed OLTP; MySQL/Postgres apps; read replicas; Global DB reads.
 
 ## When NOT to use it
-Pure key-value or document at massive scale—**DynamoDB**; analytics warehouse—**Redshift**; simplest serverless SQL with unpredictable spikes—consider **Aurora Serverless** variants when the stem matches.
+- Massive key-value—**DynamoDB**.
+- Analytics warehouse—**Redshift**.
+- Stem says serverless OLTP—prefer **Aurora Serverless** SKU.
 
 ## Exam clues
-- “MySQL/PostgreSQL compatible,” “Aurora,” “replicas,” “Serverless v2,” “Global Database,” “backtrack.”
-- When the stem demands **serverless** for OLTP, prefer **Aurora Serverless** naming over provisioned **Aurora** alone if both appear.
+- Aurora, MySQL/Postgres compat, Serverless v2, Global DB, backtrack.
 
 ## Common distractors
-- Migrating analytics PostgreSQL to **Aurora** when the workload is **warehouse**-style—Redshift family fits analytics better.
-- **Practice (serverless modernization Q):** single **Aurora PostgreSQL** for **both** migrated **MySQL OLTP** and **analytics PostgreSQL**—wrong; keep OLTP on **Aurora Serverless MySQL**, analytics on **Redshift Serverless**.
+- Analytics PostgreSQL → **Aurora** instead of **Redshift**.
 
 ## Architecture patterns
-- Aurora writer + read replicas; Aurora Serverless for variable OLTP; multi-AZ high availability.
-- **Practice (serverless modernization Q):** **Aurora Serverless MySQL** for e-commerce replacing **MySQL on EC2**.
+- Writer + replicas; Aurora Serverless variable OLTP; multi-AZ.
 
 ## Comparison with nearby services
-- **Aurora** vs **RDS** (same engines but Aurora storage model); **Aurora Serverless** for auto-scaling capacity; **Redshift** for analytics.
+- **Aurora vs RDS:** storage model.
+- **Aurora Serverless:** auto capacity.
+- **Redshift:** analytics only.
 
 ## Example scenarios
-- E-commerce transactional DB (MySQL-compat), app replacing self-managed MySQL on EC2.
-- **Practice (serverless modernization Q):** start = **MySQL on EC2** + **PostgreSQL on EC2 (analytics)** → target **Aurora Serverless MySQL** + **Redshift Serverless**, not Aurora-only for the warehouse role.
+- E-commerce OLTP MySQL-compat off EC2 MySQL.
+- **Practice (serverless Q):** MySQL-on-EC2 → **Aurora Serverless MySQL**; analytics PG-on-EC2 → **Redshift Serverless**.
 
 ## Links to related questions
 - [Q: Serverless modernization & multi-cloud](../questions/q-serverless-modernization-multicloud.md)

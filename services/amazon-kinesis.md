@@ -1,33 +1,33 @@
 # Amazon Kinesis
 
 ## What it is
-Real-time **streaming data** platform (Data Streams, Data Firehose, Data Analytics, Video Streams) for ingest, processing, and delivery of continuous data.
+- **Streaming:** Data Streams, Firehose, Data Analytics, Video—shards, producers, consumers.
 
 ## Personal notes / memory hooks
-“Real-time analytics” + **continuous ingest** → Kinesis is a strong signal (vs EventBridge for app integration).
+- High-volume continuous ingest—not default app integration bus.
+- **Practice (serverless Q):** Kinesis + EKS+Fargate **but** provisioned Aurora+Redshift → wrong; stem demands **serverless** + EventBridge path.
 
 ## When to use it
-High-volume **real-time** ingestion, clickstreams, IoT telemetry, log aggregation, stream processing (KDA/Flink), building custom consumers with shards.
+- Clickstream, IoT, logs, KDA/Flink, replay, many consumers per shard.
 
 ## When NOT to use it
-Loose **application integration** and business events between services—**EventBridge** or **SNS/SQS** often suffice; simple batch ETL schedules—**Glue** or **Step Functions** may fit.
+- Loose business events between few services—**EventBridge/SQS**.
+- Nightly batch only—**Glue/Step Functions**.
 
 ## Exam clues
-“Real-time streaming,” “shards,” “producers/consumers,” “clickstream,” “millions of events per second,” “Kinesis Data Analytics.”
+- Shards, producers/consumers, real-time streaming, KDA.
 
 ## Common distractors
-- Choosing Kinesis when the exam wants **event bus** style routing between microservices without a streaming analytics requirement.
-- **Practice (serverless modernization Q):** **Kinesis** aligns with **real-time** language, but that distractor uses **provisioned Aurora + provisioned Redshift**—fails **serverless architecture** vs **Aurora Serverless + Redshift Serverless + EventBridge**.
+- Kinesis chosen when stem wants **event bus** routing, low volume.
 
 ## Architecture patterns
-- Kinesis Data Streams → Lambda/KDA → S3/Redshift; Firehose → S3/OpenSearch/Redshift for delivery.
+- Streams → Lambda/KDA → S3/Redshift; Firehose → S3/OpenSearch.
 
 ## Comparison with nearby services
-- **Kinesis** (streams) vs **MSK** (Kafka) vs **EventBridge** (events) vs **SQS** (queues).
+- **Kinesis** streams vs **MSK** (Kafka) vs **EventBridge** vs **SQS**.
 
 ## Example scenarios
-- Live dashboards, fraud detection on streams, centralized logging pipeline.
-- **Practice (serverless modernization Q):** **real-time analytics** in stem can still be satisfied with **Redshift Serverless** + ingestion; do not drop **serverless** DB naming for **Kinesis** alone.
+- Live metrics; fraud on streams; central logging.
 
 ## Links to related questions
 - [Q: Serverless modernization & multi-cloud](../questions/q-serverless-modernization-multicloud.md)

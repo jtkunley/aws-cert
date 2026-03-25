@@ -1,32 +1,32 @@
 # Multi-cloud with Kubernetes
 
 ## What it is
-Running the same **container workloads** and Kubernetes patterns on **EKS** and on other clouds’ Kubernetes (GKE, AKS, etc.) for portability, resilience, or latency—often same images, Helm charts, GitOps.
+- Same container/K8s model on **EKS** + other CSP Kubernetes (GKE, AKS).
 
 ## When to use it
-Regulatory/geo requirements, acquisition of multiple clouds, avoiding single-vendor API lock-in for the **orchestration** layer, global performance with local clusters.
+- Portability mandate; multi-vendor; same Helm/manifests everywhere.
 
 ## When NOT to use it
-AWS-only roadmap with no K8s expertise—**ECS** may reduce complexity; small static workloads.
+- AWS-only, no K8s—**ECS** simpler.
 
 ## Exam clues
-“Multi-cloud,” “other cloud providers,” “Kubernetes,” “portable workloads,” “same clusters elsewhere.”
+- Other cloud providers, Kubernetes, clusters elsewhere, portable workloads.
 
 ## Common distractors
-**ECS** is powerful on AWS but less aligned with “same as GKE/AKS” portability than **EKS**.
+- **ECS** when stem demands **same as GKE/AKS**.
 
 ## Related AWS services
-EKS, Fargate (EKS), ECR, App Mesh, ExternalDNS, cluster autoscaler, hybrid with Outposts (related but not multi-cloud CSP).
+- EKS, Fargate (EKS), ECR, App Mesh, autoscaler.
 
 ## Comparison with nearby patterns
-**Multi-cloud K8s** vs **single-cloud PaaS** (Elastic Beanstalk, Lightsail); vs **Lambda everywhere** (different portability story).
+- **Multi-cloud K8s** vs **single-cloud PaaS** vs **Lambda everywhere**.
 
 ## Example scenarios
-- E-commerce runs EKS in AWS and a second CSP region/cluster for failover or edge performance.
-- **Practice (serverless modernization Q):** explicit **“additional clusters on other cloud service providers”** tilts **EKS** over **ECS** even when both are otherwise serverless-ready.
+- EKS + second CSP cluster for perf/geo.
+- **Practice (serverless Q):** “additional clusters on other CSPs” → **EKS** over **ECS**.
 
 ## Links to related questions
 - [Q: Serverless modernization & multi-cloud](../questions/q-serverless-modernization-multicloud.md)
 
 ## Personal notes / memory hooks
-Stem mentions **other cloud providers** + containers → **EKS** often beats **ECS** in exam intent.
+- Other CSPs + containers → **EKS** in keyed answers.

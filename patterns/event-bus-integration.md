@@ -1,32 +1,32 @@
 # Event bus integration
 
 ## What it is
-A central **event bus** receives events, applies **rules** (filtering, routing), and delivers to **targets**—the classic **EventBridge** pattern for enterprise and application integration.
+- Central **bus** + **rules** route events to targets—**EventBridge** pattern.
 
 ## When to use it
-Many event types, cross-account routing, scheduled automation, SaaS partner integrations, schema evolution with registry.
+- Many event types; cross-account; schedules; SaaS sources; schema registry.
 
 ## When NOT to use it
-Simple one-to-many notify pattern with no routing—**SNS** may be enough; ordered stream processing at shard scale—**Kinesis**.
+- Simple broadcast, no routing—**SNS**.
 
 ## Exam clues
-“Event bus,” “rules,” “targets,” “schedule,” “decouple microservices,” “custom events.”
+- Event bus, rules, targets, schedule, custom events.
 
 ## Common distractors
-Describing **SNS topics** as a full substitute for content-based routing and partner event sources.
+- **SNS topic** as full bus with content routing.
 
 ## Related AWS services
-EventBridge, Lambda, SQS, SNS, Step Functions, API Destinations.
+- EventBridge, Lambda, SQS, SNS, Step Functions, API Destinations.
 
 ## Comparison with nearby patterns
-**Event bus** (EventBridge) vs **pub/sub** (SNS) vs **queue** (SQS)—different coupling and consumption models.
+- **Bus** vs **pub/sub** vs **queue**.
 
 ## Example scenarios
-`InventoryUpdated` rule sends to SQS for workers and invokes Lambda for cache invalidation.
+- InventoryUpdated → SQS + Lambda cache bust.
+- **Practice (serverless Q):** stem phrase **“streamline application data flows”** → EventBridge.
 
 ## Links to related questions
 - [Q: Serverless modernization & multi-cloud](../questions/q-serverless-modernization-multicloud.md)
 
 ## Personal notes / memory hooks
-- “Streamline data flows” between many services → draw EventBridge first.
-- **Practice (serverless modernization Q):** exact stem phrase **“streamline application data flows”** → **EventBridge** over **SNS** “routing” or **Kinesis** alone.
+- “Streamline flows” between many services → draw EventBridge first.
