@@ -1,22 +1,22 @@
 ## Serverless modernization & multi-cloud
 
-- Scenario summary: Legacy platforms and databases on EC2 across regions must move to an event-driven serverless model with real-time analytics, cleaner cross-service data flow, and Kubernetes clusters on other cloud providers.
-- Primary driver: The stem insists on serverless end-to-end, an integration bus for data flows, and Kubernetes portability to other clouds—so compute, data planes, and messaging must all line up with those keywords, not partial matches.
-- Decision focus: Tests whether you pick EKS over ECS for multi-cloud Kubernetes, keep Aurora Serverless and Redshift Serverless (not provisioned) when “serverless architecture” is explicit, and use EventBridge rather than SNS or Kinesis alone for streamlining flows.
-- Correct answer pattern: Microservices on EKS with Fargate; Aurora Serverless for transactional MySQL; Redshift Serverless for analytics; EventBridge to integrate and route flows between services.
+- Scenario summary: Legacy applications and databases on Amazon EC2 across regions need to become event-driven and serverless, improve analytics latency, smooth data movement between services, and support Kubernetes clusters on other cloud providers.
+- Primary driver: The stem requires a **serverless** architecture for the main building blocks, not only elastic scaling on instances.
+- Decision focus: This question checks whether you choose portable managed Kubernetes and serverless data tiers, wire services with a real event bus, and reject answers that slip back to EC2, wrong data roles, or streaming or pub/sub tools used as a substitute for that bus.
+- Correct answer pattern: Serverless container workloads on managed Kubernetes, separate serverless relational and analytics warehouse tiers, and a managed event bus that routes and integrates traffic between services.
 
 - Key services:
-  - Amazon EKS
+  - Amazon Elastic Kubernetes Service (EKS)
   - AWS Fargate
   - Amazon Aurora Serverless
   - Amazon Redshift Serverless
   - Amazon EventBridge
 
 - Common distractor services:
-  - Amazon ECS
+  - Amazon Elastic Container Service (ECS)
   - Amazon EC2
-  - EC2 Auto Scaling
-  - Amazon SNS
+  - EC2 Auto Scaling groups
+  - Amazon Simple Notification Service (SNS)
   - Amazon Kinesis
   - Amazon Aurora (provisioned)
   - Amazon Redshift (provisioned)
@@ -24,43 +24,41 @@
 - Key signals:
   - serverless architecture
   - event-driven
-  - streamline application data flows
+  - streamline data flows
   - real-time analytics
   - multi-cloud
-  - Kubernetes on other cloud providers
+  - Kubernetes elsewhere
 
 - Constraints:
-  - major components must be serverless, not just auto-scaling EC2
-  - OLTP and analytics must stay in separate appropriate tiers
-  - portability to non-AWS Kubernetes favors EKS over ECS when the stem says so
+  - Core compute and data services must be serverless, not merely EC2 with Auto Scaling.
+  - Transactional data and analytics warehouse data must stay in separate, appropriate tiers.
+  - When the stem names Kubernetes on other cloud providers, the orchestration choice should align with cross-cloud portability.
 
 - Common traps:
-  - ECS with Fargate instead of EKS when other CSP Kubernetes is explicit
-  - EKS with Kinesis but provisioned Aurora and Redshift
-  - EC2 Auto Scaling with SNS routing and one Aurora PostgreSQL for both OLTP and analytics
+  - Picking Elastic Container Service with Fargate when the scenario stresses Kubernetes on other cloud providers.
+  - Pairing Elastic Kubernetes Service and Kinesis with provisioned Aurora and provisioned Redshift while the stem demands a serverless architecture.
+  - Relying on EC2 Auto Scaling, SNS routing, and a single Aurora PostgreSQL database for both storefront transactions and analytics.
 
 - Why traps are wrong:
-  - ECS → weaker multi-cloud Kubernetes portability vs EKS when other providers’ clusters are explicit
-  - provisioned Aurora/Redshift → violates serverless architecture constraint even if Kinesis satisfies “streaming” language
-  - EC2 + SNS + single Aurora PostgreSQL → not serverless; SNS is not a full event bus; one relational store mixes OLTP and warehouse roles
+  - Elastic Container Service with Fargate → violates the constraint that Kubernetes portability to other clouds should drive the orchestration pick when the stem says so.
+  - Elastic Kubernetes Service with Kinesis and provisioned Aurora and Redshift → violates the constraint that the architecture stay serverless for major components.
+  - EC2 Auto Scaling with SNS and one Aurora PostgreSQL for both roles → violates serverless design, full event-bus integration, and separate OLTP versus warehouse tiers.
 
 - Pattern tags:
-  - #serverless
-  - #event-driven
-  - #eks-fargate
-  - #aurora-serverless
-  - #redshift-serverless
-  - #eventbridge
-  - #multi-cloud-k8s
-  - #oltp-vs-warehouse
+  - #serverless-architecture
+  - #event-driven-design
+  - #kubernetes-portability
+  - #managed-event-bus
+  - #transactional-versus-analytics
+  - #multi-cloud-kubernetes
 
 
 ## Windows File Server, DataSync, and FSx
 
-- Scenario summary: A hybrid workload needs to migrate data from an on-premises Windows file server into AWS, with ongoing daily updates and private network connectivity already in place.
-- Primary driver: The stem requires a real file system in the VPC that Windows servers in AWS can use like a traditional share, plus a way to keep data in sync from on premises—not object access or edge-only SMB.
-- Decision focus: Tests whether you pair managed SMB storage in AWS (FSx for Windows) with scheduled incremental replication (DataSync) over the existing private path, versus EFS, S3+Transfer, or File Gateway as the main destination.
-- Correct answer pattern: Hybrid Windows file migration into managed SMB storage in AWS, using scheduled incremental replication over a private connection.
+- Scenario summary: A company keeps data on an on-premises Windows file server and needs it available in AWS for instances already in a VPC, with daily growth, incremental updates, and private connectivity already available.
+- Primary driver: The answer must provide a **Windows-style file share inside the VPC**, not only object storage or a share that stays anchored at the edge.
+- Decision focus: This question checks whether you select managed SMB file storage in the Region plus scheduled file replication from on premises, instead of NFS-oriented file, object plus transfer protocols, or a hybrid gateway as the main place data lives for cloud workloads.
+- Correct answer pattern: Ongoing replication from an on-premises Windows file server into managed Windows file storage in the VPC, using a private network path and a scheduled synchronization service.
 
 - Key services:
   - Amazon FSx for Windows File Server
@@ -68,36 +66,36 @@
   - AWS Direct Connect
 
 - Common distractor services:
-  - Amazon EFS
+  - Amazon Elastic File System (EFS)
   - Amazon S3
   - AWS Transfer Family
-  - AWS Storage Gateway File Gateway
+  - AWS Storage Gateway (File Gateway)
 
 - Key signals:
   - Windows file server
-  - SMB semantics
-  - file system for servers in AWS
-  - scheduled daily replication
+  - SMB
+  - file system in VPC
+  - daily replication
   - Direct Connect
 
 - Constraints:
-  - destination must support Windows-style file sharing
-  - destination must be usable by workloads in the VPC
-  - migration must support ongoing incremental sync
+  - The destination must behave like Windows file sharing for applications in AWS.
+  - The destination must live where VPC workloads can mount it as their primary file tier.
+  - The migration approach must support repeated incremental synchronization after the initial bulk copy.
 
 - Common traps:
-  - EFS with DataSync
-  - S3 with Transfer Family
-  - File Gateway as the primary cloud destination
+  - Choosing Elastic File System with DataSync and mounting it for a classic Windows file-server scenario.
+  - Landing files in S3 and using Transfer Family as the main access path for general Windows application storage.
+  - Making File Gateway the primary destination for data that migrated Windows instances in the VPC must treat as their file system.
 
 - Why traps are wrong:
-  - EFS with DataSync → wrong protocol/workload fit vs FSx for Windows for corporate SMB shares
-  - S3 with Transfer Family → object storage and FTP-family access, not a VPC SMB file system for apps
-  - File Gateway as primary cloud target → hybrid edge pattern, not authoritative FSx in VPC for migrated Windows compute
+  - Elastic File System with DataSync → violates the constraint that the workload is Windows SMB–first rather than NFS-first.
+  - S3 with Transfer Family → violates the constraint that the scenario asks for a file system in the VPC, not object storage with FTP-style protocols.
+  - File Gateway as the primary cloud destination → violates the constraint that authoritative Windows file storage for instances in AWS should sit in the VPC as managed SMB, not mainly at the on-premises edge.
 
 - Pattern tags:
-  - #hybrid-storage-migration
-  - #windows-file-shares
-  - #fsx-windows
-  - #datasync
-  - #file-vs-object-storage
+  - #hybrid-file-migration
+  - #windows-smb-shares
+  - #vpc-file-storage
+  - #incremental-replication
+  - #file-versus-object-storage

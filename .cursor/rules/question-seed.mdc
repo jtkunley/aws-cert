@@ -24,6 +24,27 @@ The seed should represent:
 
 ---
 
+## Tone and refinement
+
+When writing or editing a seed, keep the **Required Structure** block-for-block identical, and apply all of the following:
+
+1. **Structure:** Do not add, remove, or reorder sections or blank lines between them.
+2. **Length:** Prefer clearer wording over adding length; do not pad.
+3. **Sentences:** Top-level prose lines (`Scenario summary` through `Correct answer pattern`, each `Constraint`, each `Common trap` where it reads as a line of reasoning, and each `Why traps are wrong` explanation after the arrow) should read as **clean, complete sentences** where the field carries prose. **Exception:** **`Key signals`** stay **atomic trigger phrases** (a few words, no mini-sentences—see item 7).
+4. **Plain English:** Choose simple words over dense packing; one idea per sentence.
+5. **`Correct answer pattern`:** State the **architecture pattern** (roles and relationships), not option letter wording or a SKU-for-SKU recap of the keyed answer.
+6. **`Primary driver`:** One **dominant** requirement or tension (a single short sentence).
+7. **`Key signals`:** **Atomic** exam hooks (keywords or short noun phrases only).
+8. **`Why traps are wrong`:** Always **`trap label → violated constraint`**, with a clear constraint named after the arrow (complete sentence or crisp clause).
+9. **`Pattern tags`:** Use **concept-level** kebab tags (pattern names). Avoid tags that are only a single product SKU unless the concept is inseparable from that product.
+10. **Precision:** Keep distinctions that matter for the exam (protocols, tiers, managed versus self-managed).
+11. **No shorthand fragments** in prose fields (no telegraphic note style).
+12. **Voice:** Human and readable; spell out a service once in a sentence where it helps, without stacking acronyms.
+
+**`Key services` / `Common distractor services`:** Use the **standard AWS service names** as list items. A short clarifying clause after the name is fine if it stays one readable line.
+
+---
+
 ## Required Structure
 
 Every question file must contain:
@@ -36,9 +57,9 @@ With this exact structure:
 ## Question Seed
 
 - Scenario summary: <1–2 sentence problem summary, no fluff>
-- Primary driver: <main deciding factor>
-- Decision focus: <what the question is testing>
-- Correct answer pattern: <general architecture pattern, not full answer wording>
+- Primary driver: <one short sentence: the single dominant constraint or tension>
+- Decision focus: <what the question is testing, in plain complete sentences>
+- Correct answer pattern: <pattern-level architecture only, not keyed option wording>
 
 - Key services:
   - <service 1>
