@@ -30,6 +30,7 @@
 ## Links to related questions
 - [Serverless modernization & multi-cloud](../questions/serverless-modernization-multicloud.md)
 - [Cost-effective video transcoding with Fargate](../questions/cost-effective-video-transcoding-with-fargate.md)
+- [SQL Server to MySQL managed migration](../questions/sql-server-to-mysql-managed-migration.md)
 
 ## Personal notes / memory hooks
 - When the stem opens with **ugly EC2 databases**, the **correct** path usually **lifts** data to **managed** or **serverless** tiers.

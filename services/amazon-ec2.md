@@ -42,7 +42,9 @@
 ## Example scenarios
 - A legacy monolith on Linux, software that requires a specific OS, **GPU** workloads, or a **custom kernel module**.
 - **Practice (serverless modernization question):** The described current state is often **applications on EC2** plus **self-managed MySQL and PostgreSQL on EC2**. That lines up with the [Legacy EC2 data tier](../patterns/legacy-ec2-data-tier.md) pattern.
+- **Practice (SQL Server to MySQL migration question):** On-premises SQL Server clusters often represent the legacy operational baseline that managed migration targets aim to replace.
 
 ## Links to related questions
 - [Serverless modernization & multi-cloud](../questions/serverless-modernization-multicloud.md)
 - [Cost-effective video transcoding with Fargate](../questions/cost-effective-video-transcoding-with-fargate.md)
+- [SQL Server to MySQL managed migration](../questions/sql-server-to-mysql-managed-migration.md)

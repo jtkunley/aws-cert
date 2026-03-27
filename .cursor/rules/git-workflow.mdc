@@ -1,11 +1,10 @@
 ---
-description: User commits manually; agent must not create git commits
+description: Auto-commit question intake changes after they are added
 alwaysApply: true
 ---
 
 # Git workflow
 
-- **Do not run `git commit`** or any script whose purpose is to create a commit (e.g. `git add && git commit`).
-- **Do not** stage changes for the user **for the purpose of committing** unless they explicitly ask you to stage.
-- The user **always commits manually**; offer a short summary of changed files if useful, but leave `git commit` to them.
-- If the user **explicitly** asks you to commit, then committing is allowed.
+- **Automatically create a git commit** after adding or updating a question intake and its related files (`questions/`, `services/`, `patterns/`, and `seed-bank.md`).
+- For non-question edits, commit only when the user explicitly asks.
+- Use concise commit messages that explain the intake topic and what was updated.

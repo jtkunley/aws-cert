@@ -17,6 +17,7 @@
 
 ## Exam clues
 - **Private subnets**, **VPC endpoints**, **peering**, **Direct Connect into the VPC**, and **FSx** or **RDS** **in the VPC**.
+- **Practice (SQL Server to MySQL migration question):** A VPN-to-VPC setup can be part of connectivity, but connectivity alone does not replace database migration services like SCT and DMS.
 
 ## Common distractors
 - Mixing up **VPC** (the **network container**) with **FSx** or **S3** (the **storage**). The stem may mention **VPC** only as the **destination network** for **hybrid** links while the **correct storage** service is still **FSx** or another file or object store.
@@ -32,3 +33,4 @@
 
 ## Links to related questions
 - [Windows File Server, DataSync, and FSx](../questions/windows-file-server-datasync-fsx.md)
+- [SQL Server to MySQL managed migration](../questions/sql-server-to-mysql-managed-migration.md)

@@ -21,6 +21,7 @@
 ## Common distractors
 - Treating **S3** as a plug-in replacement for **NTFS/SMB application storage** without an appropriate **file** service on top.
 - **Practice (Windows file server question):** **S3** remains **object storage**; it does not become a **managed Windows file share in the VPC** just because **DataSync** copied files there.
+- **Practice (SQL Server to MySQL migration question):** S3 backup and load workflows are often a distractor when the requirement is heterogeneous database migration with managed schema conversion and replication.
 
 ## Architecture patterns
 - **Data lake** on S3 with **AWS Glue**, **Athena**, or **Redshift Spectrum**.
@@ -41,3 +42,4 @@
 ## Links to related questions
 - [Windows File Server, DataSync, and FSx](../questions/windows-file-server-datasync-fsx.md)
 - [Cost-effective video transcoding with Fargate](../questions/cost-effective-video-transcoding-with-fargate.md)
+- [SQL Server to MySQL managed migration](../questions/sql-server-to-mysql-managed-migration.md)

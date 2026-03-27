@@ -103,6 +103,53 @@
   - #multi-cloud-kubernetes
 
 
+## SQL Server to MySQL managed migration
+
+- Scenario summary: A mission-critical on-premises SQL Server environment must move to AWS with lower operational overhead, and the target platform requires migration into MySQL using managed services.
+- Primary driver: The migration must solve heterogeneous SQL Server-to-MySQL conversion with managed migration tooling, not file-transfer workflows.
+- Decision focus: This question tests whether you choose schema conversion plus managed database replication for cross-engine migration, instead of backup-and-load or file synchronization options.
+- Correct answer pattern: Convert source schema to the target engine format, provision a managed MySQL target in Amazon RDS, and run managed replication from source to target during migration.
+
+- Key services:
+  - AWS Schema Conversion Tool
+  - AWS Database Migration Service
+  - Amazon RDS for MySQL
+
+- Common distractor services:
+  - AWS Glue
+  - AWS Snowball Edge
+  - AWS DataSync
+  - Amazon S3
+
+- Key signals:
+  - heterogeneous migration
+  - SQL Server to MySQL
+  - managed services preferred
+  - mission-critical database
+  - on-premises to AWS
+
+- Constraints:
+  - The migration must support cross-engine schema compatibility from SQL Server to MySQL.
+  - The solution should prioritize managed AWS services to reduce operational overhead.
+  - The data-move mechanism must match relational database migration semantics rather than file replication semantics.
+
+- Common traps:
+  - Using S3 backup plus Glue load as the main migration workflow.
+  - Choosing Snowball Edge as the primary migration method without offline-transfer need.
+  - Using DataSync for SQL Server-to-MySQL relational migration.
+
+- Why traps are wrong:
+  - S3 backup plus Glue load → violates the heterogeneous schema-conversion constraint for SQL Server-to-MySQL migration.
+  - Snowball Edge primary path → violates the managed online migration-fit constraint when schema conversion plus managed replication is required.
+  - DataSync for relational migration → violates the relational migration-semantics constraint because DataSync is for file and object transfer patterns.
+
+- Pattern tags:
+  - #heterogeneous-database-migration
+  - #schema-conversion-and-replication
+  - #managed-migration-services
+  - #sql-server-to-mysql
+
+
 ## Windows File Server, DataSync, and FSx
 
 - Scenario summary: A company keeps data on an on-premises Windows file server and needs it available in AWS for instances already in a VPC, with daily growth, incremental updates, and private connectivity already available.

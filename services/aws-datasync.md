@@ -17,6 +17,7 @@
 - You need **offline** seeding of **very large** datasets where **AWS Snow Family** is the better story.
 - You are doing **logical database** migration between engines—**AWS Database Migration Service (DMS)** is usually the right tool.
 - The requirement is only **SFTP or FTP** ingestion for partners—**AWS Transfer Family** addresses **protocol servers**, not the same copy job model as DataSync.
+- **Practice (SQL Server to MySQL migration question):** DataSync is not the primary service for heterogeneous relational engine migration semantics.
 
 ## Exam clues
 - Phrases like **schedule a daily task**, **sync or replicate to S3, EFS, or FSx**, **on-premises to AWS**, **verify transferred data**, and **DataSync agent** on premises.
@@ -38,3 +39,4 @@
 
 ## Links to related questions
 - [Windows File Server, DataSync, and FSx](../questions/windows-file-server-datasync-fsx.md)
+- [SQL Server to MySQL managed migration](../questions/sql-server-to-mysql-managed-migration.md)
