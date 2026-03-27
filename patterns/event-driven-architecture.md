@@ -26,9 +26,11 @@
 ## Example scenarios
 - An **OrderCreated** event triggers **payment**, **inventory**, and **analytics** updates **independently**.
 - **Practice (serverless modernization question):** **EventBridge** matches **streamline application data flows** between **microservices** better than **SNS-only** or **Kinesis-only** distractors in that framing.
+- **Practice (video transcoding question):** An **S3 upload** event triggers orchestration that starts a per-file compute task instead of continuous polling.
 
 ## Links to related questions
 - [Serverless modernization & multi-cloud](../questions/serverless-modernization-multicloud.md)
+- [Cost-effective video transcoding with Fargate](../questions/cost-effective-video-transcoding-with-fargate.md)
 
 ## Personal notes / memory hooks
 - **Event-driven** plus **AWS** exam → draw **EventBridge** first as the **bus** unless the stem is pure **fan-out** (**SNS**).

@@ -7,6 +7,7 @@
 ## Personal notes / memory hooks
 - **ECS** is often described as **AWS’s own container scheduler** (AWS APIs and consoles), while **EKS** is **Kubernetes** on AWS.
 - **Practice (serverless modernization question):** A stack with **ECS**, **Fargate**, **Aurora Serverless**, **Redshift Serverless**, and **EventBridge** can look very strong. It tends to lose only when the stem explicitly wants **Kubernetes portability** and **clusters on other cloud providers**—then **EKS** is usually the better fit.
+- **Practice (video transcoding question):** If a job runs around **40 minutes**, ECS is a strong fit when combined with **Fargate** and event-triggered task launch.
 
 ## When to use it
 - You are **standardized on AWS** and want **tight integration** with AWS networking, identity, and load balancing.
@@ -37,3 +38,4 @@
 
 ## Links to related questions
 - [Serverless modernization & multi-cloud](../questions/serverless-modernization-multicloud.md)
+- [Cost-effective video transcoding with Fargate](../questions/cost-effective-video-transcoding-with-fargate.md)

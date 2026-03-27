@@ -22,6 +22,7 @@
 
 ## Common distractors
 - Treating Fargate as the same as **AWS Lambda**. Fargate is for **long-running containers** and normal task/pod lifecycles; Lambda is built around short, event-driven function invocations.
+- **Practice (video transcoding question):** For per-item jobs that run about **40 minutes**, Fargate is usually safer than Lambda as the main worker runtime.
 
 ## Architecture patterns
 - **ECS** services on Fargate behind an **Application Load Balancer**.
@@ -39,3 +40,4 @@
 
 ## Links to related questions
 - [Serverless modernization & multi-cloud](../questions/serverless-modernization-multicloud.md)
+- [Cost-effective video transcoding with Fargate](../questions/cost-effective-video-transcoding-with-fargate.md)

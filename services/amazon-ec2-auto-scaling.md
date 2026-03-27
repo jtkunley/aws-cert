@@ -22,6 +22,7 @@
 ## Common distractors
 - Calling **EC2 plus Auto Scaling** **serverless**. The exam treats **serverless** as a different idea (no EC2 fleet you manage for that tier).
 - **Practice (serverless modernization question):** **Auto Scaling**, **Amazon SNS** “routing” to EC2 and databases, and a non-serverless data story usually **fail** a stem that asks for **serverless** and a real **event bus**.
+- **Practice (video transcoding question):** A minimum size of one instance still leaves baseline cost and management overhead when event-triggered serverless containers are available.
 
 ## Architecture patterns
 - An **Application Load Balancer** in front of an **Auto Scaling group** of web servers.
@@ -37,3 +38,4 @@
 
 ## Links to related questions
 - [Serverless modernization & multi-cloud](../questions/serverless-modernization-multicloud.md)
+- [Cost-effective video transcoding with Fargate](../questions/cost-effective-video-transcoding-with-fargate.md)

@@ -27,6 +27,7 @@
 - Picking **EC2 plus Auto Scaling** when the requirement is **serverless** or **no server management**.
 - Mixing up **EC2** with **container workers**: **Fargate** removes the need for you to manage EC2 for the worker layer.
 - **Practice (serverless modernization question):** If the stem lists **EC2** as today’s compute, the right answers generally **reduce reliance on EC2**, not grow fleets.
+- **Practice (video transcoding question):** If a worker is idle a large percentage of time, always-on EC2 polling can be less cost-effective than event-triggered Fargate tasks.
 
 ## Architecture patterns
 - Classic **three-tier** web applications, **bastion** hosts for administrative access, **batch** workers on a fixed pool of instances, and **hybrid** designs that use **AWS Direct Connect** or a **Site-to-Site VPN**.
@@ -44,3 +45,4 @@
 
 ## Links to related questions
 - [Serverless modernization & multi-cloud](../questions/serverless-modernization-multicloud.md)
+- [Cost-effective video transcoding with Fargate](../questions/cost-effective-video-transcoding-with-fargate.md)

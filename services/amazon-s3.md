@@ -27,6 +27,7 @@
 - **DataSync** bulk copy into S3.
 - **S3 event notifications** to **Lambda** or **SQS**.
 - **File Gateway** presents **SMB** on premises while storing **objects** in S3.
+- **Practice (video transcoding question):** Upload events in **S3** can trigger **Lambda**, which then starts **ECS Fargate** tasks for long-running processing.
 
 ## Comparison with nearby services
 - **S3:** **object** store with a **REST** API model.
@@ -39,3 +40,4 @@
 
 ## Links to related questions
 - [Windows File Server, DataSync, and FSx](../questions/windows-file-server-datasync-fsx.md)
+- [Cost-effective video transcoding with Fargate](../questions/cost-effective-video-transcoding-with-fargate.md)

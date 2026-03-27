@@ -15,6 +15,7 @@
 
 ## Common distractors
 - Assuming **EC2** plus **Auto Scaling** **modernizes** the **data plane**—it does **not** replace **managed** database services by itself.
+- Keeping always-on **EC2** workers for bursty jobs can miss a cheaper event-driven model when serverless containers are available.
 
 ## Related AWS services
 - **EC2**, **EBS**, **RDS**, **Aurora**, **DMS** for **migration**, and **backup** strategies.
@@ -28,6 +29,7 @@
 
 ## Links to related questions
 - [Serverless modernization & multi-cloud](../questions/serverless-modernization-multicloud.md)
+- [Cost-effective video transcoding with Fargate](../questions/cost-effective-video-transcoding-with-fargate.md)
 
 ## Personal notes / memory hooks
 - When the stem opens with **ugly EC2 databases**, the **correct** path usually **lifts** data to **managed** or **serverless** tiers.

@@ -1,3 +1,53 @@
+## Cost-effective video transcoding with Fargate
+
+- Scenario summary: A video platform currently transcodes uploads on one EC2-based Java worker, each item takes about 40 minutes, and metrics show meaningful idle time; the architecture must become more available, scalable, and cheaper to run.
+- Primary driver: The per-video runtime is too long for Lambda and the workload should avoid always-on EC2 workers.
+- Decision focus: Select an event-driven compute model that launches long-running jobs on demand with low operational overhead.
+- Correct answer pattern: S3 upload events trigger orchestration that starts serverless container tasks for each file, so compute scales per job and stops when work is done.
+
+- Key services:
+  - Amazon S3
+  - AWS Lambda
+  - Amazon ECS
+  - AWS Fargate
+
+- Common distractor services:
+  - Amazon EC2
+  - EC2 Auto Scaling groups
+  - Amazon SQS
+  - AWS Lambda (as the main transcoder)
+
+- Key signals:
+  - 40-minute processing time
+  - uploaded to Amazon S3
+  - EC2 idle 35 percent
+  - high availability and scalability
+  - reduce management overhead
+  - most cost-effective
+
+- Constraints:
+  - The processing unit must support long-running jobs that exceed Lambda duration limits.
+  - The design should avoid continuous polling workers and minimize always-on compute cost.
+  - The architecture should scale automatically with upload events and keep operations low.
+
+- Common traps:
+  - Using Lambda directly for full transcoding jobs.
+  - Keeping EC2 workers as the main execution layer with polling.
+  - Adding queues but still requiring a minimum always-on instance fleet.
+
+- Why traps are wrong:
+  - Lambda-only transcoding → violates the long-running processing constraint because 40-minute jobs exceed Lambda runtime limits.
+  - EC2 polling workers → violates the low-operations and cost-efficiency constraints by keeping managed instances and idle capacity.
+  - SQS plus minimum EC2 Auto Scaling baseline → violates the on-demand compute constraint because baseline instances still run when demand is low.
+
+- Pattern tags:
+  - #event-driven-processing
+  - #serverless-containers
+  - #long-running-jobs
+  - #ec2-to-fargate-modernization
+  - #cost-efficient-elastic-compute
+
+
 ## Serverless modernization & multi-cloud
 
 - Scenario summary: Legacy applications and databases on Amazon EC2 across regions need to become event-driven and serverless, improve analytics latency, smooth data movement between services, and support Kubernetes clusters on other cloud providers.
