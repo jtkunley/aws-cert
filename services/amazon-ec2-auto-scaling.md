@@ -39,3 +39,4 @@
 ## Links to related questions
 - [Serverless modernization & multi-cloud](../questions/serverless-modernization-multicloud.md)
 - [Cost-effective video transcoding with Fargate](../questions/cost-effective-video-transcoding-with-fargate.md)
+- [Java and MongoDB migration to EC2 and DocumentDB for high availability](../questions/java-mongodb-ec2-documentdb-multi-az.md)

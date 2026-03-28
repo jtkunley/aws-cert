@@ -48,6 +48,56 @@
   - #cost-efficient-elastic-compute
 
 
+## Java and MongoDB migration to EC2 and DocumentDB for high availability
+
+- Scenario summary: An on-premises Java web backend and MongoDB must move to AWS with no application changes, an architecture that stays similar to today, and high availability for both application and database tiers.
+- Primary driver: The design must preserve MongoDB-oriented access patterns and avoid single points of failure across Availability Zones.
+- Decision focus: Choose compute and database services that match MongoDB compatibility and multi-AZ high availability without swapping to unrelated engines or partial HA.
+- Correct answer pattern: Java on EC2 Auto Scaling across multiple Availability Zones with MongoDB-compatible data on Amazon DocumentDB deployed for high availability across multiple Availability Zones.
+
+- Key services:
+  - Amazon EC2
+  - Amazon EC2 Auto Scaling
+  - Amazon DocumentDB
+
+- Common distractor services:
+  - AWS App2Container
+  - Amazon Elastic Kubernetes Service (EKS)
+  - Amazon DynamoDB
+  - AWS Elastic Beanstalk
+  - Amazon Aurora
+
+- Key signals:
+  - Java backend
+  - MongoDB
+  - cannot be modified
+  - similar architecture
+  - high availability
+  - backend and database
+
+- Constraints:
+  - The application must not be modified during migration.
+  - The architecture must remain similar to the on-premises Java plus MongoDB layout.
+  - Both the application tier and the database tier must support high availability.
+
+- Common traps:
+  - Replacing MongoDB with DynamoDB or Aurora while claiming the same application fit.
+  - Using single-AZ DocumentDB while the compute tier spans multiple Availability Zones.
+  - Containerizing on EKS with App2Container when the scenario stresses minimal change and similar architecture.
+
+- Why traps are wrong:
+  - App2Container with EKS and DynamoDB → violates the MongoDB compatibility constraint and conflicts with the similar-architecture and no-modification constraints.
+  - Elastic Beanstalk with Aurora → violates the MongoDB datastore constraint because Aurora is a relational SQL engine family, not MongoDB-compatible document storage.
+  - Multi-AZ EC2 with single-AZ DocumentDB → violates the database high availability constraint when continuous operation is required for both tiers.
+
+- Pattern tags:
+  - #mongodb-compatibility
+  - #amazon-documentdb
+  - #multi-az-high-availability
+  - #ec2-auto-scaling
+  - #lift-and-shift-constraints
+
+
 ## Re-platform Docker and MySQL with OpenJDK on ECS and RDS
 
 - Scenario summary: On-premises Docker runs on self-managed VMs, web tiers use costly commercial Oracle Java, and MySQL runs in a source-replica layout; the company wants AWS agility, OpenJDK to cut license cost, and no major application rewrite.

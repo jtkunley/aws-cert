@@ -6,6 +6,7 @@
 
 ## Personal notes / memory hooks
 - If the stem says **Kubernetes** or **running the same style of clusters on another cloud provider**, start by considering **EKS**.
+- **Practice (Java MongoDB migration question):** **EKS** with **App2Container** is a poor fit when the stem forbids **application changes** and demands an **architecture similar** to **EC2** plus **MongoDB**.
 - **Practice (serverless modernization question):** Two answers may both say **EKS** and **Fargate**. The wrong one often keeps **provisioned Amazon Aurora** and **provisioned Amazon Redshift** and adds **Kinesis**, while the stem still insists on a **serverless architecture** and names **Aurora Serverless** and **Redshift Serverless** in the better option.
 
 ## When to use it
@@ -37,3 +38,4 @@
 
 ## Links to related questions
 - [Serverless modernization & multi-cloud](../questions/serverless-modernization-multicloud.md)
+- [Java and MongoDB migration to EC2 and DocumentDB for high availability](../questions/java-mongodb-ec2-documentdb-multi-az.md)

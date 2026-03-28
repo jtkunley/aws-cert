@@ -6,6 +6,7 @@
 
 ## Personal notes / memory hooks
 - Use **Aurora** for **online transaction processing (OLTP)** when you want **MySQL or PostgreSQL** compatibility.
+- **Practice (Java MongoDB migration question):** **Aurora** does not satisfy a **MongoDB** datastore requirement; pairing **Elastic Beanstalk** with **Aurora** still fails the **document** database constraint.
 - Use **Amazon Redshift** for **analytics warehouses**, not Aurora, when the workload is **reporting and aggregates** at warehouse scale.
 - **Practice (serverless modernization question):** Putting **both** migrated **e-commerce MySQL** and **analytics PostgreSQL** into **one Aurora PostgreSQL** cluster usually **mixes roles**. The exam often wants **Aurora Serverless MySQL** for **OLTP** and **Redshift Serverless** for the **warehouse**.
 
@@ -41,3 +42,4 @@
 
 ## Links to related questions
 - [Serverless modernization & multi-cloud](../questions/serverless-modernization-multicloud.md)
+- [Java and MongoDB migration to EC2 and DocumentDB for high availability](../questions/java-mongodb-ec2-documentdb-multi-az.md)
