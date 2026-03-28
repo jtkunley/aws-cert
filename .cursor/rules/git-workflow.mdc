@@ -5,6 +5,7 @@ alwaysApply: true
 
 # Git workflow
 
+- **Do not modify existing question files** in `questions/` when working on a different intake. Each question intake is separate unless the user explicitly says it is the same exam item or asks you to edit that file.
 - **Automatically create a git commit** after adding or updating a question intake and its related files (`questions/`, `services/`, `patterns/`, and `seed-bank.md`).
 - For non-question edits, commit only when the user explicitly asks.
 - Use concise commit messages that explain the intake topic and what was updated.
