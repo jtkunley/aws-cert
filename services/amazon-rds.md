@@ -7,6 +7,7 @@
 ## Personal notes / memory hooks
 - Think of RDS as managed database operations with engine choice.
 - **Practice (SQL Server to MySQL migration question):** RDS for MySQL is the target after schema conversion and managed replication.
+- **Practice (Docker migration question):** **RDS for MySQL** fits **source-replica** style goals better than hand-built **MySQL on EC2** when the keyed answer emphasizes managed migration.
 
 ## When to use it
 - You need managed relational databases with lower operational burden.
@@ -36,3 +37,4 @@
 
 ## Links to related questions
 - [SQL Server to MySQL managed migration](../questions/sql-server-to-mysql-managed-migration.md)
+- [Re-platform Docker and MySQL with OpenJDK on ECS and RDS](../questions/replatform-docker-mysql-openjdk-ecs-rds.md)

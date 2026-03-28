@@ -48,6 +48,58 @@
   - #cost-efficient-elastic-compute
 
 
+## Re-platform Docker and MySQL with OpenJDK on ECS and RDS
+
+- Scenario summary: On-premises Docker runs on self-managed VMs, web tiers use costly commercial Oracle Java, and MySQL runs in a source-replica layout; the company wants AWS agility, OpenJDK to cut license cost, and no major application rewrite.
+- Primary driver: The migration must save Java licensing with OpenJDK while keeping Docker and MySQL continuity and avoiding a full re-architecture.
+- Decision focus: Match the Six R strategy label to the real depth of change, and keep relational MySQL on a managed path instead of serverless or NoSQL rewrites.
+- Correct answer pattern: Re-platform containers onto managed orchestration with a private registry for OpenJDK images, and migrate MySQL into Amazon RDS using AWS DMS.
+
+- Key services:
+  - Amazon ECS
+  - Amazon Elastic Container Registry
+  - Amazon RDS
+  - AWS Database Migration Service
+
+- Common distractor services:
+  - Amazon EC2
+  - Amazon S3
+  - AWS Lambda
+  - AWS App Runner
+  - Amazon DynamoDB
+  - AWS Schema Conversion Tool
+
+- Key signals:
+  - Docker on virtual machines
+  - Oracle Java licensing
+  - OpenJDK
+  - MySQL source-replica
+  - without major changes
+  - migration strategy
+
+- Constraints:
+  - The application must not undergo a major redesign or data model rewrite.
+  - The database tier must stay relational and MySQL-compatible rather than move to NoSQL for this scenario.
+  - The answer’s migration strategy label must align with how much the option actually changes compute and data tiers.
+
+- Common traps:
+  - Re-architect answers that move Docker services into Lambda and MySQL into DynamoDB.
+  - Re-platform wording paired with DynamoDB and AWS Schema Conversion Tool as if it were a minor MySQL move.
+  - Re-host on EC2 with S3 dump and manual MySQL restore when the exam expects ECS, ECR, RDS, and DMS together.
+
+- Why traps are wrong:
+  - Lambda plus DynamoDB → violates the no-major-changes constraint and the stay-on-relational-MySQL constraint.
+  - App Runner with DynamoDB and AWS Schema Conversion Tool → violates the keep-MySQL-relational constraint because DynamoDB is not a drop-in MySQL replacement.
+  - Re-host with EC2 and S3 restore → violates the keyed re-platform pattern that uses Amazon ECS, Amazon ECR, Amazon RDS, and AWS DMS for managed containers and managed MySQL migration.
+
+- Pattern tags:
+  - #six-rs-migration
+  - #replatform
+  - #docker-to-ecs
+  - #rds-mysql-migration
+  - #openjdk-versus-oracle-java
+
+
 ## Serverless modernization & multi-cloud
 
 - Scenario summary: Legacy applications and databases on Amazon EC2 across regions need to become event-driven and serverless, improve analytics latency, smooth data movement between services, and support Kubernetes clusters on other cloud providers.

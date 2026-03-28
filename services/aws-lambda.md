@@ -7,6 +7,7 @@
 ## Personal notes / memory hooks
 - Lambda is excellent for short event-driven processing, orchestration, and glue logic.
 - **Practice (video transcoding question):** Lambda can trigger container tasks, but it should not run a 40-minute transcode job directly.
+- **Practice (Docker migration question):** Replacing **Docker** services with **Lambda** as the main runtime is usually **re-architect** depth, not **no major changes**.
 
 ## When to use it
 - Event-driven functions triggered by **Amazon S3**, **Amazon EventBridge**, **Amazon SQS**, or APIs.
@@ -39,3 +40,4 @@
 
 ## Links to related questions
 - [Cost-effective video transcoding with Fargate](../questions/cost-effective-video-transcoding-with-fargate.md)
+- [Re-platform Docker and MySQL with OpenJDK on ECS and RDS](../questions/replatform-docker-mysql-openjdk-ecs-rds.md)

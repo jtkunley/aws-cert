@@ -7,6 +7,7 @@
 ## Personal notes / memory hooks
 - SCT handles schema and code conversion; DMS handles data movement.
 - **Practice (SQL Server to MySQL migration question):** SCT is the key clue for SQL Server-to-MySQL engine conversion.
+- **Practice (Docker migration question):** SCT paired with **Amazon DynamoDB** in an option is a strong signal of a **major** data-tier change, not a minor **MySQL** move.
 
 ## When to use it
 - Source and target engines are different and schema conversion is required.
@@ -36,3 +37,4 @@
 
 ## Links to related questions
 - [SQL Server to MySQL managed migration](../questions/sql-server-to-mysql-managed-migration.md)
+- [Re-platform Docker and MySQL with OpenJDK on ECS and RDS](../questions/replatform-docker-mysql-openjdk-ecs-rds.md)

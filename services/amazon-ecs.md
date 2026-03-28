@@ -39,3 +39,4 @@
 ## Links to related questions
 - [Serverless modernization & multi-cloud](../questions/serverless-modernization-multicloud.md)
 - [Cost-effective video transcoding with Fargate](../questions/cost-effective-video-transcoding-with-fargate.md)
+- [Re-platform Docker and MySQL with OpenJDK on ECS and RDS](../questions/replatform-docker-mysql-openjdk-ecs-rds.md)

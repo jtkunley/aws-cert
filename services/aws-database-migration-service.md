@@ -7,6 +7,7 @@
 ## Personal notes / memory hooks
 - DMS moves data; it does not replace schema-conversion requirements for cross-engine migrations.
 - **Practice (SQL Server to MySQL migration question):** DMS is the standard managed replication engine after schema conversion with AWS SCT.
+- **Practice (Docker migration question):** **AWS DMS** into **Amazon RDS** supports **MySQL** continuity for on-premises **MySQL** migration.
 
 ## When to use it
 - You are migrating relational databases to AWS with low-downtime goals.
@@ -37,3 +38,4 @@
 
 ## Links to related questions
 - [SQL Server to MySQL managed migration](../questions/sql-server-to-mysql-managed-migration.md)
+- [Re-platform Docker and MySQL with OpenJDK on ECS and RDS](../questions/replatform-docker-mysql-openjdk-ecs-rds.md)
