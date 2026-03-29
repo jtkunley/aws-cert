@@ -30,6 +30,7 @@
 
 ## Links to related questions
 - [Serverless modernization & multi-cloud](../questions/serverless-modernization-multicloud.md)
+- [Cost-effective media processing with SQS and EC2 Auto Scaling](../questions/cost-effective-media-processing-sqs-ec2-s3.md)
 - [Cost-effective video transcoding with Fargate](../questions/cost-effective-video-transcoding-with-fargate.md)
 
 ## Personal notes / memory hooks

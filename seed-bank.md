@@ -1,3 +1,51 @@
+## Cost-effective media processing with SQS and EC2 Auto Scaling
+
+- Scenario summary: A web portal uploads media to on-premises NAS and enqueues work; a single worker processes messages with jobs up to 30 minutes; the queue is much deeper during business hours and drains overnight; the goal is a more cost-effective AWS design.
+- Primary driver: Long-running per-message work rules out Lambda for the processor tier, and the architecture should scale workers with queue backlog while keeping storage economical for media outputs.
+- Decision focus: Pick a consistent queue plus worker scaling story and object storage that fits bursty backlog and the 30-minute runtime.
+- Correct answer pattern: Standard SQS queue, EC2 Auto Scaling scaled on SQS backlog, and processed media stored in Amazon S3.
+
+- Key services:
+  - Amazon SQS
+  - Amazon EC2
+  - Amazon EC2 Auto Scaling
+  - Amazon S3
+
+- Common distractor services:
+  - AWS Lambda
+  - Amazon MQ
+  - Amazon Elastic File System (EFS)
+
+- Key signals:
+  - up to 30 minutes to process
+  - message queue
+  - higher backlog during business hours
+  - most cost-effective
+  - media files
+
+- Constraints:
+  - Each processing job must support runtimes longer than AWS Lambda’s maximum execution timeout.
+  - The solution should scale processing capacity with queue depth to reduce idle cost after hours.
+  - Processed media storage should favor cost-effective object storage for this exam framing.
+
+- Common traps:
+  - Using Lambda to process each queued media job end-to-end.
+  - Mixing Amazon MQ publishing with Amazon SQS metrics or consumption language in the same option.
+  - Sending processed media to Amazon EFS when Amazon S3 fits object-style outputs and cost emphasis.
+
+- Why traps are wrong:
+  - Lambda as the media processor → violates the long-running job constraint because 30-minute work exceeds Lambda’s timeout limit.
+  - Amazon MQ paired with SQS scaling or SQS pull wording → violates a coherent queue architecture constraint for the exam answer.
+  - EFS for processed media in this stem → violates the cost-effective object-storage fit that Amazon S3 provides for media outputs.
+
+- Pattern tags:
+  - #sqs-backlog-scaling
+  - #ec2-auto-scaling
+  - #long-running-workers
+  - #lambda-duration-limit
+  - #s3-media-storage
+
+
 ## Cost-effective video transcoding with Fargate
 
 - Scenario summary: A video platform currently transcodes uploads on one EC2-based Java worker, each item takes about 40 minutes, and metrics show meaningful idle time; the architecture must become more available, scalable, and cheaper to run.

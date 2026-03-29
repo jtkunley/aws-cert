@@ -7,6 +7,7 @@
 ## Personal notes / memory hooks
 - SQS is a durable work backlog, not compute by itself.
 - **Practice (video transcoding question):** SQS can queue upload events, but a polling EC2 fleet can still leave baseline idle cost.
+- **Practice (media processing question):** **SQS** queue depth driving **EC2 Auto Scaling** is the keyed pattern when jobs run **tens of minutes** and **Lambda** is a trap.
 
 ## When to use it
 - You need asynchronous decoupling between components.
@@ -38,4 +39,5 @@
 - Buffering file-processing requests before worker execution.
 
 ## Links to related questions
+- [Cost-effective media processing with SQS and EC2 Auto Scaling](../questions/cost-effective-media-processing-sqs-ec2-s3.md)
 - [Cost-effective video transcoding with Fargate](../questions/cost-effective-video-transcoding-with-fargate.md)

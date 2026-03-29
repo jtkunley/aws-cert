@@ -7,6 +7,7 @@
 ## Personal notes / memory hooks
 - Lambda is excellent for short event-driven processing, orchestration, and glue logic.
 - **Practice (video transcoding question):** Lambda can trigger container tasks, but it should not run a 40-minute transcode job directly.
+- **Practice (media processing question):** **Lambda** is a trap when each queued **media** job runs up to **30 minutes**, beyond **Lambda’s** timeout.
 - **Practice (Docker migration question):** Replacing **Docker** services with **Lambda** as the main runtime is usually **re-architect** depth, not **no major changes**.
 
 ## When to use it
@@ -39,5 +40,6 @@
 - **Practice (video transcoding question):** Invoking **ECS on Fargate** per uploaded video.
 
 ## Links to related questions
+- [Cost-effective media processing with SQS and EC2 Auto Scaling](../questions/cost-effective-media-processing-sqs-ec2-s3.md)
 - [Cost-effective video transcoding with Fargate](../questions/cost-effective-video-transcoding-with-fargate.md)
 - [Re-platform Docker and MySQL with OpenJDK on ECS and RDS](../questions/replatform-docker-mysql-openjdk-ecs-rds.md)

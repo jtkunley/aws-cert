@@ -6,6 +6,7 @@
 
 ## Personal notes / memory hooks
 - **Linux** workloads that need **shared file storage** over **NFS** → **EFS** is a natural fit.
+- **Practice (media processing question):** For **processed media** blobs with a **cost** emphasis, **Amazon S3** is usually preferred over **EFS** in the keyed answer.
 - **Windows file shares** that need **SMB** semantics → look at **Amazon FSx for Windows File Server**, not EFS as the primary answer.
 - **Practice (Windows file server question):** An option that pairs **EFS**, **DataSync**, and “mount on **Windows** servers” is often a **trap** because **EFS** is **NFS-oriented** and the exam usually wants **FSx for Windows** for classic **Windows file server** language.
 
@@ -40,4 +41,5 @@
 - **Not** the first choice for **traditional corporate Windows shares** in exam wording.
 
 ## Links to related questions
+- [Cost-effective media processing with SQS and EC2 Auto Scaling](../questions/cost-effective-media-processing-sqs-ec2-s3.md)
 - [Windows File Server, DataSync, and FSx](../questions/windows-file-server-datasync-fsx.md)
