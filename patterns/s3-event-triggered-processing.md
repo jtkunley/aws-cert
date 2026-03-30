@@ -32,7 +32,7 @@
 - File validation and metadata extraction pipelines.
 
 ## Links to related questions
-- [Cost-effective video transcoding with Fargate](../questions/cost-effective-video-transcoding-with-fargate.md)
+- [3. Cost-effective video transcoding with Fargate](../questions/3-cost-effective-video-transcoding-with-fargate.md)
 
 ## Personal notes / memory hooks
 - “Uploaded to S3” is often a trigger phrase for event-driven compute choices.

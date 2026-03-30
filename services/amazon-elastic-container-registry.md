@@ -24,4 +24,4 @@
 - **CI/CD** builds an image, pushes to **ECR**, and **ECS** or **EKS** deploys from that registry.
 
 ## Links to related questions
-- [Re-platform Docker and MySQL with OpenJDK on ECS and RDS](../questions/replatform-docker-mysql-openjdk-ecs-rds.md)
+- [5. Re-platform Docker and MySQL with OpenJDK on ECS and RDS](../questions/5-replatform-docker-mysql-openjdk-ecs-rds.md)

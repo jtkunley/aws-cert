@@ -1,4 +1,4 @@
-# Java and MongoDB migration to EC2 and DocumentDB for high availability
+# 6. Java and MongoDB migration to EC2 and DocumentDB for high availability
 
 ## Original question
 An organization is migrating its on-premises web application to AWS. The application comprises a Java-based backend and a NoSQL MongoDB database. Due to constraints, the application cannot be modified during the migration process, and the migrated solution must maintain an architecture similar to the on-premises setup. Additionally, the application requires high availability for both the backend and the database to ensure continuous operation.

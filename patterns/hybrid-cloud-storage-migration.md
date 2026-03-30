@@ -30,7 +30,7 @@
 - **Practice (Windows file server question):** About **half** of **Windows** workloads migrated, **1 TB** plus **5 GB per day**, **Direct Connect** already there—you still add **DataSync** and **FSx** so **AWS** servers get a **proper share**.
 
 ## Links to related questions
-- [Windows File Server, DataSync, and FSx](../questions/windows-file-server-datasync-fsx.md)
+- [2. Windows File Server, DataSync, and FSx](../questions/2-windows-file-server-datasync-fsx.md)
 
 ## Personal notes / memory hooks
 - **Direct Connect** in the stem means you already have a **path**; you still choose **what moves the bits** and **where they live**.

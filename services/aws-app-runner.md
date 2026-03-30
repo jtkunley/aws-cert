@@ -21,4 +21,4 @@
 - Choosing **App Runner** when **ECS** is paired with **full environment** needs, or when another part of the same answer breaks constraints (for example **relational to NoSQL**).
 
 ## Links to related questions
-- [Re-platform Docker and MySQL with OpenJDK on ECS and RDS](../questions/replatform-docker-mysql-openjdk-ecs-rds.md)
+- [5. Re-platform Docker and MySQL with OpenJDK on ECS and RDS](../questions/5-replatform-docker-mysql-openjdk-ecs-rds.md)

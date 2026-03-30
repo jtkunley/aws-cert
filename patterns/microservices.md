@@ -29,7 +29,7 @@
 - **Practice (serverless modernization question):** The stem lists **online sales**, **inventory**, **order processing**, and **shipping**—that **domain split** pairs naturally with **microservices** and **containers** in the answer set.
 
 ## Links to related questions
-- [Serverless modernization & multi-cloud](../questions/serverless-modernization-multicloud.md)
+- [1. Serverless modernization & multi-cloud](../questions/1-serverless-modernization-multicloud.md)
 
 ## Personal notes / memory hooks
 - **Microservices** plus **containers** plus **events** is a common **exam triple**.

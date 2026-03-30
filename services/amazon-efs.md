@@ -41,5 +41,5 @@
 - **Not** the first choice for **traditional corporate Windows shares** in exam wording.
 
 ## Links to related questions
-- [Cost-effective media processing with SQS and EC2 Auto Scaling](../questions/cost-effective-media-processing-sqs-ec2-s3.md)
-- [Windows File Server, DataSync, and FSx](../questions/windows-file-server-datasync-fsx.md)
+- [7. Cost-effective media processing with SQS and EC2 Auto Scaling](../questions/7-cost-effective-media-processing-sqs-ec2-s3.md)
+- [2. Windows File Server, DataSync, and FSx](../questions/2-windows-file-server-datasync-fsx.md)

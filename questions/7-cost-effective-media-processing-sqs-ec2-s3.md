@@ -1,4 +1,4 @@
-# Cost-effective media processing with SQS and EC2 Auto Scaling
+# 7. Cost-effective media processing with SQS and EC2 Auto Scaling
 
 ## Original question
 A company offers a service that allows users to upload media files through a web portal. The web servers accept the media files and are directly uploaded to the on-premises Network Attached Storage (NAS server). For each uploaded media file, a corresponding message is sent to the message queue. A processing server picks up each message and processes each media file, which can take up to 30 minutes to process. The company noticed that the number of media files waiting in the processing queue is significantly higher during business hours, but the processing server quickly catches up after business hours. To save costs, the company hired a Solutions Architect to improve the media processing by migrating the workload to AWS Cloud.

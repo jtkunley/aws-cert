@@ -1,4 +1,4 @@
-# Serverless modernization & multi-cloud
+# 1. Serverless modernization & multi-cloud
 
 ## Original question
 An organization operates web and mobile platforms for online sales, inventory management, order processing, and shipping logistics. The platforms are running on Amazon EC2 instances across multiple regions. The organization's databases include a MySQL database for the e-commerce site and a PostgreSQL database for analytics, both managed on EC2 instances.

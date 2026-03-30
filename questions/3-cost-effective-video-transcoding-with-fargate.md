@@ -1,4 +1,4 @@
-# Cost-effective video transcoding with Fargate
+# 3. Cost-effective video transcoding with Fargate
 
 ## Original question
 A global streaming company uses a Java application on an Amazon EC2 instance to transcode videos for its platform. The application starts processing the videos to different resolutions every time they are uploaded to an Amazon S3 bucket. It takes approximately 40 minutes to transcode each video. The application keeps track of the transcoded videos and only process each file once.

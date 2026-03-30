@@ -27,7 +27,7 @@
 - Replace an on-premises **1 TB** share with **FSx** in the **VPC** so instances in **AWS** mount the same style of share.
 
 ## Links to related questions
-- [Windows File Server, DataSync, and FSx](../questions/windows-file-server-datasync-fsx.md)
+- [2. Windows File Server, DataSync, and FSx](../questions/2-windows-file-server-datasync-fsx.md)
 
 ## Personal notes / memory hooks
 - When **Windows** appears in the **first** sentence of the stem, assume **FSx for Windows** until another requirement clearly overrides it.

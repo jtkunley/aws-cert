@@ -32,4 +32,4 @@
 - Branch offices that need **local cache** with **cloud** durability; **not** the best primary fit when **Windows** instances in a **VPC** need a **first-class SMB file system** in **AWS**.
 
 ## Links to related questions
-- [Windows File Server, DataSync, and FSx](../questions/windows-file-server-datasync-fsx.md)
+- [2. Windows File Server, DataSync, and FSx](../questions/2-windows-file-server-datasync-fsx.md)

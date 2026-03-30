@@ -94,4 +94,4 @@ With this exact structure:
 
 ## Seed bank (`seed-bank.md`)
 
-Repo root **`seed-bank.md`** contains **only** merged seeds: for each question, a **`##`** heading matching that question’s **`#` title**, then the **same bullet list** as its **`## Question Seed`** (including blank lines between sections). **Alphabetical** by title. Update **`seed-bank.md`** whenever you add or change a question’s seed.
+Repo root **`seed-bank.md`** contains **only** merged seeds: for each question, a **`##`** heading matching that question’s **`#` title** (including the numeric prefix), then the **same bullet list** as its **`## Question Seed`** (including blank lines between sections). **Ordered by question number** (`## 1. …`, `## 2. …`, ascending). Update **`seed-bank.md`** whenever you add or change a question’s seed.

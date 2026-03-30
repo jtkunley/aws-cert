@@ -27,7 +27,7 @@
 - An **InventoryUpdated** rule sends messages to **SQS** for workers and invokes **Lambda** for **cache** invalidation.
 
 ## Links to related questions
-- [Serverless modernization & multi-cloud](../questions/serverless-modernization-multicloud.md)
+- [1. Serverless modernization & multi-cloud](../questions/1-serverless-modernization-multicloud.md)
 
 ## Personal notes / memory hooks
 - When the stem says **streamline data flows** between many services, sketch **EventBridge** first.

@@ -34,4 +34,4 @@
 - A vendor drops **CSV** files via **SFTP** into a **landing bucket** for downstream **ETL**.
 
 ## Links to related questions
-- [Windows File Server, DataSync, and FSx](../questions/windows-file-server-datasync-fsx.md)
+- [2. Windows File Server, DataSync, and FSx](../questions/2-windows-file-server-datasync-fsx.md)

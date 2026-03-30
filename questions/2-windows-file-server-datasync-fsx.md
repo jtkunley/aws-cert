@@ -1,4 +1,4 @@
-# Windows File Server, DataSync, and FSx
+# 2. Windows File Server, DataSync, and FSx
 
 ## Original question
 

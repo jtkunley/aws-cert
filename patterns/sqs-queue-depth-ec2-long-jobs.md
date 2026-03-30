@@ -18,4 +18,4 @@
 - **SQS**, **queue length**, **Auto Scaling**, **30 minutes** (or similar) **processing time**, **most cost-effective**.
 
 ## Links to related questions
-- [Cost-effective media processing with SQS and EC2 Auto Scaling](../questions/cost-effective-media-processing-sqs-ec2-s3.md)
+- [7. Cost-effective media processing with SQS and EC2 Auto Scaling](../questions/7-cost-effective-media-processing-sqs-ec2-s3.md)

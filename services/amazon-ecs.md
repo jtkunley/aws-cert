@@ -37,6 +37,6 @@
 - **Practice (serverless modernization question):** **ECS**, **Fargate**, serverless databases, and **EventBridge** form a coherent option until the stem demands **Kubernetes everywhere**.
 
 ## Links to related questions
-- [Serverless modernization & multi-cloud](../questions/serverless-modernization-multicloud.md)
-- [Cost-effective video transcoding with Fargate](../questions/cost-effective-video-transcoding-with-fargate.md)
-- [Re-platform Docker and MySQL with OpenJDK on ECS and RDS](../questions/replatform-docker-mysql-openjdk-ecs-rds.md)
+- [1. Serverless modernization & multi-cloud](../questions/1-serverless-modernization-multicloud.md)
+- [3. Cost-effective video transcoding with Fargate](../questions/3-cost-effective-video-transcoding-with-fargate.md)
+- [5. Re-platform Docker and MySQL with OpenJDK on ECS and RDS](../questions/5-replatform-docker-mysql-openjdk-ecs-rds.md)

@@ -39,5 +39,5 @@
 - **Practice (serverless modernization question):** A winning answer often puts **Fargate** on the compute side and **Aurora Serverless** plus **Redshift Serverless** on the data side so the whole stack matches a **serverless** requirement.
 
 ## Links to related questions
-- [Serverless modernization & multi-cloud](../questions/serverless-modernization-multicloud.md)
-- [Cost-effective video transcoding with Fargate](../questions/cost-effective-video-transcoding-with-fargate.md)
+- [1. Serverless modernization & multi-cloud](../questions/1-serverless-modernization-multicloud.md)
+- [3. Cost-effective video transcoding with Fargate](../questions/3-cost-effective-video-transcoding-with-fargate.md)

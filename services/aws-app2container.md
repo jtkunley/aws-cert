@@ -17,4 +17,4 @@
 - Mentions of **App2Container** alongside **EKS** or **ECS** in **replatform** answers.
 
 ## Links to related questions
-- [Java and MongoDB migration to EC2 and DocumentDB for high availability](../questions/java-mongodb-ec2-documentdb-multi-az.md)
+- [6. Java and MongoDB migration to EC2 and DocumentDB for high availability](../questions/6-java-mongodb-ec2-documentdb-multi-az.md)

@@ -27,7 +27,7 @@
 - Moving on-premises SQL Server workloads into Amazon RDS for MySQL.
 
 ## Links to related questions
-- [SQL Server to MySQL managed migration](../questions/sql-server-to-mysql-managed-migration.md)
+- [4. SQL Server to MySQL managed migration](../questions/4-sql-server-to-mysql-managed-migration.md)
 
 ## Personal notes / memory hooks
 - Think “SCT then DMS” when engines differ.

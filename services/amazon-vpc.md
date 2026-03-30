@@ -32,5 +32,5 @@
 - **Direct Connect** terminates into the **VPC**; **Windows** instances resolve the **FSx** **DNS** name and mount **SMB** shares in the same **VPC** (or connected network).
 
 ## Links to related questions
-- [Windows File Server, DataSync, and FSx](../questions/windows-file-server-datasync-fsx.md)
-- [SQL Server to MySQL managed migration](../questions/sql-server-to-mysql-managed-migration.md)
+- [2. Windows File Server, DataSync, and FSx](../questions/2-windows-file-server-datasync-fsx.md)
+- [4. SQL Server to MySQL managed migration](../questions/4-sql-server-to-mysql-managed-migration.md)

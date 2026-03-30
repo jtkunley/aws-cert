@@ -29,9 +29,9 @@
 - **Practice (video transcoding question):** An **S3 upload** event triggers orchestration that starts a per-file compute task instead of continuous polling.
 
 ## Links to related questions
-- [Serverless modernization & multi-cloud](../questions/serverless-modernization-multicloud.md)
-- [Cost-effective media processing with SQS and EC2 Auto Scaling](../questions/cost-effective-media-processing-sqs-ec2-s3.md)
-- [Cost-effective video transcoding with Fargate](../questions/cost-effective-video-transcoding-with-fargate.md)
+- [1. Serverless modernization & multi-cloud](../questions/1-serverless-modernization-multicloud.md)
+- [7. Cost-effective media processing with SQS and EC2 Auto Scaling](../questions/7-cost-effective-media-processing-sqs-ec2-s3.md)
+- [3. Cost-effective video transcoding with Fargate](../questions/3-cost-effective-video-transcoding-with-fargate.md)
 
 ## Personal notes / memory hooks
 - **Event-driven** plus **AWS** exam → draw **EventBridge** first as the **bus** unless the stem is pure **fan-out** (**SNS**).

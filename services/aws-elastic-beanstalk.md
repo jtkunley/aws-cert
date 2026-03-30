@@ -18,4 +18,4 @@
 - **Elastic Beanstalk**, **deploy application**, **managed platform**, often with **EC2** underneath.
 
 ## Links to related questions
-- [Java and MongoDB migration to EC2 and DocumentDB for high availability](../questions/java-mongodb-ec2-documentdb-multi-az.md)
+- [6. Java and MongoDB migration to EC2 and DocumentDB for high availability](../questions/6-java-mongodb-ec2-documentdb-multi-az.md)

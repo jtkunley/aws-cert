@@ -28,8 +28,8 @@
 - Moving on-premises MySQL into Amazon RDS with AWS Database Migration Service while modernizing the app tier.
 
 ## Links to related questions
-- [SQL Server to MySQL managed migration](../questions/sql-server-to-mysql-managed-migration.md)
-- [Re-platform Docker and MySQL with OpenJDK on ECS and RDS](../questions/replatform-docker-mysql-openjdk-ecs-rds.md)
+- [4. SQL Server to MySQL managed migration](../questions/4-sql-server-to-mysql-managed-migration.md)
+- [5. Re-platform Docker and MySQL with OpenJDK on ECS and RDS](../questions/5-replatform-docker-mysql-openjdk-ecs-rds.md)
 
 ## Personal notes / memory hooks
 - If the stem says “managed whenever possible,” favor RDS + migration services over manual pipelines.

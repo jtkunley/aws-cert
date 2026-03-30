@@ -29,8 +29,8 @@
 - Media processing where **S3** upload events trigger **Lambda** to start **Fargate** tasks, so compute runs only while each item is processed.
 
 ## Links to related questions
-- [Serverless modernization & multi-cloud](../questions/serverless-modernization-multicloud.md)
-- [Cost-effective video transcoding with Fargate](../questions/cost-effective-video-transcoding-with-fargate.md)
+- [1. Serverless modernization & multi-cloud](../questions/1-serverless-modernization-multicloud.md)
+- [3. Cost-effective video transcoding with Fargate](../questions/3-cost-effective-video-transcoding-with-fargate.md)
 
 ## Personal notes / memory hooks
 - If the stem demands **serverless**, scan answers for **Fargate**, **Lambda**, and **Serverless** **data** tiers—not only the word **managed**.

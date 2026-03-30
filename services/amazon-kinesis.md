@@ -39,4 +39,4 @@
 - **Practice (serverless modernization question):** Read **serverless** and **integration** requirements together before you lock onto **Kinesis** alone.
 
 ## Links to related questions
-- [Serverless modernization & multi-cloud](../questions/serverless-modernization-multicloud.md)
+- [1. Serverless modernization & multi-cloud](../questions/1-serverless-modernization-multicloud.md)

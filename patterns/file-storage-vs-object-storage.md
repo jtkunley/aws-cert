@@ -28,7 +28,7 @@
 - **Windows** applications in **AWS** expect **drive-letter** style access—choose the **file** tier, not raw **S3** objects, unless another service bridges the gap.
 
 ## Links to related questions
-- [Windows File Server, DataSync, and FSx](../questions/windows-file-server-datasync-fsx.md)
+- [2. Windows File Server, DataSync, and FSx](../questions/2-windows-file-server-datasync-fsx.md)
 
 ## Personal notes / memory hooks
 - Read **file system** literally: **S3 is not NTFS**.

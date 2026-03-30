@@ -40,4 +40,4 @@
 - **Practice (serverless modernization question):** The **analytics** role stays on the **warehouse** side; **OLTP** stays on **Aurora Serverless MySQL** in the keyed answer pattern.
 
 ## Links to related questions
-- [Serverless modernization & multi-cloud](../questions/serverless-modernization-multicloud.md)
+- [1. Serverless modernization & multi-cloud](../questions/1-serverless-modernization-multicloud.md)

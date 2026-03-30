@@ -41,5 +41,5 @@
 - **Practice (serverless modernization question):** Starting state **MySQL on EC2** plus **PostgreSQL on EC2 for analytics** often maps to **Aurora Serverless MySQL** plus **Redshift Serverless**, **not** a single **Aurora PostgreSQL** for everything.
 
 ## Links to related questions
-- [Serverless modernization & multi-cloud](../questions/serverless-modernization-multicloud.md)
-- [Java and MongoDB migration to EC2 and DocumentDB for high availability](../questions/java-mongodb-ec2-documentdb-multi-az.md)
+- [1. Serverless modernization & multi-cloud](../questions/1-serverless-modernization-multicloud.md)
+- [6. Java and MongoDB migration to EC2 and DocumentDB for high availability](../questions/6-java-mongodb-ec2-documentdb-multi-az.md)

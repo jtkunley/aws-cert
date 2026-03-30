@@ -32,7 +32,7 @@
 - Batch media processing where each unit can run for tens of minutes.
 
 ## Links to related questions
-- [Cost-effective video transcoding with Fargate](../questions/cost-effective-video-transcoding-with-fargate.md)
+- [3. Cost-effective video transcoding with Fargate](../questions/3-cost-effective-video-transcoding-with-fargate.md)
 
 ## Personal notes / memory hooks
 - If job runtime is long and bursty, think “event triggers task,” not “always-on poller.”

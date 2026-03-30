@@ -33,4 +33,4 @@
 - Replicating a **Windows file server** into **FSx** over **Direct Connect** so **nightly sync** jobs are **reliable** and **fast** compared with a **variable** internet uplink.
 
 ## Links to related questions
-- [Windows File Server, DataSync, and FSx](../questions/windows-file-server-datasync-fsx.md)
+- [2. Windows File Server, DataSync, and FSx](../questions/2-windows-file-server-datasync-fsx.md)

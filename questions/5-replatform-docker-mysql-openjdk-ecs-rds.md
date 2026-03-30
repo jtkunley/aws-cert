@@ -1,4 +1,4 @@
-# Re-platform Docker and MySQL with OpenJDK on ECS and RDS
+# 5. Re-platform Docker and MySQL with OpenJDK on ECS and RDS
 
 ## Original question
 A company is hosting its production environment on its on-premises servers. Most of the applications are packed as Docker containers that are manually run on self-managed virtual machines. The web servers are using the latest commercial Oracle Java SE suite which costs the company thousands of dollars in licensing costs. The MySQL databases are installed on separate servers configured on a 'source-replica' setup for high availability. The company wants to migrate the whole environment to AWS Cloud to take advantage of its flexibility and agility, as well as use OpenJDK to save licensing costs without major changes in its applications.
